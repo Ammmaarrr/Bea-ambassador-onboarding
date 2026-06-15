@@ -82,8 +82,10 @@ Set `useExternalBackend: true` in `login.json` to proxy auth to a real backend.
 ## Deploy on Vercel
 
 1. Import [Ammmaarrr/Bea-ambassador-onboarding](https://github.com/Ammmaarrr/Bea-ambassador-onboarding) on Vercel.
-2. Set **Root Directory** to `apps/web` (Vercel usually detects this automatically).
-3. Deploy — no environment variables needed for demo auth.
+2. In **Project Settings → General → Root Directory**, set **`apps/web`** and save.
+3. Redeploy — no environment variables needed for demo auth.
+
+> **Important:** Root Directory must be `apps/web`. If it is left as the repo root, the build will fail because Next.js dependencies live in `apps/web/package.json`.
 
 Build/install commands default to `npm run build` and `npm install` inside `apps/web`.
 

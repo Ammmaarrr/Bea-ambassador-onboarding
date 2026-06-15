@@ -3,6 +3,7 @@
   "private": true,
   "description": "Bea ambassador onboarding — Logic Yard",
   "scripts": {
+    "postinstall": "npm run install:web",
     "dev": "npm run dev --prefix apps/web",
     "build": "npm run build --prefix apps/web",
     "start": "npm run start --prefix apps/web",

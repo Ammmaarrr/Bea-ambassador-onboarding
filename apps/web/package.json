@@ -1,0 +1,26 @@
+{
+  "name": "bea-ambassador-onboarding",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "node node_modules/next/dist/bin/next dev",
+    "build": "node node_modules/next/dist/bin/next build",
+    "start": "node node_modules/next/dist/bin/next start",
+    "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
+    "lint": "node node_modules/next/dist/bin/next lint"
+  },
+  "dependencies": {
+    "lucide-react": "^0.487.0",
+    "next": "^15.5.19",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^22.19.21",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5.9.3"
+  }
+}

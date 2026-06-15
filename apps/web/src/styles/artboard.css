@@ -1,0 +1,121 @@
+/* Artboard overlay UI — plain CSS so layout works without Tailwind utilities. */
+
+.artboard-stage {
+  position: relative;
+}
+
+.artboard-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  overflow: hidden;
+  background-color: #f8f3ef;
+}
+
+.artboard-login {
+  position: absolute;
+  margin: 0;
+  font-size: 12px;
+  color: #888480;
+  text-align: right;
+  line-height: 1.375;
+}
+
+.artboard-login a {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.artboard-stepper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Each step is absolutely positioned at its measured design circle center
+   (left = circleCenterX - 11, top = circleCenterY - 11). */
+.artboard-step {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.artboard-step:hover {
+  opacity: 0.8;
+}
+
+.artboard-step-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  border: 1px solid #c5c1bd;
+  background: transparent;
+  color: #c5c1bd;
+  box-sizing: border-box;
+}
+
+.artboard-step-circle--active {
+  background: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+
+.artboard-step-label {
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+  background: #f8f3ef;
+  padding-bottom: 4px;
+  color: #c5c1bd;
+  font-weight: 400;
+}
+
+.artboard-step-label--active {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.artboard-hit {
+  position: absolute;
+  z-index: 20;
+}
+
+.artboard-input {
+  position: absolute;
+  z-index: 20;
+  background: transparent !important;
+  border: none !important;
+  outline: none;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #1a1a1a;
+  caret-color: #1a1a1a;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.artboard-input::placeholder {
+  color: transparent;
+}
+
+.artboard-social-hit {
+  position: absolute;
+  z-index: 20;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}

@@ -1,0 +1,29 @@
+# Dependencies
+apps/web/node_modules/
+tooling/node_modules/
+
+# Next.js
+apps/web/.next/
+apps/web/out/
+
+# Environment
+.env
+.env*.local
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# QA artifacts (regenerated)
+tooling/*.png
+tooling/compare-out/
+tooling/responsive/
+
+# Legacy empty folder (safe to delete manually if Windows unlocks it)
+extracted/
+
+# Large design source archives (exceed GitHub file size limits; keep locally)
+design/archive/wetransfer.zip
+design/archive/Ambassador Onboarding.ai

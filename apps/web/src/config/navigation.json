@@ -1,0 +1,7 @@
+{
+  "home": "/",
+  "login": "/login",
+  "onboardingStart": "/",
+  "dashboard": "/youre-in",
+  "apply": "/"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fonteditor-core": "^2.6.3",
+    "fontkit": "^2.0.4",
+    "mupdf": "^1.27.0",
+    "pdf-to-img": "^4.5.0",
+    "playwright": "^1.60.0",
+    "pngjs": "^7.0.0"
+  }
+}

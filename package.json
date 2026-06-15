@@ -1,0 +1,14 @@
+{
+  "name": "bea-ambassador",
+  "private": true,
+  "description": "Bea ambassador onboarding — Logic Yard",
+  "scripts": {
+    "dev": "npm run dev --prefix apps/web",
+    "build": "npm run build --prefix apps/web",
+    "start": "npm run start --prefix apps/web",
+    "lint": "npm run lint --prefix apps/web",
+    "clean": "npm run clean --prefix apps/web",
+    "install:web": "npm install --prefix apps/web",
+    "install:tooling": "npm install --prefix tooling"
+  }
+}

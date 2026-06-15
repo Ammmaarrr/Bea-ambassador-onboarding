@@ -1,0 +1,23 @@
+import Link from "next/link";
+import { fontAptos } from "@/lib/design";
+import { navigation, onboarding } from "@/lib/config";
+
+/** Welcome-page header: login prompt row. Stepper is rendered separately as an
+    absolutely-positioned overlay on the page container (see WelcomePage). */
+export function OnboardingHeader() {
+  return (
+    <div className="px-4 sm:px-6 md:px-10 min-[1367px]:px-[76px] min-[1367px]:pr-[82px] pt-[34px] pb-0">
+      <div className="flex justify-end">
+        <p
+          className="text-[12px] text-[#888480] text-right leading-snug"
+          style={{ fontFamily: fontAptos, fontWeight: 400 }}
+        >
+          {onboarding.header.loginPrompt}{" "}
+          <Link href={navigation.login} className="text-[#1a1a1a] underline underline-offset-[3px]">
+            {onboarding.header.loginLabel}
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+}

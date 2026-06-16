@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 
-import { canela, fraunces, lato } from "@/lib/fonts";
+import { fraunces, lato } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Welcome — Campus launch | bea",
@@ -14,7 +14,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${canela.variable} ${fraunces.variable} ${lato.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${lato.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/CanelaText-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${lato.className} antialiased`}>{children}</body>
     </html>
   );

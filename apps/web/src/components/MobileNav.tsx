@@ -8,8 +8,7 @@ import { usePathname } from "next/navigation";
 
 import { BeaBrand } from "./BeaBrand";
 import { ONBOARDING_STEPS } from "@/lib/onboarding-steps";
-import { fontAptos, fontSerif } from "@/lib/design";
-import { fontCanelaFamily } from "@/lib/fonts";
+import { fontAptos } from "@/lib/design";
 import { navigation, onboarding } from "@/lib/config";
 
 type Props = {
@@ -95,10 +94,7 @@ export function MobileNav({ activeIndex }: Props) {
                           >
                             {i + 1}
                           </span>
-                          <span
-                            className="font-canela text-[15px] leading-tight"
-                            style={{ fontFamily: fontCanelaFamily || fontSerif }}
-                          >
+                          <span className="font-canela onboarding-heading text-[15px] leading-tight">
                             {step.label}
                           </span>
                         </Link>

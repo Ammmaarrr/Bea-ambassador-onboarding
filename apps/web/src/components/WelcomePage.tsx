@@ -8,7 +8,6 @@ import { OnboardingStepper } from "./OnboardingStepper";
 import { PrizeCard, type PrizeCardData } from "./PrizeCard";
 
 import { ARTBOARD, fontAptos } from "@/lib/design";
-import { canela, fontCanelaFamily } from "@/lib/fonts";
 
 const prizeCards: PrizeCardData[] = [
   {
@@ -50,8 +49,7 @@ const prizeCards: PrizeCardData[] = [
   },
 ];
 
-const headingFont = {
-  fontFamily: fontCanelaFamily,
+const headingStyle = {
   letterSpacing: "-0.02em",
   color: "#000000",
 } as const;
@@ -86,8 +84,8 @@ export function WelcomePage() {
           <div className="flex flex-col lg:flex-1 lg:flex-row lg:items-start gap-8 lg:gap-0 mt-6 lg:mt-[88px] min-w-0 px-5 sm:px-6 md:px-10 min-[1367px]:px-0 min-[1367px]:mt-[88px]">
             <div className="flex-1 flex flex-col min-w-0">
               <h1
-                className={`${canela.className} onboarding-heading w-full max-w-[505px] h-auto min-[1367px]:h-[163px] text-[36px] sm:text-[44px] md:text-[50px] lg:text-[60px] lg:leading-[1.358]`}
-                style={headingFont}
+                className="font-canela onboarding-heading w-full max-w-[505px] h-auto min-[1367px]:h-[163px] text-[36px] sm:text-[44px] md:text-[50px] lg:text-[60px] lg:leading-[1.358]"
+                style={headingStyle}
               >
                 Welcome to
                 <br />
@@ -149,8 +147,8 @@ export function WelcomePage() {
       >
         <div className="text-center mb-[40px]">
           <h2
-            className={`${canela.className} onboarding-heading text-[24px]`}
-            style={{ fontFamily: fontCanelaFamily, letterSpacing: "-0.3px" }}
+            className="font-canela onboarding-heading text-[24px]"
+            style={{ letterSpacing: "-0.3px" }}
           >
             Represent. Grow. Win.
           </h2>

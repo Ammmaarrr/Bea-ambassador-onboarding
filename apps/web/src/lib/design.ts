@@ -14,7 +14,7 @@ export const fontLato = fontSans;
 /** @deprecated Use fontSans — kept so existing components pick up the design stack. */
 export const fontAptos = fontSans;
 /** Illustrator design: real Canela Text for headlines, Fraunces as glyph fallback. */
-export const fontSerif = "var(--font-canela), var(--font-fraunces), Georgia, 'Times New Roman', serif";
+export const fontSerif = '"Canela Text", var(--font-fraunces), Georgia, \'Times New Roman\', serif';
 export const fontMinion = fontSerif;
 
 export const accentTan = "#c48b58";

@@ -1,22 +1,10 @@
 import { Fraunces, Lato } from "next/font/google";
-import localFont from "next/font/local";
 
-/** Real Canela Text (trial subset from the design file) for headlines. */
-export const canela = localFont({
-  src: [
-    { path: "../fonts/CanelaText-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/CanelaText-Medium.woff2", weight: "500", style: "normal" },
-  ],
-  display: "swap",
-  preload: true,
-  variable: "--font-canela",
-  fallback: ["Georgia", "Times New Roman", "serif"],
-});
+/** Literal stack for inline styles — matches fonts.css @font-face family name. */
+export const fontCanelaFamily =
+  '"Canela Text", var(--font-fraunces), Georgia, "Times New Roman", serif';
 
-/** Resolved font-family string for inline styles (most reliable on mobile Safari). */
-export const fontCanelaFamily = canela.style.fontFamily;
-
-/** Fraunces — per-glyph fallback for the few characters not in the Canela trial subset. */
+/** Fraunces — per-glyph fallback for characters outside the Canela trial subset. */
 export const fraunces = Fraunces({
   subsets: ["latin"],
   weight: ["400", "500"],

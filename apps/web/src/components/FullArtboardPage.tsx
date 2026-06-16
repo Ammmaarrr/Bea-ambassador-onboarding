@@ -5,6 +5,8 @@ import overlays from "@/lib/artboard-overlays.json";
 import { ARTBOARD, artboardActiveIndex } from "@/lib/design";
 
 import { ArtboardStepHeader } from "./ArtboardStepHeader";
+import { MobileNav } from "./MobileNav";
+import { OnboardingStepper } from "./OnboardingStepper";
 
 
 
@@ -59,14 +61,14 @@ export function FullArtboardPage({ pageKey, children }: Props) {
 
 
   return (
+    <>
+      <MobileNav activeIndex={activeIndex} />
+      {pageKey !== "youre-in" && <OnboardingStepper activeIndex={activeIndex} />}
 
-    <div
-
-      className="mx-auto overflow-x-auto"
-
-      style={{ backgroundColor: ARTBOARD.bg, width, minWidth: width }}
-
-    >
+      <div
+        className="mx-auto overflow-x-auto"
+        style={{ backgroundColor: ARTBOARD.bg, width, minWidth: width }}
+      >
 
       <div className="artboard-stage" style={{ width, height }}>
 
@@ -133,10 +135,7 @@ export function FullArtboardPage({ pageKey, children }: Props) {
         {children}
 
       </div>
-
     </div>
-
+    </>
   );
-
 }
-

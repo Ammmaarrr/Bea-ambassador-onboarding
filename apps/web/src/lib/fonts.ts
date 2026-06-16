@@ -8,9 +8,13 @@ export const canela = localFont({
     { path: "../fonts/CanelaText-Medium.woff2", weight: "500", style: "normal" },
   ],
   display: "swap",
+  preload: true,
   variable: "--font-canela",
   fallback: ["Georgia", "Times New Roman", "serif"],
 });
+
+/** Resolved font-family string for inline styles (most reliable on mobile Safari). */
+export const fontCanelaFamily = canela.style.fontFamily;
 
 /** Fraunces — per-glyph fallback for the few characters not in the Canela trial subset. */
 export const fraunces = Fraunces({

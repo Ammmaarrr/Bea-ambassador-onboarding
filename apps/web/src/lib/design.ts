@@ -7,6 +7,15 @@ export const ARTBOARD = {
   prizesSectionPaddingTop: 44,
 } as const;
 
+/**
+ * One breakpoint for every onboarding page:
+ * - below 1024px (lg): phone mobile layout
+ * - 1024px–1366px: laptop/tablet (scaled artboard or responsive home)
+ * - 1367px+: pixel-perfect desktop artboard
+ */
+export const ONBOARDING_LAPTOP_MIN = 1024;
+export const ONBOARDING_PIXEL_MIN = 1367;
+
 /** Illustrator design: Lato + SF Pro Display for UI/body. */
 export const fontSans =
   "var(--font-lato), -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif";

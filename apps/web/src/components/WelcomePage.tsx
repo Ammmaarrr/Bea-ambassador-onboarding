@@ -160,7 +160,7 @@ export function WelcomePage() {
           </p>
         </div>
 
-        <ul className="onboarding-prize-list lg:hidden">
+        <ul className="onboarding-prize-list min-[1367px]:hidden">
           {prizeCards.map((card) => (
             <li key={card.title}>
               <PrizeCard card={card} />
@@ -170,7 +170,7 @@ export function WelcomePage() {
 
         <div
           data-prize-row="desktop"
-          className="hidden lg:flex w-full min-w-0 items-start justify-between gap-5 pl-[84px] pr-[82px]"
+          className="hidden min-[1367px]:flex w-full min-w-0 items-start justify-between gap-5 pl-[84px] pr-[82px]"
         >
           {prizeCards.map((card) => (
             <div key={card.title} className="shrink-0" style={{ width: card.width }}>

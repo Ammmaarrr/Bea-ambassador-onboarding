@@ -4,6 +4,7 @@ import overlays from "@/lib/artboard-overlays.json";
 import { FullArtboardPage } from "./FullArtboardPage";
 import { fontAptos } from "@/lib/design";
 
+/** Account step — desktop artboard inputs; mobile uses AccountMobileForm inside OnboardingMobilePage. */
 export function AccountPage() {
   const page = overlays.pages.account;
 

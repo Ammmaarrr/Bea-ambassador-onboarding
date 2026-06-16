@@ -19,42 +19,44 @@ export type PrizeCardData = {
 export function PrizeCard({ card }: { card: PrizeCardData }) {
   return (
     <article
-      className="relative flex w-full shrink-0 flex-col overflow-hidden rounded-[14px] bg-white"
+      className="prize-card relative flex w-full shrink-0 flex-col rounded-[14px] bg-white"
       style={{
         border: "1px solid rgba(0,0,0,0.08)",
         boxShadow: "0 1px 3px rgba(0,0,0,0.03)",
         height: "313px",
       }}
     >
-      <div
-        className="absolute right-[14px] top-[14px] z-10 flex items-center justify-center px-[12px]"
-        style={{
-          height: "28px",
-          borderRadius: "14px",
-          backgroundColor: card.badge.backgroundColor,
-          border: `1px solid ${card.badge.borderColor}`,
-        }}
-      >
+      <div className="absolute inset-x-3 top-[14px] z-10 flex justify-end">
         <span
-          className="text-[10px] uppercase tracking-[0.02em] leading-none"
+          className="inline-flex max-w-full items-center justify-center whitespace-nowrap px-3"
           style={{
-            fontFamily: fontAptos,
-            fontWeight: 600,
-            color: card.badge.color,
+            height: "28px",
+            borderRadius: "14px",
+            backgroundColor: card.badge.backgroundColor,
+            border: `1px solid ${card.badge.borderColor}`,
           }}
         >
-          {card.badgeText}
+          <span
+            className="text-[10px] uppercase tracking-[0.02em] leading-none"
+            style={{
+              fontFamily: fontAptos,
+              fontWeight: 600,
+              color: card.badge.color,
+            }}
+          >
+            {card.badgeText}
+          </span>
         </span>
       </div>
 
-      <div className="relative flex flex-1 items-center justify-center px-6 pt-10 pb-2 min-h-0 w-full">
+      <div className="prize-card-illus-wrap">
         <Image
           src={card.illustration}
           alt=""
           aria-hidden
-          width={320}
-          height={200}
-          className="mx-auto block max-h-[150px] w-auto max-w-[220px] object-contain object-center select-none"
+          width={400}
+          height={280}
+          className="prize-card-illus"
           draggable={false}
         />
       </div>

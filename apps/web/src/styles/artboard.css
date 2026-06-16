@@ -4,6 +4,13 @@
   position: relative;
 }
 
+.artboard-stage img {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
 .artboard-header {
   position: absolute;
   top: 0;
@@ -99,7 +106,13 @@
 
 .artboard-hit {
   position: absolute;
-  z-index: 20;
+  z-index: 25;
+  cursor: pointer;
+  display: block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .artboard-input {

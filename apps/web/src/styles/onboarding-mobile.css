@@ -1,4 +1,351 @@
-/* Mobile onboarding — login-inspired patterns + responsive artboard scaling */
+/* Mobile onboarding — login page patterns + page-specific cards */
+
+/* Inner pages 2–6: phone vs laptop — same 1024px (lg) breakpoint as home page */
+.onboarding-page-mobile {
+  display: block;
+}
+
+.onboarding-page-desktop {
+  display: none !important;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .onboarding-page-mobile {
+    display: none !important;
+  }
+
+  .onboarding-page-desktop {
+    display: block !important;
+    max-width: 1367px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Step eyebrow hidden when mobile stepper already shows step (avoid duplicate) */
+.onboarding-step-eyebrow--sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Inner pages 2–6: reuse login form typography inside ambassador-login-root */
+.onboarding-inner-mobile.ambassador-login-root {
+  min-height: auto;
+  background-color: #f8f3ef;
+}
+
+.onboarding-inner-mobile .onboarding-inner-panel {
+  padding: 4px 0 calc(28px + env(safe-area-inset-bottom));
+}
+
+.onboarding-inner-mobile .right-form-wrap {
+  padding: 0 24px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.onboarding-inner-mobile .onboarding-step-eyebrow {
+  color: #c48b58;
+}
+
+.onboarding-inner-mobile .onboarding-form-title {
+  font-size: clamp(30px, 8vw, 42px);
+}
+
+.onboarding-inner-mobile .onboarding-mobile-body {
+  margin-bottom: 8px;
+}
+
+.onboarding-inner-mobile .onboarding-btn-link {
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+.onboarding-inner-mobile--centered .right-form-wrap {
+  text-align: center;
+}
+
+.onboarding-field-hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.onboarding-account-form {
+  margin-bottom: 4px;
+}
+
+.onboarding-legal {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 8px 0 0;
+}
+
+.onboarding-legal a {
+  color: #3d7a6e;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 420px) {
+  .onboarding-inner-mobile .right-form-wrap {
+    padding: 0 20px;
+  }
+
+  .onboarding-inner-mobile .onboarding-form-title {
+    font-size: 30px;
+  }
+}
+
+.onboarding-mobile-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  padding: 20px 22px 18px;
+}
+
+.onboarding-mobile-card-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c48b58;
+  margin: 0 0 10px;
+}
+
+.onboarding-mobile-card-title {
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.onboarding-spots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.onboarding-spot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid #c8c4be;
+  background: transparent;
+}
+
+.onboarding-spot--filled {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.onboarding-spots-label {
+  font-size: 12px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+.onboarding-market-note {
+  margin: 14px 0 0;
+  font-size: 13px;
+  color: #6b6b6b;
+}
+
+/* Prize level rows */
+.onboarding-prize-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.onboarding-prize-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  padding: 16px;
+}
+
+.onboarding-prize-row-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f5ebe4;
+  flex-shrink: 0;
+}
+
+.onboarding-prize-row-title {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.onboarding-prize-row-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #6b6b6b;
+}
+
+/* Impact equation */
+.onboarding-impact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #f0ebe6;
+  border-radius: 14px;
+  padding: 18px 14px;
+}
+
+.onboarding-impact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.onboarding-impact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.onboarding-impact-label {
+  font-size: 10px;
+  line-height: 1.3;
+  text-align: center;
+  color: #6b6b6b;
+}
+
+.onboarding-impact-op {
+  font-size: 16px;
+  color: #9a9a9a;
+  flex-shrink: 0;
+}
+
+/* You're in */
+.onboarding-youre-in-school {
+  font-size: 20px;
+  margin: -8px 0 24px;
+}
+
+.onboarding-link-card {
+  text-align: left;
+}
+
+.onboarding-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.onboarding-link-text {
+  font-size: 18px;
+  margin: 0;
+  word-break: break-all;
+}
+
+.onboarding-copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: #6b6b6b;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.onboarding-share-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 18px;
+  color: #c48b58;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+}
+
+.onboarding-share-divider::before,
+.onboarding-share-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d8d5cf;
+}
+
+.onboarding-share-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.onboarding-share-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  color: #1a1a1a;
+  cursor: pointer;
+  padding: 0;
+}
+
+.onboarding-share-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #d8d5cf;
+  background: #fff;
+}
+
+@media (max-width: 420px) {
+  .onboarding-impact-card {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .onboarding-share-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
 
 .onboarding-menu-eyebrow {
   font-size: 10.5px;
@@ -16,46 +363,64 @@
   color: #1a1a1a;
 }
 
-/* Prize cards — single centered column on mobile */
-.onboarding-prize-list {
+/* Prize cards — responsive stack only below 1367px (do not set display outside media queries — it overrides Tailwind hidden) */
+@media (max-width: 1366px) {
+  .onboarding-prize-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .onboarding-prize-list > li {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1367px) {
+  .onboarding-prize-list {
+    display: none;
+  }
+}
+
+/* Prize card illustrations — cropped assets, centered at every width */
+.prize-card-illus-wrap {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
   width: 100%;
-  max-width: 340px;
+  flex: 1;
+  min-height: 0;
+  margin-top: 36px;
+  padding: 0 20px 4px;
+}
+
+.prize-card-illus {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(220px, 100%);
+  max-height: 150px;
+  object-fit: contain;
+  object-position: center center;
   margin-left: auto;
   margin-right: auto;
+  user-select: none;
 }
 
-.onboarding-prize-list > li {
-  width: 100%;
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  .onboarding-prize-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 700px;
-    gap: 20px;
-  }
-
-  .onboarding-prize-list > li:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: min(340px, 100%);
-  }
-}
-
-/* Inner artboard pages — scale to viewport width below desktop artboard */
-.onboarding-artboard-viewport {
+/* Artboard — only inside desktop wrapper; tablet/laptop scales to fit */
+.onboarding-page-desktop .onboarding-artboard-viewport {
   width: 100%;
   max-width: 100vw;
   overflow: hidden;
   background-color: #f8f3ef;
 }
 
-.onboarding-artboard-canvas {
+.onboarding-page-desktop .onboarding-artboard-canvas {
   position: relative;
   width: 1367px;
   height: 1153px;
@@ -63,17 +428,17 @@
 }
 
 @media (max-width: 1366px) {
-  .onboarding-artboard-viewport {
+  .onboarding-page-desktop .onboarding-artboard-viewport {
     height: calc(1153px * (100vw / 1367px));
   }
 
-  .onboarding-artboard-canvas {
+  .onboarding-page-desktop .onboarding-artboard-canvas {
     transform: scale(calc(100vw / 1367px));
   }
 }
 
 @media (min-width: 1367px) {
-  .onboarding-artboard-viewport {
+  .onboarding-page-desktop .onboarding-artboard-viewport {
     width: 1367px;
     margin-left: auto;
     margin-right: auto;
@@ -81,7 +446,7 @@
     height: 1153px;
   }
 
-  .onboarding-artboard-canvas {
+  .onboarding-page-desktop .onboarding-artboard-canvas {
     transform: none;
   }
 }

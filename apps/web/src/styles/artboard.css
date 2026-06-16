@@ -50,6 +50,16 @@
   opacity: 0.8;
 }
 
+/* Responsive (non-absolute) stepper row used below the design breakpoint */
+.artboard-step-row {
+  text-decoration: none;
+  color: inherit;
+}
+
+.artboard-step-row:hover {
+  opacity: 0.8;
+}
+
 .artboard-step-circle {
   display: inline-flex;
   align-items: center;

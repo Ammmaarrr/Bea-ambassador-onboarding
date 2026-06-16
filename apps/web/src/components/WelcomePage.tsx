@@ -183,9 +183,45 @@ export function WelcomePage() {
 
           <OnboardingHeader />
 
+          {/* Responsive stepper — shown whenever the pixel-aligned overlay is hidden (<1367px) */}
+          <nav
+            aria-label="Onboarding progress"
+            className="min-[1367px]:hidden mt-[20px] px-4 sm:px-6 md:px-10 overflow-x-auto scrollbar-none"
+            style={{ fontFamily: fontAptos }}
+          >
+            <ol className="flex items-center gap-2 sm:gap-3 min-w-max">
+              {WELCOME_STEPS.map((step, i) => {
+                const isActive = i === 0;
+                return (
+                  <li key={step.label} className="flex items-center gap-2 sm:gap-3">
+                    <Link href={stepRoutes[i]} className="artboard-step-row flex items-center gap-[6px]">
+                      <span
+                        className={
+                          "artboard-step-circle" +
+                          (isActive ? " artboard-step-circle--active" : "")
+                        }
+                      >
+                        {i + 1}
+                      </span>
+                      <span
+                        className={
+                          "artboard-step-label" +
+                          (isActive ? " artboard-step-label--active" : "")
+                        }
+                      >
+                        {step.label}
+                      </span>
+                    </Link>
+                    {i < WELCOME_STEPS.length - 1 && (
+                      <span className="h-px w-3 sm:w-5 shrink-0 bg-[#dcd8d3]" aria-hidden="true" />
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
 
-
-          <div className="flex flex-col lg:flex-1 lg:flex-row lg:items-start gap-8 lg:gap-0 mt-[88px] min-w-0 px-4 sm:px-6 md:px-10 min-[1367px]:px-0">
+          <div className="flex flex-col lg:flex-1 lg:flex-row lg:items-start gap-8 lg:gap-0 mt-[40px] min-[1367px]:mt-[88px] min-w-0 px-4 sm:px-6 md:px-10 min-[1367px]:px-0">
 
             <div className="flex-1 flex flex-col min-w-0">
 

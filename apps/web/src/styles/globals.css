@@ -1,5 +1,6 @@
 @import "./fonts.css";
 @import "./artboard.css";
+@import "./onboarding-mobile.css";
 @import "tailwindcss";
 
 @source "../**/*.{js,ts,jsx,tsx}";
@@ -69,20 +70,22 @@ body {
   }
 }
 
-/* ── Mobile nav drawer ── */
-.mobile-nav-panel {
-  transform: translateX(100%);
-  transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-
-.mobile-nav-panel--open {
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
+/* ── Mobile nav drawer (rendered via portal) ── */
 .mobile-nav-backdrop {
   animation: backdrop-in 0.28s ease both;
+}
+
+.mobile-nav-panel {
+  animation: mobile-nav-in 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes mobile-nav-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 @keyframes backdrop-in {

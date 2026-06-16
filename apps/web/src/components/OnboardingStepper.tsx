@@ -49,7 +49,7 @@ export function OnboardingStepper({ activeIndex }: Props) {
 
       {/* Mobile + tablet — compact progress bar + current step */}
       <div
-        className="min-[1367px]:hidden border-b px-4 py-4 sm:px-6 md:px-10"
+        className="relative z-10 min-[1367px]:hidden border-b px-5 py-4 sm:px-6 md:px-10"
         style={{ borderColor: "#edeceb", fontFamily: fontAptos }}
         aria-label="Onboarding progress"
       >

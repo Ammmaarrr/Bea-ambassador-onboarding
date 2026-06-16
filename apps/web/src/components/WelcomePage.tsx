@@ -7,8 +7,8 @@ import { OnboardingHeader } from "./OnboardingHeader";
 import { OnboardingStepper } from "./OnboardingStepper";
 import { PrizeCard, type PrizeCardData } from "./PrizeCard";
 
-import { ARTBOARD, fontAptos, fontSerif } from "@/lib/design";
-import { canela } from "@/lib/fonts";
+import { ARTBOARD, fontAptos } from "@/lib/design";
+import { canela, fontCanelaFamily } from "@/lib/fonts";
 
 const prizeCards: PrizeCardData[] = [
   {
@@ -50,10 +50,10 @@ const prizeCards: PrizeCardData[] = [
   },
 ];
 
-const headingStyle = {
-  fontFamily: fontSerif,
-  color: "#000000",
+const headingFont = {
+  fontFamily: fontCanelaFamily,
   letterSpacing: "-0.02em",
+  color: "#000000",
 } as const;
 
 export function WelcomePage() {
@@ -69,7 +69,6 @@ export function WelcomePage() {
         className="relative grid grid-cols-1 lg:grid-cols-[404px_1fr] lg:items-stretch lg:h-[674px] lg:max-h-[674px] border-b"
         style={{ borderColor: ARTBOARD.sectionDivider }}
       >
-        {/* Hero image — desktop / tablet landscape only */}
         <div className="relative hidden lg:block w-full leading-[0] overflow-hidden lg:max-h-[674px] lg:h-[674px]">
           <Image
             src="/images/hero-students.png"
@@ -84,11 +83,11 @@ export function WelcomePage() {
         <div className="relative flex flex-col min-w-0 min-h-0 min-[1367px]:lg:pl-0 lg:pl-[40px] lg:pr-[32px] min-[1367px]:lg:pr-[82px] lg:pb-0">
           <OnboardingHeader />
 
-          <div className="flex flex-col lg:flex-1 lg:flex-row lg:items-start gap-8 lg:gap-0 mt-6 lg:mt-[88px] min-w-0 px-4 sm:px-6 md:px-10 min-[1367px]:px-0 min-[1367px]:mt-[88px]">
+          <div className="flex flex-col lg:flex-1 lg:flex-row lg:items-start gap-8 lg:gap-0 mt-6 lg:mt-[88px] min-w-0 px-5 sm:px-6 md:px-10 min-[1367px]:px-0 min-[1367px]:mt-[88px]">
             <div className="flex-1 flex flex-col min-w-0">
               <h1
-                className={`${canela.className} font-canela w-full max-w-[505px] h-auto min-[1367px]:h-[163px] text-[36px] leading-[1.12] sm:text-[44px] md:text-[50px] lg:text-[60px] lg:leading-[1.358] text-black`}
-                style={headingStyle}
+                className={`${canela.className} onboarding-heading w-full max-w-[505px] h-auto min-[1367px]:h-[163px] text-[36px] sm:text-[44px] md:text-[50px] lg:text-[60px] lg:leading-[1.358]`}
+                style={headingFont}
               >
                 Welcome to
                 <br />
@@ -145,13 +144,13 @@ export function WelcomePage() {
       </section>
 
       <section
-        className="flex flex-col items-center pb-[80px] px-4 sm:px-6 md:px-10 lg:px-0"
+        className="pb-[80px] px-5 sm:px-6 md:px-10 lg:px-0"
         style={{ paddingTop: ARTBOARD.prizesSectionPaddingTop }}
       >
         <div className="text-center mb-[40px]">
           <h2
-            className={`${canela.className} font-canela text-[24px] text-[#1a1a1a]`}
-            style={{ fontFamily: fontSerif, letterSpacing: "-0.3px" }}
+            className={`${canela.className} onboarding-heading text-[24px]`}
+            style={{ fontFamily: fontCanelaFamily, letterSpacing: "-0.3px" }}
           >
             Represent. Grow. Win.
           </h2>
@@ -163,21 +162,13 @@ export function WelcomePage() {
           </p>
         </div>
 
-        <div className="flex w-full flex-col items-center gap-5 sm:grid sm:max-w-[700px] sm:grid-cols-2 sm:justify-items-center sm:mx-auto lg:hidden">
-          {prizeCards.map((card, i) => (
-            <div
-              key={card.title}
-              className={
-                "w-[min(340px,100%)]" +
-                (i === prizeCards.length - 1 && prizeCards.length % 2 === 1
-                  ? " sm:col-span-2 sm:justify-self-center"
-                  : "")
-              }
-            >
+        <ul className="onboarding-prize-list lg:hidden">
+          {prizeCards.map((card) => (
+            <li key={card.title}>
               <PrizeCard card={card} />
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div
           data-prize-row="desktop"

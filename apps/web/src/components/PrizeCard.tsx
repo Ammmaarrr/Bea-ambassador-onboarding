@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { fontAptos } from "@/lib/design";
+import { fontCanelaFamily } from "@/lib/fonts";
 
 export type PrizeCardData = {
   illustration: string;
@@ -47,22 +48,25 @@ export function PrizeCard({ card }: { card: PrizeCardData }) {
         </span>
       </div>
 
-      <div className="flex flex-1 items-center justify-center px-4 pt-10 pb-2 min-h-0">
+      <div className="relative flex flex-1 items-center justify-center px-6 pt-10 pb-2 min-h-0 w-full">
         <Image
           src={card.illustration}
           alt=""
           aria-hidden
           width={320}
           height={200}
-          className="max-h-[58%] w-auto max-w-[88%] object-contain select-none"
+          className="mx-auto block max-h-[150px] w-auto max-w-[220px] object-contain object-center select-none"
           draggable={false}
         />
       </div>
 
-      <div className="px-4 pb-[22px] pt-1 text-center">
+      <div className="px-4 pb-[22px] pt-1 text-center w-full">
         <h3
-          className="font-canela text-[18px] leading-[20px] text-[#000000]"
-          style={{ whiteSpace: card.titleNoWrap ? "nowrap" : undefined }}
+          className="onboarding-heading text-[18px] leading-[20px] text-[#000000]"
+          style={{
+            fontFamily: fontCanelaFamily,
+            whiteSpace: card.titleNoWrap ? "nowrap" : undefined,
+          }}
         >
           {card.title}
         </h3>

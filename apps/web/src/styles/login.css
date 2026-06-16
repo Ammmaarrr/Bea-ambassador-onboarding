@@ -9,8 +9,8 @@
   --input-bg: #ffffff;
   --btn-bg: #1a1a1a;
   --btn-text: #ffffff;
-  --font-serif: "Canela Text Trial", Georgia, "Times New Roman", serif;
-  --font-sans: "Lato", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+  --font-serif: var(--font-canela), var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-lato), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
     sans-serif;
 
   min-height: 100vh;

@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f8f3ef;
-  font-family: "Lato", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+  font-family: var(--font-lato), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
     sans-serif;
 }
 

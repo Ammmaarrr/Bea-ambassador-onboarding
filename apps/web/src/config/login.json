@@ -5,7 +5,7 @@
   },
   "fonts": {
     "sans": "Lato, -apple-system, BlinkMacSystemFont, SF Pro Display, Segoe UI, sans-serif",
-    "serif": "Canela Text Trial, Georgia, Times New Roman, serif"
+    "serif": "Fraunces, Georgia, Times New Roman, serif"
   },
   "theme": {
     "cssVariables": {

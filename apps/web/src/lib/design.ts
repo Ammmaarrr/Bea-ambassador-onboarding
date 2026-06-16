@@ -9,12 +9,12 @@ export const ARTBOARD = {
 
 /** Illustrator design: Lato + SF Pro Display for UI/body. */
 export const fontSans =
-  "'Lato', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif";
+  "var(--font-lato), -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif";
 export const fontLato = fontSans;
 /** @deprecated Use fontSans — kept so existing components pick up the design stack. */
 export const fontAptos = fontSans;
-/** Illustrator design: Canela Text Trial for headlines. */
-export const fontSerif = "'Canela Text Trial', Georgia, 'Times New Roman', serif";
+/** Illustrator design: real Canela Text for headlines, Fraunces as glyph fallback. */
+export const fontSerif = "var(--font-canela), var(--font-fraunces), Georgia, 'Times New Roman', serif";
 export const fontMinion = fontSerif;
 
 export const accentTan = "#c48b58";

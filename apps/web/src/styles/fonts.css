@@ -1,25 +1,8 @@
-/* Design fonts (Illustrator): Lato + Canela Text Trial; SF Pro Display via system on Apple. */
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap");
-
-@font-face {
-  font-family: "Canela Text Trial";
-  src: url("/fonts/CanelaTextTrial-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Canela Text Trial";
-  src: url("/fonts/CanelaTextTrial-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Trial font files can ship incomplete glyph sets — use Regular for even weight. */
+/* Serif headlines — real Canela Text (loaded via next/font in layout.tsx),
+   with Fraunces as a per-glyph fallback for characters outside the trial subset. */
 .font-canela {
-  font-family: "Canela Text Trial", Georgia, "Times New Roman", serif;
+  font-family: var(--font-canela), var(--font-fraunces), Georgia, "Times New Roman", serif;
   font-weight: 400;
   font-synthesis: none;
+  font-kerning: normal;
 }

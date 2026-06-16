@@ -145,7 +145,7 @@ export function WelcomePage() {
       </section>
 
       <section
-        className="pb-[80px] px-4 sm:px-6 md:px-10 lg:px-0"
+        className="flex flex-col items-center pb-[80px] px-4 sm:px-6 md:px-10 lg:px-0"
         style={{ paddingTop: ARTBOARD.prizesSectionPaddingTop }}
       >
         <div className="text-center mb-[40px]">
@@ -163,9 +163,19 @@ export function WelcomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[420px] sm:max-w-none mx-auto lg:hidden">
-          {prizeCards.map((card) => (
-            <PrizeCard key={card.title} card={card} />
+        <div className="flex w-full flex-col items-center gap-5 sm:grid sm:max-w-[700px] sm:grid-cols-2 sm:justify-items-center sm:mx-auto lg:hidden">
+          {prizeCards.map((card, i) => (
+            <div
+              key={card.title}
+              className={
+                "w-[min(340px,100%)]" +
+                (i === prizeCards.length - 1 && prizeCards.length % 2 === 1
+                  ? " sm:col-span-2 sm:justify-self-center"
+                  : "")
+              }
+            >
+              <PrizeCard card={card} />
+            </div>
           ))}
         </div>
 

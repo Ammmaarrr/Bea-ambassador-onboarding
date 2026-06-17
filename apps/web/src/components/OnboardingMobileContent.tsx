@@ -122,7 +122,7 @@ function YoureInLinkCard() {
 
 export function YoureInShareSection() {
   return (
-    <>
+    <div className="onboarding-share-block">
       <div className="onboarding-share-divider">
         <span>SHARE YOUR LINK</span>
       </div>
@@ -133,11 +133,11 @@ export function YoureInShareSection() {
             <span className="onboarding-share-icon" aria-hidden>
               <ShareChannelIcon src={src} />
             </span>
-            <span>{label}</span>
+            <span className="onboarding-share-label">{label}</span>
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

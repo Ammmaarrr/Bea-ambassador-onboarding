@@ -349,28 +349,42 @@
   margin-bottom: 0;
 }
 
-.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-divider {
-  margin-top: 28px;
-  margin-bottom: 20px;
-}
-
-/* Artboard mobile — 2×2 share grid, centered (not full-width stretch) */
-.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 88px);
-  justify-content: center;
-  column-gap: 72px;
-  row-gap: 20px;
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-divider {
+  margin-top: 28px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Compact centered 2×2 — icons + labels aligned as one block */
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 72px);
+  justify-content: center;
+  justify-items: center;
+  column-gap: 48px;
+  row-gap: 24px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-item {
-  width: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 72px;
   gap: 10px;
   padding: 0;
 }
 
-.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-item > span:last-child {
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-label {
   display: block;
   width: 100%;
   text-align: center;
@@ -380,9 +394,11 @@
 }
 
 .onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
-  margin: 0 auto;
   flex-shrink: 0;
 }
 
@@ -391,6 +407,7 @@
   height: 20px;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
 .onboarding-youre-in-school {

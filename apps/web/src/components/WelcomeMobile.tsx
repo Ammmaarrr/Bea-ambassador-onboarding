@@ -21,7 +21,6 @@ const prizeCards: PrizeCardData[] = [
       color: "#3f5236",
     },
     width: 380,
-    titleNoWrap: true,
   },
   {
     illustration: "/images/illus-market.png",

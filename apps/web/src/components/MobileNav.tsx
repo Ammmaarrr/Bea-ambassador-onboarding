@@ -94,7 +94,7 @@ export function MobileNav({ activeIndex }: Props) {
                           >
                             {i + 1}
                           </span>
-                          <span className="font-canela onboarding-heading text-[15px] leading-tight">
+                          <span className="min-w-0 font-canela onboarding-heading text-[15px] leading-snug">
                             {step.label}
                           </span>
                         </Link>

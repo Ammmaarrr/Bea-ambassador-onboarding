@@ -61,11 +61,13 @@ export function OnboardingStepper({ activeIndex, layout = "pixel" }: Props) {
       style={{ borderColor: "#edeceb", fontFamily: fontAptos }}
       aria-label="Onboarding progress"
     >
-      <div className="flex items-center justify-between gap-3">
-        <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#9a9490]">
+      <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
+        <p className="shrink-0 text-[11px] font-medium uppercase tracking-[0.14em] text-[#9a9490]">
           Step {activeIndex + 1} of {ONBOARDING_STEPS.length}
         </p>
-        <p className="truncate text-[13px] font-semibold text-[#1a1a1a]">{active?.label}</p>
+        <p className="text-[13px] font-semibold leading-snug text-[#1a1a1a] sm:max-w-[58%] sm:text-right">
+          {active?.label}
+        </p>
       </div>
 
       <div
@@ -106,14 +108,14 @@ export function OnboardingStepper({ activeIndex, layout = "pixel" }: Props) {
                 >
                   {i + 1}
                 </span>
-                <span
-                  className={
-                    "hidden text-center text-[10px] leading-tight sm:block" +
-                    (isActive ? " font-semibold text-[#1a1a1a]" : " text-[#c5c1bd]")
-                  }
-                >
-                  {step.label}
-                </span>
+                    <span
+                      className={
+                        "hidden max-w-[4.5rem] text-center text-[10px] leading-snug sm:block" +
+                        (isActive ? " font-semibold text-[#1a1a1a]" : " text-[#c5c1bd]")
+                      }
+                    >
+                      {step.label}
+                    </span>
               </Link>
             </li>
           );

@@ -19,6 +19,59 @@
   }
 }
 
+/* Mobile — prevent text clipping / ellipsis on small screens */
+.onboarding-page-mobile,
+.onboarding-welcome-mobile {
+  -webkit-text-size-adjust: 100%;
+}
+
+.onboarding-page-mobile .form-title,
+.onboarding-page-mobile .onboarding-form-title,
+.onboarding-page-mobile .form-subtitle,
+.onboarding-page-mobile .onboarding-heading,
+.onboarding-page-mobile .onboarding-mobile-card-title,
+.onboarding-page-mobile .onboarding-compact-stepper p {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.onboarding-page-mobile .onboarding-form-title,
+.onboarding-page-mobile .form-title {
+  line-height: 1.15;
+}
+
+.onboarding-page-mobile .bea-brand-text {
+  line-height: 1.15;
+}
+
+.onboarding-page-mobile .prize-card h3 {
+  white-space: normal !important;
+  line-height: 1.2 !important;
+}
+
+.onboarding-page-mobile .prize-card .inline-flex.max-w-full {
+  white-space: normal;
+  height: auto;
+  min-height: 28px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.onboarding-page-mobile .prize-card .inline-flex.max-w-full span {
+  line-height: 1.2;
+  text-align: center;
+}
+
+.onboarding-page-mobile .btn-login span:first-child {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+}
+
 /* Step eyebrow hidden when mobile stepper already shows step (avoid duplicate) */
 .onboarding-step-eyebrow--sr {
   position: absolute;
@@ -376,6 +429,8 @@
 
 .onboarding-welcome-mobile .onboarding-form-title {
   margin-bottom: 12px;
+  line-height: 1.15;
+  overflow: visible;
 }
 
 .onboarding-welcome-mobile .form-subtitle {

@@ -25,7 +25,7 @@ export function BeaBrand({ className = "", inverted = false }: Props) {
       />
       <span
         className={
-          "bea-brand-text font-canela text-[22px] leading-none tracking-[-0.02em] md:text-[24px]" +
+          "bea-brand-text font-canela text-[22px] leading-[1.15] tracking-[-0.02em] md:text-[24px]" +
           (inverted ? " text-white" : " text-[#1a1a1a]")
         }
       >

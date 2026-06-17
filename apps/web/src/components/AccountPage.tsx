@@ -1,10 +1,12 @@
 "use client";
 
 import overlays from "@/lib/artboard-overlays.json";
-import { FullArtboardPage } from "./FullArtboardPage";
 import { fontAptos } from "@/lib/design";
 
-/** Account step — desktop artboard inputs; mobile uses AccountMobileForm inside OnboardingMobilePage. */
+import { FullArtboardPage } from "./FullArtboardPage";
+import { SocialProviderIcon } from "./SocialProviderIcons";
+
+/** Account step — desktop artboard inputs + social logos; mobile uses AccountMobileForm. */
 export function AccountPage() {
   const page = overlays.pages.account;
 
@@ -28,20 +30,31 @@ export function AccountPage() {
           }}
         />
       ))}
-      {page.social?.map((btn) => (
-        <button
-          key={btn.label}
-          type="button"
-          aria-label={btn.label}
-          className="artboard-social-hit"
-          style={{
-            left: btn.left,
-            top: btn.top,
-            width: btn.width,
-            height: btn.height,
-          }}
-        />
-      ))}
+      {page.social?.map((btn) => {
+        const provider = btn.label.toLowerCase() === "google" ? "google" : "apple";
+
+        return (
+          <button
+            key={btn.label}
+            type="button"
+            aria-label={`Continue with ${btn.label}`}
+            className="artboard-social-btn"
+            style={{
+              left: btn.left,
+              top: btn.top,
+              width: btn.width,
+              height: btn.height,
+            }}
+          >
+            <span className="artboard-social-btn__fill">
+              <span className="artboard-social-btn__icon" aria-hidden>
+                <SocialProviderIcon provider={provider} />
+              </span>
+              <span className="artboard-social-btn__label">{btn.label}</span>
+            </span>
+          </button>
+        );
+      })}
     </FullArtboardPage>
   );
 }

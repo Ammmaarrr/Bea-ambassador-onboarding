@@ -147,3 +147,59 @@
   cursor: pointer;
   padding: 0;
 }
+
+/* Laptop account — transparent hit area; inset fill hides baked PNG labels only */
+.onboarding-page-desktop .artboard-social-btn {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  margin: 0;
+  padding: 1px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.onboarding-page-desktop .artboard-social-btn__fill {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 100%;
+  background: #f8f3ef;
+  border-radius: 23px;
+  font-family: var(--font-lato), -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #1a1a1a;
+}
+
+.onboarding-page-desktop .artboard-social-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.onboarding-page-desktop .artboard-social-btn__icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.onboarding-page-desktop .artboard-social-btn__label {
+  white-space: nowrap;
+}
+
+.onboarding-page-desktop .artboard-social-btn:hover .artboard-social-btn__fill {
+  background: #f3eee8;
+}

@@ -143,6 +143,22 @@
   margin-bottom: 4px;
 }
 
+/* Account mobile — social row matches login page (globals login.css + local spacing) */
+.onboarding-account-form .or-divider {
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+
+.onboarding-account-form .btn-social svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.onboarding-account-form .onboarding-legal {
+  margin-top: 16px;
+}
+
 .onboarding-legal {
   font-size: 12px;
   line-height: 1.5;

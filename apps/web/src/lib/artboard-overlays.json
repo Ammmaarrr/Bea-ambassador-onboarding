@@ -17,6 +17,12 @@
     "width": 220,
     "height": 28
   },
+  "heroLogo": {
+    "left": 28,
+    "top": 28,
+    "markSize": 28,
+    "fontSize": 26
+  },
   "pages": {
     "welcome": {
       "src": "/artboards/welcome.png",

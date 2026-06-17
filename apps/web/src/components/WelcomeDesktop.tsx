@@ -3,6 +3,7 @@ import Link from "next/link";
 import overlays from "@/lib/artboard-overlays.json";
 
 import { ArtboardStepHeader } from "./ArtboardStepHeader";
+import { ArtboardHeroLogo } from "./ArtboardHeroLogo";
 
 const { width, height } = overlays;
 const welcomeCta = overlays.pages.welcome.cta;
@@ -22,7 +23,8 @@ export function WelcomeDesktop() {
           style={{ width, height, display: "block", userSelect: "none" }}
         />
 
-        <ArtboardStepHeader activeIndex={0} />
+        <ArtboardStepHeader activeIndex={0} variant="welcome" />
+        <ArtboardHeroLogo />
 
         <Link
           href={welcomeCta.href}

@@ -3,20 +3,26 @@ import overlays from "@/lib/artboard-overlays.json";
 import { ARTBOARD, fontAptos } from "@/lib/design";
 import { navigation, onboarding } from "@/lib/config";
 
-/** Stepper + login overlay for artboard pages 2–5. */
+/** Stepper + login overlay for artboard pages (laptop+). */
 export function ArtboardStepHeader({
   activeIndex,
   showStepper = true,
+  variant = "default",
 }: {
   activeIndex: number;
   showStepper?: boolean;
+  /** welcome — transparent over hero column so logo shows at artboard coords */
+  variant?: "default" | "welcome";
 }) {
   const { loginLink, stepNav, width } = overlays;
   const headerHeight = showStepper ? 125 : loginLink.top + loginLink.height + 12;
 
   return (
     <div
-      className="artboard-header max-md:hidden"
+      className={
+        "artboard-header max-md:hidden" +
+        (variant === "welcome" ? " artboard-header--welcome" : "")
+      }
       style={{
         width,
         height: headerHeight,

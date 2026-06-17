@@ -335,9 +335,43 @@
   margin-bottom: 20px;
 }
 
+/* Artboard mobile — 2×2 share grid, centered (not full-width stretch) */
 .onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-grid {
-  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 88px);
+  justify-content: center;
+  column-gap: 72px;
+  row-gap: 20px;
+  width: 100%;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-item {
+  width: 88px;
   gap: 10px;
+  padding: 0;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-item > span:last-child {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.25;
+  color: #1a1a1a;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
 }
 
 .onboarding-youre-in-school {
@@ -433,11 +467,6 @@
   .onboarding-share-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-  }
-
-  .onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 12px;
   }
 }
 

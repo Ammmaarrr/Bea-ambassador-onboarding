@@ -1,6 +1,6 @@
 "use client";
 
-import { Building2, Copy, Globe, MapPin, Share2, Trophy, User, Users } from "lucide-react";
+import { Building2, Copy, Globe, MapPin, Trophy, User, Users } from "lucide-react";
 import { useState } from "react";
 
 import { PRIZE_LEVEL_ROWS, type OnboardingPageKey } from "@/lib/onboarding-page-content";
@@ -9,6 +9,28 @@ import { fontAptos } from "@/lib/design";
 import { AccountMobileForm } from "./AccountMobileForm";
 
 const AMBASSADOR_LINK = "datebea.com/link/";
+
+const SHARE_CHANNELS = [
+  { label: "Instagram", icon: "instagram" as const, src: "/images/share/instagram.png" },
+  { label: "Messages", icon: "messages" as const, src: "/images/share/messages.png" },
+  { label: "Whatsapp", icon: "whatsapp" as const, src: "/images/share/whatsapp.png" },
+  { label: "Share link", icon: "share" as const, src: "/images/share/share-link.png" },
+];
+
+function ShareChannelIcon({ src }: { src: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt=""
+      width={20}
+      height={20}
+      className="h-[20px] w-[20px] object-contain"
+      draggable={false}
+      aria-hidden
+    />
+  );
+}
 
 function PrizeLevelIcon({ type }: { type: (typeof PRIZE_LEVEL_ROWS)[number]["icon"] }) {
   const className = "h-[18px] w-[18px] text-[#1a1a1a]";
@@ -67,7 +89,7 @@ function ImpactEquation() {
   );
 }
 
-function YoureInContent() {
+function YoureInLinkCard() {
   const [copied, setCopied] = useState(false);
 
   async function copyLink() {
@@ -81,40 +103,48 @@ function YoureInContent() {
   }
 
   return (
-    <div className="onboarding-youre-in">
-      <p className="onboarding-youre-in-school font-canela onboarding-heading">
-        University of Connecticut
-      </p>
-
-      <div className="onboarding-mobile-card onboarding-link-card">
-        <p className="onboarding-mobile-card-eyebrow">YOUR AMBASSADOR LINK</p>
-        <div className="onboarding-link-row">
-          <p className="onboarding-link-text font-canela onboarding-heading">{AMBASSADOR_LINK}</p>
-          <button
-            type="button"
-            className="onboarding-copy-btn"
-            aria-label={copied ? "Copied" : "Copy link"}
-            onClick={copyLink}
-          >
-            <Copy className="h-[16px] w-[16px]" strokeWidth={1.5} />
-          </button>
-        </div>
+    <div className="onboarding-mobile-card onboarding-link-card">
+      <p className="onboarding-mobile-card-eyebrow">YOUR AMBASSADOR LINK</p>
+      <div className="onboarding-link-row">
+        <p className="onboarding-link-text font-canela onboarding-heading">{AMBASSADOR_LINK}</p>
+        <button
+          type="button"
+          className="onboarding-copy-btn"
+          aria-label={copied ? "Copied" : "Copy link"}
+          onClick={copyLink}
+        >
+          <Copy className="h-[16px] w-[16px]" strokeWidth={1.5} />
+        </button>
       </div>
+    </div>
+  );
+}
 
+export function YoureInShareSection() {
+  return (
+    <>
       <div className="onboarding-share-divider">
         <span>SHARE YOUR LINK</span>
       </div>
 
       <div className="onboarding-share-grid">
-        {["Instagram", "Messages", "Whatsapp", "Share link"].map((label) => (
+        {SHARE_CHANNELS.map(({ label, src }) => (
           <button key={label} type="button" className="onboarding-share-item">
             <span className="onboarding-share-icon" aria-hidden>
-              <Share2 className="h-[16px] w-[16px]" strokeWidth={1.5} />
+              <ShareChannelIcon src={src} />
             </span>
             <span>{label}</span>
           </button>
         ))}
       </div>
+    </>
+  );
+}
+
+function YoureInContent() {
+  return (
+    <div className="onboarding-youre-in">
+      <YoureInLinkCard />
     </div>
   );
 }

@@ -299,7 +299,47 @@
   flex-shrink: 0;
 }
 
-/* You're in */
+/* You're in — mobile only (matches Artboard 6 content order) */
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-form-title {
+  margin-bottom: 12px;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-youre-in-school {
+  text-align: center;
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-youre-in-eyebrow {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .form-subtitle {
+  margin-bottom: 28px;
+  max-width: 300px;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-mobile-body {
+  margin-bottom: 0;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-youre-in-cta {
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-divider {
+  margin-top: 28px;
+  margin-bottom: 20px;
+}
+
+.onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
 .onboarding-youre-in-school {
   font-size: 20px;
   margin: -8px 0 24px;
@@ -393,6 +433,11 @@
   .onboarding-share-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+
+  .onboarding-page-mobile .onboarding-youre-in-mobile .onboarding-share-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 12px;
   }
 }
 

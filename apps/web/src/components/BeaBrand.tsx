@@ -1,23 +1,36 @@
+import Image from "next/image";
 import Link from "next/link";
-
-import { fontAptos } from "@/lib/design";
 
 type Props = {
   className?: string;
-  /** White text for use on dark/image backgrounds (login left panel). */
+  /** White wordmark for use on dark/image backgrounds. */
   inverted?: boolean;
 };
 
-/** Text wordmark — matches the login page `.left-brand` treatment. */
+/** bea logo — icon mark + Canela wordmark (matches design artboard). */
 export function BeaBrand({ className = "", inverted = false }: Props) {
   return (
     <Link
       href="/"
-      className={`text-[22px] font-medium tracking-[-0.3px] md:text-[26px] ${inverted ? "text-white" : "text-[#1a1a1a]"} ${className}`}
-      style={{ fontFamily: fontAptos, fontWeight: 500 }}
+      className={`bea-brand inline-flex items-center gap-[8px] ${className}`}
       aria-label="bea home"
     >
-      bea
+      <Image
+        src="/images/bea-logo.png"
+        alt=""
+        width={26}
+        height={26}
+        className="bea-brand-icon h-[26px] w-[26px] shrink-0 object-contain"
+        aria-hidden
+      />
+      <span
+        className={
+          "bea-brand-text font-canela text-[22px] leading-none tracking-[-0.02em] md:text-[24px]" +
+          (inverted ? " text-white" : " text-[#1a1a1a]")
+        }
+      >
+        bea
+      </span>
     </Link>
   );
 }

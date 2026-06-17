@@ -30,7 +30,7 @@ export function OnboardingMobilePage({ pageKey }: Props) {
       >
         <div className="onboarding-inner-panel">
           <div className="right-form-wrap">
-            <h1 className="form-title onboarding-form-title text-center">{titleLines[0]}</h1>
+            <h1 className="form-title onboarding-form-title font-canela text-center">{titleLines[0]}</h1>
 
             <p className="onboarding-youre-in-school font-canela onboarding-heading">
               University of Connecticut
@@ -65,7 +65,7 @@ export function OnboardingMobilePage({ pageKey }: Props) {
             {content.eyebrow}
           </p>
 
-          <h1 className="form-title onboarding-form-title">
+          <h1 className="form-title onboarding-form-title font-canela">
             {titleLines.map((line, i) => (
               <span key={line}>
                 {line}

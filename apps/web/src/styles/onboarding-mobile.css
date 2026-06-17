@@ -359,6 +359,65 @@
   color: #1a1a1a;
 }
 
+/* Welcome mobile — compact stepper + login-style hero (no images) */
+.onboarding-welcome-mobile .onboarding-compact-stepper {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.onboarding-welcome-mobile .onboarding-compact-stepper ol {
+  display: none;
+}
+
+.onboarding-welcome-mobile .onboarding-inner-panel {
+  padding-top: 8px;
+  padding-bottom: 0;
+}
+
+.onboarding-welcome-mobile .onboarding-form-title {
+  margin-bottom: 12px;
+}
+
+.onboarding-welcome-mobile .form-subtitle {
+  margin-bottom: 24px;
+}
+
+.onboarding-welcome-mobile .onboarding-btn-link {
+  margin-top: 0;
+}
+
+.onboarding-welcome-prizes {
+  padding: 28px 24px calc(32px + env(safe-area-inset-bottom));
+  border-top: 1px solid #edeceb;
+}
+
+.onboarding-welcome-prizes-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.onboarding-welcome-prizes-sub {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #9a9490;
+}
+
+.onboarding-welcome-prize-list {
+  max-width: 100%;
+}
+
+@media (max-width: 420px) {
+  .onboarding-welcome-mobile .onboarding-form-title {
+    font-size: 32px;
+  }
+
+  .onboarding-welcome-prizes {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 /* Prize cards — responsive stack only below 1367px (do not set display outside media queries — it overrides Tailwind hidden) */
 @media (max-width: 1366px) {
   .onboarding-prize-list {

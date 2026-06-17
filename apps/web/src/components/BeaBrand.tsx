@@ -13,7 +13,7 @@ export function BeaBrand({ className = "", inverted = false }: Props) {
   return (
     <Link
       href="/"
-      className={`text-[22px] font-medium tracking-[-0.3px] lg:text-[26px] ${inverted ? "text-white" : "text-[#1a1a1a]"} ${className}`}
+      className={`text-[22px] font-medium tracking-[-0.3px] md:text-[26px] ${inverted ? "text-white" : "text-[#1a1a1a]"} ${className}`}
       style={{ fontFamily: fontAptos, fontWeight: 500 }}
       aria-label="bea home"
     >

@@ -1,9 +1,10 @@
-@import "./fonts.css";
-@import "./artboard.css";
-@import "./onboarding-mobile.css";
 @import "tailwindcss";
 
 @source "../**/*.{js,ts,jsx,tsx}";
+
+@import "./fonts.css";
+@import "./artboard.css";
+@import "./onboarding-mobile.css";
 
 html,
 body {

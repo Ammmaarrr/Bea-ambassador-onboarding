@@ -1,25 +1,21 @@
 /* Mobile onboarding — login page patterns + page-specific cards */
 
-/* Inner pages 2–6: phone vs laptop — same 1024px (lg) breakpoint as home page */
+/* Inner pages 2–6: hard switch — mobile layout vs artboard (cannot rely on Tailwind alone) */
 .onboarding-page-mobile {
   display: block;
 }
 
 .onboarding-page-desktop {
   display: none !important;
-  position: relative;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .onboarding-page-mobile {
     display: none !important;
   }
 
   .onboarding-page-desktop {
     display: block !important;
-    max-width: 1367px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -450,3 +446,5 @@
     transform: none;
   }
 }
+
+/* Welcome desktop uses the same artboard viewport scaling as inner pages */

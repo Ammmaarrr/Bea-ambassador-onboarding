@@ -18,6 +18,17 @@
     "height": 28
   },
   "pages": {
+    "welcome": {
+      "src": "/artboards/welcome.png",
+      "cta": {
+        "href": "/your-school",
+        "label": "Start your journey",
+        "left": 504,
+        "top": 575,
+        "width": 253,
+        "height": 47
+      }
+    },
     "your-school": {
       "src": "/artboards/your-school.png",
       "cta": {

@@ -22,13 +22,13 @@ export type OverlayLink = Rect & {
 };
 
 type Props = {
-  pageKey: keyof typeof overlays.pages;
+  pageKey: Exclude<keyof typeof overlays.pages, "welcome">;
   children?: React.ReactNode;
 };
 
 /**
- * Phones (<1024px): login-inspired mobile layout on every page.
- * Tablet/laptop/desktop (≥1024px): artboard PNG (scaled until 1367px, pixel-perfect at 1367+).
+ * Phones (<768px): login-inspired mobile layout.
+ * Tablet, laptop, desktop (≥768px): original artboard PNG — unchanged.
  */
 export function FullArtboardPage({ pageKey, children }: Props) {
   const { width, height } = overlays;
@@ -49,9 +49,6 @@ export function FullArtboardPage({ pageKey, children }: Props) {
 
       {/* ── Tablet + laptop + desktop: original artboard PNG ── */}
       <div className="onboarding-page-desktop">
-        {pageKey !== "youre-in" && (
-          <OnboardingStepper activeIndex={activeIndex} layout="artboard" />
-        )}
         <div className="onboarding-artboard-viewport">
           <div className="onboarding-artboard-canvas artboard-stage">
             {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -128,7 +128,7 @@ export function MobileNav({ activeIndex }: Props) {
   return (
     <>
       <header
-        className="lg:hidden sticky top-0 z-30 border-b bg-[#f8f3ef]/95 backdrop-blur-md pt-[env(safe-area-inset-top)]"
+        className="md:hidden sticky top-0 z-30 border-b bg-[#f8f3ef]/95 backdrop-blur-md pt-[env(safe-area-inset-top)]"
         style={{ borderColor: "#edeceb", fontFamily: fontAptos }}
       >
         <div className="flex h-[56px] items-center justify-between px-5">

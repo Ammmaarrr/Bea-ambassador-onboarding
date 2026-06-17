@@ -6,7 +6,7 @@ import { navigation, onboarding } from "@/lib/config";
 /** Desktop login row — hidden on mobile (login lives in the hamburger menu). */
 export function OnboardingHeader() {
   return (
-    <div className="hidden lg:block px-4 sm:px-6 md:px-10 min-[1367px]:px-[76px] min-[1367px]:pr-[82px] pt-[34px] pb-0">
+    <div className="px-[76px] pr-[82px] pt-[34px] pb-0">
       <div className="flex justify-end">
         <p
           className="text-[12px] text-[#888480] text-right leading-snug"

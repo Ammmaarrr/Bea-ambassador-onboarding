@@ -16,7 +16,7 @@ export function ArtboardStepHeader({
 
   return (
     <div
-      className="artboard-header hidden min-[1367px]:block"
+      className="artboard-header max-md:hidden"
       style={{
         width,
         height: headerHeight,

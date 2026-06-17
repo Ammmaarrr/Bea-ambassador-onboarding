@@ -26,7 +26,7 @@ export function ArtboardStepHeader({
       style={{
         width,
         height: headerHeight,
-        backgroundColor: ARTBOARD.bg,
+        ...(variant !== "welcome" ? { backgroundColor: ARTBOARD.bg } : {}),
         fontFamily: fontAptos,
       }}
       aria-label={showStepper ? "Onboarding progress" : undefined}

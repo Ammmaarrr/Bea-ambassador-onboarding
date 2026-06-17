@@ -13,9 +13,10 @@
   background-color: #f8f3ef;
 }
 
-/* Welcome hero — keep logo column clear; cream bar only on content side */
+/* Welcome hero — transparent over photo column; cream only on content side */
 .artboard-header--welcome {
-  background: linear-gradient(
+  background-color: transparent;
+  background-image: linear-gradient(
     to right,
     transparent 0,
     transparent 404px,
@@ -24,19 +25,10 @@
   );
 }
 
-.artboard-hero-logo {
+/* Invisible tap target — logo is baked into welcome.png at artboard coords */
+.artboard-hero-logo-hit {
   position: absolute;
   z-index: 40;
-  pointer-events: auto;
-}
-
-.artboard-hero-brand .bea-brand-text {
-  font-size: 26px;
-  line-height: 1.15;
-}
-
-.artboard-hero-brand {
-  gap: 9px;
 }
 
 .artboard-login {

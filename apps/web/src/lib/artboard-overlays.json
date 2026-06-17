@@ -18,10 +18,10 @@
     "height": 28
   },
   "heroLogo": {
-    "left": 28,
-    "top": 28,
-    "markSize": 28,
-    "fontSize": 26
+    "left": 10,
+    "top": 35,
+    "width": 97,
+    "height": 35
   },
   "pages": {
     "welcome": {

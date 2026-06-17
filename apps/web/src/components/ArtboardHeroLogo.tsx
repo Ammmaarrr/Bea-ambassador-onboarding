@@ -1,17 +1,16 @@
-import { BeaBrand } from "./BeaBrand";
+import Link from "next/link";
 import overlays from "@/lib/artboard-overlays.json";
 
-/** Pixel-aligned hero logo on welcome artboard (laptop+ only). */
+/** Transparent hit area over the baked artboard logo (laptop welcome only). */
 export function ArtboardHeroLogo() {
-  const { left, top, markSize, fontSize } = overlays.heroLogo;
+  const { left, top, width, height } = overlays.heroLogo;
 
   return (
-    <div
-      className="artboard-hero-logo"
-      style={{ left, top, fontSize }}
-      aria-hidden={false}
-    >
-      <BeaBrand inverted markSize={markSize} className="artboard-hero-brand" />
-    </div>
+    <Link
+      href="/"
+      className="artboard-hero-logo-hit artboard-hit"
+      style={{ left, top, width, height }}
+      aria-label="bea home"
+    />
   );
 }

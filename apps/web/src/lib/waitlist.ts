@@ -1,3 +1,17 @@
+/**
+ * Waitlist flow aligned to design/waitlist artboard file numbering.
+ *
+ * Artboard 1  — Landing (Together, today.)
+ * Artboard 1_1 — Landing with email filled (variant of 1)
+ * Artboard 3  — Which market do you want to join
+ * Artboard 4  — What do we call you?
+ * Artboard 5  — Which school are you affiliated with?
+ * Artboard 6  — Ambassador pick (skipped — tracked via invite link)
+ * Artboard 7  — Where should we send the invite to?
+ * Artboard 8  — You're on the list!
+ * Artboard 9  — Waitlist Prizes dashboard
+ */
+
 export const WAITLIST = {
   bg: "#f8f3ef",
   text: "#1a1a1a",
@@ -9,6 +23,91 @@ export const WAITLIST = {
   pillInactive: "#ffffff",
   pillActive: "#1a1a1a",
 } as const;
+
+export type WaitlistArtboardId = "1" | "3" | "4" | "5" | "7" | "8" | "9";
+
+export type WaitlistStepArtboardId = "3" | "4" | "5" | "7";
+
+export type WaitlistArtboardMeta = {
+  id: WaitlistArtboardId;
+  /** PNG filename in design/waitlist artboard */
+  file: string;
+  label: string;
+  href: string;
+  /** 0-based index on the 5-segment progress bar (join steps only) */
+  progressIndex: number | null;
+  backHref: string | null;
+  nextHref: string | null;
+};
+
+export const WAITLIST_ARTBOARDS: Record<WaitlistArtboardId, WaitlistArtboardMeta> = {
+  "1": {
+    id: "1",
+    file: "Artboard 1.png",
+    label: "Landing",
+    href: "/waitlist",
+    progressIndex: null,
+    backHref: null,
+    nextHref: "/waitlist/3",
+  },
+  "3": {
+    id: "3",
+    file: "3.png",
+    label: "Market",
+    href: "/waitlist/3",
+    progressIndex: 1,
+    backHref: "/waitlist",
+    nextHref: "/waitlist/4",
+  },
+  "4": {
+    id: "4",
+    file: "4.png",
+    label: "Name",
+    href: "/waitlist/4",
+    progressIndex: 2,
+    backHref: "/waitlist/3",
+    nextHref: "/waitlist/5",
+  },
+  "5": {
+    id: "5",
+    file: "5.png",
+    label: "School",
+    href: "/waitlist/5",
+    progressIndex: 3,
+    backHref: "/waitlist/4",
+    nextHref: "/waitlist/7",
+  },
+  "7": {
+    id: "7",
+    file: "7.png",
+    label: "Email",
+    href: "/waitlist/7",
+    progressIndex: 4,
+    backHref: "/waitlist/5",
+    nextHref: "/waitlist/8",
+  },
+  "8": {
+    id: "8",
+    file: "8.png",
+    label: "Confirmed",
+    href: "/waitlist/8",
+    progressIndex: null,
+    backHref: "/waitlist/7",
+    nextHref: "/waitlist/9",
+  },
+  "9": {
+    id: "9",
+    file: "9.png",
+    label: "Prizes",
+    href: "/waitlist/9",
+    progressIndex: null,
+    backHref: "/waitlist/8",
+    nextHref: null,
+  },
+};
+
+/** Ordered join flow (skips artboard 6 per design note). */
+export const WAITLIST_JOIN_FLOW: WaitlistArtboardId[] = ["3", "4", "5", "7", "8", "9"];
 
 export const WAITLIST_CITIES = [
   {
@@ -45,11 +144,6 @@ export const WAITLIST_HERO_CITIES = [
   "Chicago",
 ] as const;
 
-export const WAITLIST_JOIN_STEPS = [
-  { href: "/waitlist/market", label: "Market" },
-  { href: "/waitlist/name", label: "Name" },
-  { href: "/waitlist/school", label: "School" },
-  { href: "/waitlist/email", label: "Email" },
-] as const;
-
-export type WaitlistJoinStepIndex = 0 | 1 | 2 | 3;
+export function waitlistHref(id: WaitlistArtboardId): string {
+  return WAITLIST_ARTBOARDS[id].href;
+}

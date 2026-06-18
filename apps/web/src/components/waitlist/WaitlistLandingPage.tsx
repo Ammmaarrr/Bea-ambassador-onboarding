@@ -6,7 +6,7 @@ import { ArrowRight, Clock, Compass, Heart, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { WAITLIST_CITIES, WAITLIST_HERO_CITIES } from "@/lib/waitlist";
+import { WAITLIST_ARTBOARDS, WAITLIST_CITIES, WAITLIST_HERO_CITIES } from "@/lib/waitlist";
 
 import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 
@@ -14,9 +14,10 @@ export function WaitlistLandingPage() {
   const router = useRouter();
   const [activeCity, setActiveCity] = useState("NYC");
   const [email, setEmail] = useState("");
+  const nextHref = WAITLIST_ARTBOARDS["1"].nextHref!;
 
   function joinWaitlist() {
-    router.push("/waitlist/market");
+    router.push(nextHref);
   }
 
   const mobile = (
@@ -25,7 +26,7 @@ export function WaitlistLandingPage() {
         <Link href="/waitlist" className="waitlist-landing-logo">
           Bea
         </Link>
-        <Link href="/waitlist/market" className="waitlist-landing-cta">
+        <Link href={nextHref} className="waitlist-landing-cta">
           Join waitlist
         </Link>
       </header>
@@ -169,5 +170,5 @@ export function WaitlistLandingPage() {
     </div>
   );
 
-  return <WaitlistArtboardPage pageKey="landing" mobile={mobile} />;
+  return <WaitlistArtboardPage artboardId="1" mobile={mobile} />;
 }

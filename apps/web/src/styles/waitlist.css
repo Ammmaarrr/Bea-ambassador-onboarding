@@ -1001,3 +1001,14 @@
   line-height: 1.55;
   color: var(--wl-muted);
 }
+
+.waitlist-prizes-mobile {
+  padding: 48px var(--wl-gutter);
+  max-width: 480px;
+}
+
+.waitlist-prizes-fallback {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}

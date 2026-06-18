@@ -1,14 +1,18 @@
+import { WAITLIST_ARTBOARDS } from "@/lib/waitlist";
+
 import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
 
+const meta = WAITLIST_ARTBOARDS["5"];
+
 export function WaitlistSchoolPage() {
   const mobile = (
     <WaitlistStepShell
-      activeIndex={3}
-      backHref="/waitlist/name"
+      artboardId="5"
+      backHref={meta.backHref!}
       title="Which school are you affiliated with?"
-      footer={<WaitlistContinueButton href="/waitlist/email" label="Continue" />}
+      footer={<WaitlistContinueButton href={meta.nextHref!} label="Continue" />}
     >
       <div className="waitlist-search-block waitlist-search-block--tight">
         <label className="waitlist-field-label" htmlFor="school-search">
@@ -39,5 +43,5 @@ export function WaitlistSchoolPage() {
     </WaitlistStepShell>
   );
 
-  return <WaitlistArtboardPage pageKey="school" mobile={mobile} />;
+  return <WaitlistArtboardPage artboardId="5" mobile={mobile} />;
 }

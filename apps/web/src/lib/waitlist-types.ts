@@ -1,7 +1,3 @@
-export type WaitlistOverlayPageKey =
-  | "landing"
-  | "market"
-  | "name"
-  | "school"
-  | "email"
-  | "confirmed";
+import type { WaitlistArtboardId } from "@/lib/waitlist";
+
+export type WaitlistOverlayPageKey = WaitlistArtboardId;

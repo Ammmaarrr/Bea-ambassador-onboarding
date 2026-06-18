@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
+import { WAITLIST_ARTBOARDS, type WaitlistStepArtboardId } from "@/lib/waitlist";
+
 import { WaitlistProgress } from "./WaitlistProgress";
 
 type Props = {
-  activeIndex: number;
+  artboardId: WaitlistStepArtboardId;
   backHref: string;
   title: string;
   subtitle?: string;
@@ -14,7 +16,7 @@ type Props = {
 };
 
 export function WaitlistStepShell({
-  activeIndex,
+  artboardId,
   backHref,
   title,
   subtitle,
@@ -22,6 +24,8 @@ export function WaitlistStepShell({
   children,
   footer,
 }: Props) {
+  const progressIndex = WAITLIST_ARTBOARDS[artboardId].progressIndex ?? 0;
+
   return (
     <div className="waitlist-root">
       <div className="waitlist-step-shell">
@@ -29,7 +33,7 @@ export function WaitlistStepShell({
           <Link href={backHref} className="waitlist-back" aria-label="Go back">
             <ChevronLeft size={22} strokeWidth={1.75} />
           </Link>
-          <WaitlistProgress activeIndex={activeIndex} />
+          <WaitlistProgress activeIndex={progressIndex} />
         </div>
 
         <div className="waitlist-step-body">

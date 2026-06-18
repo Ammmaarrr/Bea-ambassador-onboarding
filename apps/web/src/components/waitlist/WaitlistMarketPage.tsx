@@ -4,25 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { WAITLIST_CITIES } from "@/lib/waitlist";
+import { WAITLIST_ARTBOARDS, WAITLIST_CITIES, WAITLIST_HERO_CITIES } from "@/lib/waitlist";
 
 import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
+
+const meta = WAITLIST_ARTBOARDS["3"];
 
 export function WaitlistMarketPage() {
   const [selected, setSelected] = useState("nyc");
 
   const mobile = (
     <WaitlistStepShell
-      activeIndex={1}
-      backHref="/waitlist"
+      artboardId="3"
+      backHref={meta.backHref!}
       title="Which market do you want to join"
       subtitle="Select your city a search a city."
       footer={
         <>
-          <WaitlistContinueButton href="/waitlist/name" label="Claim my spot" />
-          <Link href="/waitlist/name" className="waitlist-link-secondary">
+          <WaitlistContinueButton href={meta.nextHref!} label="Claim my spot" />
+          <Link href={meta.nextHref!} className="waitlist-link-secondary">
             Continue without selecting a market
           </Link>
         </>
@@ -64,5 +66,5 @@ export function WaitlistMarketPage() {
     </WaitlistStepShell>
   );
 
-  return <WaitlistArtboardPage pageKey="market" mobile={mobile} />;
+  return <WaitlistArtboardPage artboardId="3" mobile={mobile} />;
 }

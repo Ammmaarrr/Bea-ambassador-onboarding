@@ -12,14 +12,18 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+import { WAITLIST_ARTBOARDS } from "@/lib/waitlist";
+
 import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
+
+const meta = WAITLIST_ARTBOARDS["8"];
 
 export function WaitlistConfirmedPage() {
   const mobile = (
     <div className="waitlist-root">
       <div className="waitlist-confirmed">
         <div className="waitlist-confirmed-top">
-          <Link href="/waitlist/email" className="waitlist-back" aria-label="Go back">
+          <Link href={meta.backHref!} className="waitlist-back" aria-label="Go back">
             <ChevronLeft size={22} strokeWidth={1.75} />
           </Link>
           <Link href="/waitlist" className="waitlist-waiting-room">
@@ -95,10 +99,10 @@ export function WaitlistConfirmedPage() {
           </span>
         </div>
 
-        <button type="button" className="waitlist-btn-primary waitlist-btn-primary--compact">
+        <Link href={meta.nextHref!} className="waitlist-btn-primary waitlist-btn-primary--compact">
           <Link2 size={18} strokeWidth={2} />
           Copy Invite Link
-        </button>
+        </Link>
 
         <p className="waitlist-confirmed-footer">
           Thank you for helping build something meaningful.
@@ -109,5 +113,5 @@ export function WaitlistConfirmedPage() {
     </div>
   );
 
-  return <WaitlistArtboardPage pageKey="confirmed" mobile={mobile} />;
+  return <WaitlistArtboardPage artboardId="8" mobile={mobile} />;
 }

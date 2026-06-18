@@ -1,9 +1,9 @@
-import type { WaitlistOverlayPageKey } from "@/lib/waitlist-types";
+import type { WaitlistArtboardId } from "@/lib/waitlist";
 
 import { WaitlistArtboardDesktop } from "./WaitlistArtboardDesktop";
 
 type Props = {
-  pageKey: WaitlistOverlayPageKey;
+  artboardId: WaitlistArtboardId;
   mobile: React.ReactNode;
 };
 
@@ -11,12 +11,12 @@ type Props = {
  * Phones (<768px): coded mobile layout from artboard specs.
  * Tablet+ (≥768px): scaled artboard PNG with pixel-aligned overlays.
  */
-export function WaitlistArtboardPage({ pageKey, mobile }: Props) {
+export function WaitlistArtboardPage({ artboardId, mobile }: Props) {
   return (
     <>
       <div className="waitlist-page-mobile">{mobile}</div>
       <div className="waitlist-page-desktop">
-        <WaitlistArtboardDesktop pageKey={pageKey} />
+        <WaitlistArtboardDesktop artboardId={artboardId} />
       </div>
     </>
   );

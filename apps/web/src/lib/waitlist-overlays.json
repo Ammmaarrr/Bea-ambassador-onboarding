@@ -2,13 +2,13 @@
   "width": 1367,
   "bg": "#f8f3ef",
   "pages": {
-    "landing": {
+    "1": {
       "width": 1367,
       "height": 2102,
       "src": "/waitlist/artboards/Artboard 1.png",
       "heroEmail": { "left": 76, "top": 318, "width": 404, "height": 44, "id": "hero-email", "type": "email", "placeholder": "Enter email to join waitlist" },
-      "heroSubmit": { "left": 448, "top": 324, "width": 32, "height": 32, "href": "/waitlist/market", "label": "Submit email" },
-      "heroCta": { "left": 1078, "top": 30, "width": 132, "height": 42, "href": "/waitlist/market", "label": "Join waitlist" },
+      "heroSubmit": { "left": 448, "top": 324, "width": 32, "height": 32, "href": "/waitlist/3", "label": "Submit email" },
+      "heroCta": { "left": 1078, "top": 30, "width": 132, "height": 42, "href": "/waitlist/3", "label": "Join waitlist" },
       "navLinks": [
         { "left": 900, "top": 38, "width": 36, "height": 20, "href": "#faq", "label": "FAQ" },
         { "left": 956, "top": 38, "width": 88, "height": 20, "href": "#ambassadors", "label": "Ambassadors" },
@@ -23,7 +23,7 @@
       ],
       "footerEmail": { "left": 720, "top": 1926, "width": 544, "height": 112, "id": "footer-email", "type": "email", "placeholder": "Your email address" }
     },
-    "market": {
+    "3": {
       "width": 1367,
       "height": 847,
       "src": "/waitlist/artboards/3.png",
@@ -38,52 +38,58 @@
       "inputs": [
         { "left": 100, "top": 598, "width": 520, "height": 52, "id": "city-search", "type": "search", "placeholder": "Search" }
       ],
-      "cta": { "left": 100, "top": 706, "width": 520, "height": 51, "href": "/waitlist/name", "label": "Claim my spot" },
-      "secondaryLink": { "left": 100, "top": 774, "width": 340, "height": 22, "href": "/waitlist/name", "label": "Continue without selecting a market" }
+      "cta": { "left": 100, "top": 706, "width": 520, "height": 51, "href": "/waitlist/4", "label": "Claim my spot" },
+      "secondaryLink": { "left": 100, "top": 774, "width": 340, "height": 22, "href": "/waitlist/4", "label": "Continue without selecting a market" }
     },
-    "name": {
+    "4": {
       "width": 1367,
       "height": 847,
       "src": "/waitlist/artboards/4.png",
-      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/market" },
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/3" },
       "progress": { "left": 140, "top": 50, "width": 280, "height": 4, "steps": 5, "activeIndex": 2 },
       "inputs": [
         { "left": 100, "top": 318, "width": 520, "height": 40, "id": "firstName", "type": "text", "placeholder": "", "variant": "underline" },
         { "left": 100, "top": 410, "width": 520, "height": 40, "id": "age", "type": "number", "placeholder": "", "variant": "underline" }
       ],
-      "cta": { "left": 100, "top": 711, "width": 520, "height": 51, "href": "/waitlist/school", "label": "Continue" }
+      "cta": { "left": 100, "top": 711, "width": 520, "height": 51, "href": "/waitlist/5", "label": "Continue" }
     },
-    "school": {
+    "5": {
       "width": 1367,
       "height": 1226,
       "src": "/waitlist/artboards/5.png",
-      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/name" },
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/4" },
       "progress": { "left": 140, "top": 50, "width": 280, "height": 4, "steps": 5, "activeIndex": 3 },
       "inputs": [
         { "left": 100, "top": 278, "width": 520, "height": 52, "id": "school-search", "type": "search", "placeholder": "Search" }
       ],
       "schoolCard": { "left": 100, "top": 346, "width": 520, "height": 76 },
       "notInSchool": { "left": 100, "top": 458, "width": 520, "height": 52 },
-      "cta": { "left": 100, "top": 886, "width": 520, "height": 51, "href": "/waitlist/email", "label": "Continue" }
+      "cta": { "left": 100, "top": 886, "width": 520, "height": 51, "href": "/waitlist/7", "label": "Continue" }
     },
-    "email": {
+    "7": {
       "width": 1367,
       "height": 847,
       "src": "/waitlist/artboards/7.png",
-      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/school" },
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/5" },
       "progress": { "left": 140, "top": 50, "width": 280, "height": 4, "steps": 5, "activeIndex": 4 },
       "inputs": [
         { "left": 100, "top": 318, "width": 520, "height": 52, "id": "email", "type": "email", "placeholder": "you@email.com" }
       ],
-      "cta": { "left": 100, "top": 692, "width": 520, "height": 51, "href": "/waitlist/confirmed", "label": "Confirm email" }
+      "cta": { "left": 100, "top": 692, "width": 520, "height": 51, "href": "/waitlist/8", "label": "Confirm email" }
     },
-    "confirmed": {
+    "8": {
       "width": 1367,
       "height": 2749,
       "src": "/waitlist/artboards/8.png",
-      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/email" },
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/7" },
       "waitingRoom": { "left": 1148, "top": 38, "width": 128, "height": 34, "href": "/waitlist", "label": "Waiting room" },
       "copyLink": { "left": 419, "top": 2243, "width": 530, "height": 52, "label": "Copy Invite Link" }
+    },
+    "9": {
+      "width": 1367,
+      "height": 1696,
+      "src": "/waitlist/artboards/9.png",
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/8" }
     }
   }
 }

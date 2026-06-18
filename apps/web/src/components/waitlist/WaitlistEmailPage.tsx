@@ -1,15 +1,19 @@
+import { WAITLIST_ARTBOARDS } from "@/lib/waitlist";
+
 import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
 
+const meta = WAITLIST_ARTBOARDS["7"];
+
 export function WaitlistEmailPage() {
   const mobile = (
     <WaitlistStepShell
-      activeIndex={4}
-      backHref="/waitlist/school"
+      artboardId="7"
+      backHref={meta.backHref!}
       title="Where should we send the invite to?"
       subtitle="We'll let you know the moment you can join"
-      footer={<WaitlistContinueButton href="/waitlist/confirmed" label="Confirm email" />}
+      footer={<WaitlistContinueButton href={meta.nextHref!} label="Confirm email" />}
     >
       <div className="waitlist-search-block">
         <input
@@ -23,5 +27,5 @@ export function WaitlistEmailPage() {
     </WaitlistStepShell>
   );
 
-  return <WaitlistArtboardPage pageKey="email" mobile={mobile} />;
+  return <WaitlistArtboardPage artboardId="7" mobile={mobile} />;
 }

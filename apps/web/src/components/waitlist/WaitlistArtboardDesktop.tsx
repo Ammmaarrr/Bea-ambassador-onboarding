@@ -5,13 +5,13 @@ import { fontSans } from "@/lib/design";
 import type { WaitlistOverlayPageKey } from "@/lib/waitlist-types";
 
 type Props = {
-  pageKey: WaitlistOverlayPageKey;
+  artboardId: WaitlistOverlayPageKey;
   children?: React.ReactNode;
 };
 
 /** Desktop/tablet: artboard PNG at design coordinates + interactive overlays. */
-export function WaitlistArtboardDesktop({ pageKey, children }: Props) {
-  const page = overlays.pages[pageKey];
+export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
+  const page = overlays.pages[artboardId];
   const { width, height } = page;
 
   return (

@@ -1,15 +1,19 @@
+import { WAITLIST_ARTBOARDS } from "@/lib/waitlist";
+
 import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
 
+const meta = WAITLIST_ARTBOARDS["4"];
+
 export function WaitlistNamePage() {
   const mobile = (
     <WaitlistStepShell
-      activeIndex={2}
-      backHref="/waitlist/market"
+      artboardId="4"
+      backHref={meta.backHref!}
       title="What do we call you?"
       titleSerif
-      footer={<WaitlistContinueButton href="/waitlist/school" label="Continue" />}
+      footer={<WaitlistContinueButton href={meta.nextHref!} label="Continue" />}
     >
       <div className="waitlist-underline-field">
         <label className="waitlist-field-label" htmlFor="first-name">
@@ -41,5 +45,5 @@ export function WaitlistNamePage() {
     </WaitlistStepShell>
   );
 
-  return <WaitlistArtboardPage pageKey="name" mobile={mobile} />;
+  return <WaitlistArtboardPage artboardId="4" mobile={mobile} />;
 }

@@ -1,0 +1,109 @@
+"use client";
+
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  Check,
+  ChevronLeft,
+  Clock,
+  Crown,
+  Leaf,
+  Link2,
+  MessageCircle,
+} from "lucide-react";
+
+export function WaitlistConfirmedPage() {
+  return (
+    <div className="waitlist-root">
+      <div className="waitlist-confirmed">
+        <div className="waitlist-confirmed-top">
+          <Link href="/waitlist/email" className="waitlist-back" aria-label="Go back">
+            <ChevronLeft size={22} strokeWidth={1.75} />
+          </Link>
+          <Link href="/waitlist" className="waitlist-waiting-room">
+            Waiting room
+            <ArrowUpRight size={14} strokeWidth={1.75} />
+          </Link>
+        </div>
+
+        <div className="waitlist-check-badge">
+          <Check size={28} strokeWidth={1.75} />
+        </div>
+
+        <h1 className="waitlist-confirmed-title">You&apos;re on the list!</h1>
+        <p className="waitlist-confirmed-sub">Thanks for being part of bea.</p>
+
+        <div className="waitlist-rank-card">
+          <p className="waitlist-rank-eyebrow">YOUR PLACE IN LINE</p>
+          <p className="waitlist-rank-number">#2,487</p>
+          <p className="waitlist-rank-city">in New York, NY</p>
+
+          <div className="waitlist-rank-progress-label">
+            <span>NYC PROGRESS</span>
+            <span>85%</span>
+          </div>
+          <div className="waitlist-rank-progress-bar">
+            <div className="waitlist-rank-progress-fill" />
+          </div>
+          <p className="waitlist-rank-hint">
+            Almost there! Share with friends to help unlock your city sooner.
+          </p>
+        </div>
+
+        <div className="waitlist-section-divider">UNLOCK PERKS</div>
+        <p className="waitlist-confirmed-sub">Every friend you invite earns in-app rewards</p>
+
+        <div className="waitlist-perk-cards">
+          <div className="waitlist-perk-card waitlist-perk-card--active">
+            <Leaf size={18} strokeWidth={1.5} />
+            <h4>Early Access</h4>
+            <p>Be in the first cohort of users when we launch</p>
+            <p style={{ marginTop: 8, fontWeight: 600 }}>Invite 1 friend</p>
+          </div>
+          <div className="waitlist-perk-card">
+            <Clock size={18} strokeWidth={1.5} />
+            <h4>Time Pack</h4>
+            <p>Extend conversations for 24 hours</p>
+            <p style={{ marginTop: 8, fontWeight: 600 }}>Invite 2 friends</p>
+          </div>
+          <div className="waitlist-perk-card">
+            <Crown size={18} strokeWidth={1.5} />
+            <h4>Premium Membership</h4>
+            <p>Free month of premium membership on us</p>
+            <p style={{ marginTop: 8, fontWeight: 600 }}>Invite 3 friends</p>
+          </div>
+        </div>
+
+        <div className="waitlist-section-divider">SHARE YOUR LINK</div>
+
+        <div className="waitlist-share-icons">
+          <span className="waitlist-share-icon">
+            <span aria-hidden="true">IG</span>
+            Instagram
+          </span>
+          <span className="waitlist-share-icon">
+            <span aria-hidden="true">
+              <MessageCircle size={18} strokeWidth={1.5} />
+            </span>
+            Messages
+          </span>
+          <span className="waitlist-share-icon">
+            <span aria-hidden="true">WA</span>
+            Whatsapp
+          </span>
+        </div>
+
+        <button type="button" className="waitlist-btn-primary" style={{ marginTop: 8 }}>
+          <Link2 size={18} strokeWidth={2} />
+          Copy Invite Link
+        </button>
+
+        <p className="waitlist-confirmed-sub" style={{ marginTop: 32 }}>
+          Thank you for helping build something meaningful.
+          <br />
+          We can&apos;t wait to bring Bea to your community
+        </p>
+      </div>
+    </div>
+  );
+}

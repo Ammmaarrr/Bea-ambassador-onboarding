@@ -1,0 +1,89 @@
+{
+  "width": 1367,
+  "bg": "#f8f3ef",
+  "pages": {
+    "landing": {
+      "width": 1367,
+      "height": 2102,
+      "src": "/waitlist/artboards/Artboard 1.png",
+      "heroEmail": { "left": 76, "top": 318, "width": 404, "height": 44, "id": "hero-email", "type": "email", "placeholder": "Enter email to join waitlist" },
+      "heroSubmit": { "left": 448, "top": 324, "width": 32, "height": 32, "href": "/waitlist/market", "label": "Submit email" },
+      "heroCta": { "left": 1078, "top": 30, "width": 132, "height": 42, "href": "/waitlist/market", "label": "Join waitlist" },
+      "navLinks": [
+        { "left": 900, "top": 38, "width": 36, "height": 20, "href": "#faq", "label": "FAQ" },
+        { "left": 956, "top": 38, "width": 88, "height": 20, "href": "#ambassadors", "label": "Ambassadors" },
+        { "left": 1064, "top": 38, "width": 64, "height": 20, "href": "#calendar", "label": "Calendar" }
+      ],
+      "cityPills": [
+        { "left": 76, "top": 612, "width": 58, "height": 34, "label": "NYC" },
+        { "left": 146, "top": 612, "width": 74, "height": 34, "label": "Boston" },
+        { "left": 232, "top": 612, "width": 66, "height": 34, "label": "Miami" },
+        { "left": 310, "top": 612, "width": 110, "height": 34, "label": "Los Angeles" },
+        { "left": 432, "top": 612, "width": 82, "height": 34, "label": "Chicago" }
+      ],
+      "footerEmail": { "left": 720, "top": 1926, "width": 544, "height": 112, "id": "footer-email", "type": "email", "placeholder": "Your email address" }
+    },
+    "market": {
+      "width": 1367,
+      "height": 847,
+      "src": "/waitlist/artboards/3.png",
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist" },
+      "progress": { "left": 140, "top": 50, "width": 280, "height": 4, "steps": 5, "activeIndex": 1 },
+      "cityCards": [
+        { "left": 100, "top": 248, "width": 121, "height": 309 },
+        { "left": 233, "top": 248, "width": 121, "height": 309 },
+        { "left": 366, "top": 248, "width": 121, "height": 309 },
+        { "left": 499, "top": 248, "width": 121, "height": 309 }
+      ],
+      "inputs": [
+        { "left": 100, "top": 598, "width": 520, "height": 52, "id": "city-search", "type": "search", "placeholder": "Search" }
+      ],
+      "cta": { "left": 100, "top": 706, "width": 520, "height": 51, "href": "/waitlist/name", "label": "Claim my spot" },
+      "secondaryLink": { "left": 100, "top": 774, "width": 340, "height": 22, "href": "/waitlist/name", "label": "Continue without selecting a market" }
+    },
+    "name": {
+      "width": 1367,
+      "height": 847,
+      "src": "/waitlist/artboards/4.png",
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/market" },
+      "progress": { "left": 140, "top": 50, "width": 280, "height": 4, "steps": 5, "activeIndex": 2 },
+      "inputs": [
+        { "left": 100, "top": 318, "width": 520, "height": 40, "id": "firstName", "type": "text", "placeholder": "", "variant": "underline" },
+        { "left": 100, "top": 410, "width": 520, "height": 40, "id": "age", "type": "number", "placeholder": "", "variant": "underline" }
+      ],
+      "cta": { "left": 100, "top": 711, "width": 520, "height": 51, "href": "/waitlist/school", "label": "Continue" }
+    },
+    "school": {
+      "width": 1367,
+      "height": 1226,
+      "src": "/waitlist/artboards/5.png",
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/name" },
+      "progress": { "left": 140, "top": 50, "width": 280, "height": 4, "steps": 5, "activeIndex": 3 },
+      "inputs": [
+        { "left": 100, "top": 278, "width": 520, "height": 52, "id": "school-search", "type": "search", "placeholder": "Search" }
+      ],
+      "schoolCard": { "left": 100, "top": 346, "width": 520, "height": 76 },
+      "notInSchool": { "left": 100, "top": 458, "width": 520, "height": 52 },
+      "cta": { "left": 100, "top": 886, "width": 520, "height": 51, "href": "/waitlist/email", "label": "Continue" }
+    },
+    "email": {
+      "width": 1367,
+      "height": 847,
+      "src": "/waitlist/artboards/7.png",
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/school" },
+      "progress": { "left": 140, "top": 50, "width": 280, "height": 4, "steps": 5, "activeIndex": 4 },
+      "inputs": [
+        { "left": 100, "top": 318, "width": 520, "height": 52, "id": "email", "type": "email", "placeholder": "you@email.com" }
+      ],
+      "cta": { "left": 100, "top": 692, "width": 520, "height": 51, "href": "/waitlist/confirmed", "label": "Confirm email" }
+    },
+    "confirmed": {
+      "width": 1367,
+      "height": 2749,
+      "src": "/waitlist/artboards/8.png",
+      "back": { "left": 76, "top": 44, "width": 28, "height": 28, "href": "/waitlist/email" },
+      "waitingRoom": { "left": 1148, "top": 38, "width": 128, "height": 34, "href": "/waitlist", "label": "Waiting room" },
+      "copyLink": { "left": 419, "top": 2243, "width": 530, "height": 52, "label": "Copy Invite Link" }
+    }
+  }
+}

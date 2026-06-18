@@ -1,17 +1,16 @@
-"use client";
-
+import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
 
 export function WaitlistSchoolPage() {
-  return (
+  const mobile = (
     <WaitlistStepShell
-      activeIndex={2}
+      activeIndex={3}
       backHref="/waitlist/name"
       title="Which school are you affiliated with?"
       footer={<WaitlistContinueButton href="/waitlist/email" label="Continue" />}
     >
-      <div style={{ marginTop: 36 }}>
+      <div className="waitlist-search-block waitlist-search-block--tight">
         <label className="waitlist-field-label" htmlFor="school-search">
           Search your school
         </label>
@@ -39,4 +38,6 @@ export function WaitlistSchoolPage() {
       </button>
     </WaitlistStepShell>
   );
+
+  return <WaitlistArtboardPage pageKey="school" mobile={mobile} />;
 }

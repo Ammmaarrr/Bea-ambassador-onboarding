@@ -8,6 +8,7 @@ type Props = {
   backHref: string;
   title: string;
   subtitle?: string;
+  titleSerif?: boolean;
   children: React.ReactNode;
   footer?: React.ReactNode;
 };
@@ -17,6 +18,7 @@ export function WaitlistStepShell({
   backHref,
   title,
   subtitle,
+  titleSerif = false,
   children,
   footer,
 }: Props) {
@@ -31,7 +33,9 @@ export function WaitlistStepShell({
         </div>
 
         <div className="waitlist-step-body">
-          <h1 className="waitlist-step-title">{title}</h1>
+          <h1 className={"waitlist-step-title" + (titleSerif ? " waitlist-step-title--serif" : "")}>
+            {title}
+          </h1>
           {subtitle ? <p className="waitlist-step-subtitle">{subtitle}</p> : null}
           {children}
           {footer}

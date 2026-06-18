@@ -6,15 +6,16 @@ import { useState } from "react";
 
 import { WAITLIST_CITIES } from "@/lib/waitlist";
 
+import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
 
 export function WaitlistMarketPage() {
   const [selected, setSelected] = useState("nyc");
 
-  return (
+  const mobile = (
     <WaitlistStepShell
-      activeIndex={0}
+      activeIndex={1}
       backHref="/waitlist"
       title="Which market do you want to join"
       subtitle="Select your city a search a city."
@@ -48,7 +49,7 @@ export function WaitlistMarketPage() {
         ))}
       </div>
 
-      <div style={{ marginTop: 32 }}>
+      <div className="waitlist-search-block">
         <label className="waitlist-field-label waitlist-field-label--caps" htmlFor="city-search">
           Search any city
         </label>
@@ -62,4 +63,6 @@ export function WaitlistMarketPage() {
       </div>
     </WaitlistStepShell>
   );
+
+  return <WaitlistArtboardPage pageKey="market" mobile={mobile} />;
 }

@@ -8,6 +8,8 @@ import { useState } from "react";
 
 import { WAITLIST_CITIES, WAITLIST_HERO_CITIES } from "@/lib/waitlist";
 
+import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
+
 export function WaitlistLandingPage() {
   const router = useRouter();
   const [activeCity, setActiveCity] = useState("NYC");
@@ -17,17 +19,12 @@ export function WaitlistLandingPage() {
     router.push("/waitlist/market");
   }
 
-  return (
-    <div className="waitlist-root">
+  const mobile = (
+    <div className="waitlist-root waitlist-landing-mobile">
       <header className="waitlist-landing-header">
         <Link href="/waitlist" className="waitlist-landing-logo">
           Bea
         </Link>
-        <nav className="waitlist-landing-nav" aria-label="Site">
-          <a href="#faq">FAQ</a>
-          <a href="#ambassadors">Ambassadors</a>
-          <a href="#calendar">Calendar</a>
-        </nav>
         <Link href="/waitlist/market" className="waitlist-landing-cta">
           Join waitlist
         </Link>
@@ -35,7 +32,7 @@ export function WaitlistLandingPage() {
 
       <section className="waitlist-hero">
         <div>
-          <p className="waitlist-hero-eyebrow">Launching this summer</p>
+          <p className="waitlist-hero-eyebrow">LAUNCHING THIS SUMMER</p>
           <h1 className="waitlist-hero-title">Together, today.</h1>
           <p className="waitlist-hero-sub">24 hour to chat. Only see active profiles.</p>
 
@@ -87,18 +84,18 @@ export function WaitlistLandingPage() {
         />
       </section>
 
-      <section className="waitlist-section">
+      <section className="waitlist-section waitlist-section--timer">
         <div className="waitlist-section-grid">
           <div className="waitlist-timer-ring">
             <svg viewBox="0 0 100 100" aria-hidden="true">
-              <circle cx="50" cy="50" r="44" fill="none" stroke="#e8e0d8" strokeWidth="3" />
+              <circle cx="50" cy="50" r="44" fill="none" stroke="#e8e0d8" strokeWidth="2.5" />
               <circle
                 cx="50"
                 cy="50"
                 r="44"
                 fill="none"
                 stroke="#1a1a1a"
-                strokeWidth="3"
+                strokeWidth="2.5"
                 strokeDasharray="207 276"
                 strokeLinecap="round"
               />
@@ -115,13 +112,9 @@ export function WaitlistLandingPage() {
           </div>
 
           <div>
-            <p className="waitlist-hero-eyebrow">Built for the moment</p>
-            <h2 className="waitlist-hero-title" style={{ fontSize: "clamp(32px, 4vw, 44px)" }}>
-              24 hours to connect.
-            </h2>
-            <p className="waitlist-hero-sub" style={{ fontFamily: "var(--wl-serif)" }}>
-              Less text, more date.
-            </p>
+            <p className="waitlist-hero-eyebrow">BUILT FOR THE MOMENT</p>
+            <h2 className="waitlist-section-heading">24 hours to connect.</h2>
+            <p className="waitlist-section-serif">Less text, more date.</p>
             <div className="waitlist-feature-row">
               <span className="waitlist-feature-item">
                 <Heart size={16} strokeWidth={1.75} /> Match with intention
@@ -140,15 +133,13 @@ export function WaitlistLandingPage() {
       <section className="waitlist-section">
         <div className="waitlist-section-grid">
           <div>
-            <p className="waitlist-hero-eyebrow">Launching soon</p>
-            <h2 className="waitlist-hero-title" style={{ fontSize: "clamp(32px, 4vw, 44px)" }}>
-              We&apos;re curating something special.
-            </h2>
+            <p className="waitlist-hero-eyebrow">LAUNCHING SOON</p>
+            <h2 className="waitlist-section-heading">We&apos;re curating something special.</h2>
           </div>
 
           <div className="waitlist-launch-cards">
             {WAITLIST_CITIES.map((city) => (
-              <div key={city.id} className="waitlist-city-card" style={{ cursor: "default" }}>
+              <div key={city.id} className="waitlist-city-card waitlist-city-card--static">
                 <Image src={city.image} alt="" fill sizes="25vw" />
                 <span className="waitlist-city-card-overlay" aria-hidden="true" />
                 <span className="waitlist-city-card-text">
@@ -162,13 +153,13 @@ export function WaitlistLandingPage() {
         </div>
       </section>
 
-      <section className="waitlist-section">
+      <section className="waitlist-section waitlist-section--footer">
         <div className="waitlist-footer-cta">
           <h2 className="waitlist-footer-title">
             Join the waitlist for <em>early access and perks</em>
           </h2>
           <input
-            className="waitlist-box-input"
+            className="waitlist-box-input waitlist-footer-input"
             type="email"
             placeholder="Your email address"
             aria-label="Your email address"
@@ -177,4 +168,6 @@ export function WaitlistLandingPage() {
       </section>
     </div>
   );
+
+  return <WaitlistArtboardPage pageKey="landing" mobile={mobile} />;
 }

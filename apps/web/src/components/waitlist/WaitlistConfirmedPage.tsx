@@ -12,8 +12,10 @@ import {
   MessageCircle,
 } from "lucide-react";
 
+import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
+
 export function WaitlistConfirmedPage() {
-  return (
+  const mobile = (
     <div className="waitlist-root">
       <div className="waitlist-confirmed">
         <div className="waitlist-confirmed-top">
@@ -58,19 +60,19 @@ export function WaitlistConfirmedPage() {
             <Leaf size={18} strokeWidth={1.5} />
             <h4>Early Access</h4>
             <p>Be in the first cohort of users when we launch</p>
-            <p style={{ marginTop: 8, fontWeight: 600 }}>Invite 1 friend</p>
+            <p className="waitlist-perk-invite">Invite 1 friend</p>
           </div>
           <div className="waitlist-perk-card">
             <Clock size={18} strokeWidth={1.5} />
             <h4>Time Pack</h4>
             <p>Extend conversations for 24 hours</p>
-            <p style={{ marginTop: 8, fontWeight: 600 }}>Invite 2 friends</p>
+            <p className="waitlist-perk-invite">Invite 2 friends</p>
           </div>
           <div className="waitlist-perk-card">
             <Crown size={18} strokeWidth={1.5} />
             <h4>Premium Membership</h4>
             <p>Free month of premium membership on us</p>
-            <p style={{ marginTop: 8, fontWeight: 600 }}>Invite 3 friends</p>
+            <p className="waitlist-perk-invite">Invite 3 friends</p>
           </div>
         </div>
 
@@ -93,12 +95,12 @@ export function WaitlistConfirmedPage() {
           </span>
         </div>
 
-        <button type="button" className="waitlist-btn-primary" style={{ marginTop: 8 }}>
+        <button type="button" className="waitlist-btn-primary waitlist-btn-primary--compact">
           <Link2 size={18} strokeWidth={2} />
           Copy Invite Link
         </button>
 
-        <p className="waitlist-confirmed-sub" style={{ marginTop: 32 }}>
+        <p className="waitlist-confirmed-footer">
           Thank you for helping build something meaningful.
           <br />
           We can&apos;t wait to bring Bea to your community
@@ -106,4 +108,6 @@ export function WaitlistConfirmedPage() {
       </div>
     </div>
   );
+
+  return <WaitlistArtboardPage pageKey="confirmed" mobile={mobile} />;
 }

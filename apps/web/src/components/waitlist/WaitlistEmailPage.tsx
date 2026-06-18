@@ -1,18 +1,17 @@
-"use client";
-
+import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
 
 export function WaitlistEmailPage() {
-  return (
+  const mobile = (
     <WaitlistStepShell
-      activeIndex={3}
+      activeIndex={4}
       backHref="/waitlist/school"
       title="Where should we send the invite to?"
       subtitle="We'll let you know the moment you can join"
       footer={<WaitlistContinueButton href="/waitlist/confirmed" label="Confirm email" />}
     >
-      <div style={{ marginTop: 32 }}>
+      <div className="waitlist-search-block">
         <input
           className="waitlist-box-input"
           type="email"
@@ -23,4 +22,6 @@ export function WaitlistEmailPage() {
       </div>
     </WaitlistStepShell>
   );
+
+  return <WaitlistArtboardPage pageKey="email" mobile={mobile} />;
 }

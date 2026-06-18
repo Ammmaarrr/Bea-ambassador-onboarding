@@ -1,17 +1,17 @@
-"use client";
-
+import { WaitlistArtboardPage } from "./WaitlistArtboardPage";
 import { WaitlistContinueButton } from "./WaitlistContinueButton";
 import { WaitlistStepShell } from "./WaitlistStepShell";
 
 export function WaitlistNamePage() {
-  return (
+  const mobile = (
     <WaitlistStepShell
-      activeIndex={1}
+      activeIndex={2}
       backHref="/waitlist/market"
       title="What do we call you?"
+      titleSerif
       footer={<WaitlistContinueButton href="/waitlist/school" label="Continue" />}
     >
-      <div style={{ marginTop: 40 }}>
+      <div className="waitlist-underline-field">
         <label className="waitlist-field-label" htmlFor="first-name">
           First name
         </label>
@@ -24,7 +24,7 @@ export function WaitlistNamePage() {
         />
       </div>
 
-      <div style={{ marginTop: 32 }}>
+      <div className="waitlist-underline-field">
         <label className="waitlist-field-label" htmlFor="age">
           How old are you?
         </label>
@@ -40,4 +40,6 @@ export function WaitlistNamePage() {
       </div>
     </WaitlistStepShell>
   );
+
+  return <WaitlistArtboardPage pageKey="name" mobile={mobile} />;
 }

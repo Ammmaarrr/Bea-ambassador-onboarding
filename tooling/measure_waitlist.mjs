@@ -119,7 +119,7 @@ function measureStep(file, opts = {}) {
     height: img.height,
     src: `/waitlist/artboards/${file}`,
     back: { left: 76, top: 44, width: 32, height: 32, href: opts.backHref ?? "/waitlist" },
-    progress: { left: 140, top: 52, width: 280, height: 4, steps: 5, activeIndex: opts.activeIndex ?? 0 },
+    progress: { left: 186, top: 79, width: 378, height: 5, steps: 4, activeIndex: opts.activeIndex ?? 0 },
     cta: findBlackButton(img, L, R, 650, img.height - 10) ??
       findBlackButton(img, L, R, 480, img.height - 10),
     inputs: [],
@@ -169,7 +169,7 @@ function measureLanding() {
     height: img.height,
     src: "/waitlist/artboards/Artboard 1.png",
     heroEmail: findRoundedInput(img, L, R, 300, 420),
-    heroCta: { left: 1080, top: 32, width: 130, height: 40, href: "/waitlist/market", label: "Join waitlist" },
+    heroCta: { left: 1138, top: 46, width: 128, height: 56, href: "/waitlist/3", label: "Join waitlist" },
     cityPills: [
       { left: 76, top: 612, width: 56, height: 32, label: "NYC" },
       { left: 144, top: 612, width: 72, height: 32, label: "Boston" },
@@ -183,44 +183,51 @@ function measureLanding() {
 
 const out = {
   width: 1367,
+  bg: "#f8f3ef",
   pages: {
-    landing: measureLanding(),
-    market: measureStep("3.png", {
+    "1": measureLanding(),
+    "3": measureStep("3.png", {
       activeIndex: 1,
       backHref: "/waitlist",
       search: true,
       cityCards: true,
-      ctaHref: "/waitlist/name",
+      ctaHref: "/waitlist/4",
       ctaLabel: "Claim my spot",
-      secondaryLink: { href: "/waitlist/name", label: "Continue without selecting a market" },
+      secondaryLink: { href: "/waitlist/4", label: "Continue without selecting a market" },
     }),
-    name: measureStep("4.png", {
+    "4": measureStep("4.png", {
       activeIndex: 2,
-      backHref: "/waitlist/market",
+      backHref: "/waitlist/3",
       underline: true,
-      ctaHref: "/waitlist/school",
+      ctaHref: "/waitlist/5",
       ctaLabel: "Continue",
     }),
-    school: measureStep("5.png", {
+    "5": measureStep("5.png", {
       activeIndex: 3,
-      backHref: "/waitlist/name",
+      backHref: "/waitlist/4",
       search: true,
-      ctaHref: "/waitlist/email",
+      ctaHref: "/waitlist/7",
       ctaLabel: "Continue",
     }),
-    email: measureStep("7.png", {
+    "7": measureStep("7.png", {
       activeIndex: 4,
-      backHref: "/waitlist/school",
+      backHref: "/waitlist/5",
       email: true,
-      ctaHref: "/waitlist/confirmed",
+      ctaHref: "/waitlist/8",
       ctaLabel: "Confirm email",
     }),
-    confirmed: {
+    "8": {
       width: load("8.png").width,
       height: load("8.png").height,
       src: "/waitlist/artboards/8.png",
-      back: { left: 76, top: 44, width: 32, height: 32, href: "/waitlist/email" },
+      back: { left: 76, top: 44, width: 32, height: 32, href: "/waitlist/7" },
       copyLink: findBlackButton(load("8.png"), 420, 950, 2180, 2260),
+    },
+    "9": {
+      width: load("9.png").width,
+      height: load("9.png").height,
+      src: "/waitlist/artboards/9.png",
+      back: { left: 76, top: 44, width: 32, height: 32, href: "/waitlist/8" },
     },
   },
 };

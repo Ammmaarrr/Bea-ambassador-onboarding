@@ -2,22 +2,63 @@ import Link from "next/link";
 
 import overlays from "@/lib/waitlist-overlays.json";
 import { fontSans } from "@/lib/design";
+import {
+  WAITLIST_ARTBOARDS,
+  WAITLIST_PROGRESS_STEP_HREFS,
+  type WaitlistArtboardId,
+} from "@/lib/waitlist";
+import { progressSegmentRects } from "@/lib/waitlist-progress";
+import { waitlistScaledHitStyle } from "@/lib/waitlist-scaled-hit";
 import type { WaitlistOverlayPageKey } from "@/lib/waitlist-types";
+
+import { WaitlistScaledProgress } from "./WaitlistScaledProgress";
 
 type Props = {
   artboardId: WaitlistOverlayPageKey;
   children?: React.ReactNode;
 };
 
-/** Desktop/tablet: artboard PNG at design coordinates + interactive overlays. */
+type ScaledRect = {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+};
+
+function scaled(rect: ScaledRect, designWidth: number) {
+  return waitlistScaledHitStyle(rect, designWidth);
+}
+
+/** Scaled artboard PNG at design coordinates + interactive overlays. */
 export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
   const page = overlays.pages[artboardId];
+
+  if (!page) {
+    throw new Error(
+      `Missing waitlist overlay for artboard "${artboardId}". Check waitlist-overlays.json.`,
+    );
+  }
+
   const { width, height } = page;
+  const progress =
+    "progress" in page && page.progress
+      ? (page.progress as {
+          left: number;
+          top: number;
+          width: number;
+          height: number;
+          steps: number;
+          activeIndex: number;
+        })
+      : null;
+
+  const filledCount =
+    WAITLIST_ARTBOARDS[artboardId as WaitlistArtboardId].progressIndex ?? 0;
 
   return (
     <div
       className="waitlist-artboard-viewport"
-      style={{ height: `calc(${height}px * min(1, 100vw / ${width}px))` }}
+      style={{ height: `calc(${height}px * min(1, 100cqw / ${width}px))` }}
     >
       <div
         className="waitlist-artboard-canvas artboard-stage"
@@ -30,35 +71,15 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
           width={width}
           height={height}
           draggable={false}
+          className="waitlist-artboard-image"
           style={{ width, height, display: "block", userSelect: "none" }}
         />
+        {children}
+      </div>
 
-        {"back" in page && page.back && (
-          <Link
-            href={page.back.href}
-            aria-label="Go back"
-            className="artboard-hit"
-            style={{
-              left: page.back.left,
-              top: page.back.top,
-              width: page.back.width,
-              height: page.back.height,
-            }}
-          />
-        )}
-
-        {"waitingRoom" in page && page.waitingRoom && (
-          <Link
-            href={page.waitingRoom.href}
-            aria-label={page.waitingRoom.label}
-            className="artboard-hit"
-            style={{
-              left: page.waitingRoom.left,
-              top: page.waitingRoom.top,
-              width: page.waitingRoom.width,
-              height: page.waitingRoom.height,
-            }}
-          />
+      <div className="waitlist-scaled-layer">
+        {progress && filledCount > 0 && (
+          <WaitlistScaledProgress filledCount={filledCount} designWidth={width} />
         )}
 
         {"navLinks" in page &&
@@ -67,27 +88,17 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
               key={link.label}
               href={link.href}
               aria-label={link.label}
-              className="artboard-hit"
-              style={{
-                left: link.left,
-                top: link.top,
-                width: link.width,
-                height: link.height,
-              }}
+              className="waitlist-scaled-hit"
+              style={scaled(link, width)}
             />
           ))}
 
         {"heroCta" in page && page.heroCta && (
-          <Link
+          <a
             href={page.heroCta.href}
             aria-label={page.heroCta.label}
-            className="artboard-hit"
-            style={{
-              left: page.heroCta.left,
-              top: page.heroCta.top,
-              width: page.heroCta.width,
-              height: page.heroCta.height,
-            }}
+            className="waitlist-scaled-hit waitlist-scaled-hit--hero-cta"
+            style={scaled(page.heroCta, width)}
           />
         )}
 
@@ -96,14 +107,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
             id={page.heroEmail.id}
             type={page.heroEmail.type}
             aria-label={page.heroEmail.placeholder}
-            className="artboard-input waitlist-artboard-pill-input"
-            style={{
-              left: page.heroEmail.left,
-              top: page.heroEmail.top,
-              width: page.heroEmail.width,
-              height: page.heroEmail.height,
-              fontFamily: fontSans,
-            }}
+            className="waitlist-scaled-input waitlist-artboard-pill-input"
+            style={{ ...scaled(page.heroEmail, width), fontFamily: fontSans }}
           />
         )}
 
@@ -111,13 +116,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
           <Link
             href={page.heroSubmit.href}
             aria-label={page.heroSubmit.label}
-            className="artboard-hit"
-            style={{
-              left: page.heroSubmit.left,
-              top: page.heroSubmit.top,
-              width: page.heroSubmit.width,
-              height: page.heroSubmit.height,
-            }}
+            className="waitlist-scaled-hit"
+            style={scaled(page.heroSubmit, width)}
           />
         )}
 
@@ -126,14 +126,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
             id={page.footerEmail.id}
             type={page.footerEmail.type}
             aria-label={page.footerEmail.placeholder}
-            className="artboard-input waitlist-artboard-footer-input"
-            style={{
-              left: page.footerEmail.left,
-              top: page.footerEmail.top,
-              width: page.footerEmail.width,
-              height: page.footerEmail.height,
-              fontFamily: fontSans,
-            }}
+            className="waitlist-scaled-input waitlist-artboard-footer-input"
+            style={{ ...scaled(page.footerEmail, width), fontFamily: fontSans }}
           />
         )}
 
@@ -143,13 +137,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
               key={pill.label}
               type="button"
               aria-label={pill.label}
-              className="artboard-hit"
-              style={{
-                left: pill.left,
-                top: pill.top,
-                width: pill.width,
-                height: pill.height,
-              }}
+              className="waitlist-scaled-hit"
+              style={scaled(pill, width)}
             />
           ))}
 
@@ -159,13 +148,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
               key={i}
               type="button"
               aria-label={`Select city ${i + 1}`}
-              className="artboard-hit"
-              style={{
-                left: card.left,
-                top: card.top,
-                width: card.width,
-                height: card.height,
-              }}
+              className="waitlist-scaled-hit"
+              style={scaled(card, width)}
             />
           ))}
 
@@ -179,16 +163,10 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
               aria-label={field.placeholder || field.id}
               className={
                 "variant" in field && field.variant === "underline"
-                  ? "waitlist-artboard-underline"
-                  : "artboard-input waitlist-artboard-box-input"
+                  ? "waitlist-scaled-input waitlist-artboard-underline"
+                  : "waitlist-scaled-input artboard-input waitlist-artboard-box-input"
               }
-              style={{
-                left: field.left,
-                top: field.top,
-                width: field.width,
-                height: field.height,
-                fontFamily: fontSans,
-              }}
+              style={{ ...scaled(field, width), fontFamily: fontSans }}
             />
           ))}
 
@@ -196,13 +174,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
           <button
             type="button"
             aria-label="New York University"
-            className="artboard-hit"
-            style={{
-              left: page.schoolCard.left,
-              top: page.schoolCard.top,
-              width: page.schoolCard.width,
-              height: page.schoolCard.height,
-            }}
+            className="waitlist-scaled-hit"
+            style={scaled(page.schoolCard, width)}
           />
         )}
 
@@ -210,13 +183,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
           <button
             type="button"
             aria-label="I'm not currently in school"
-            className="artboard-hit"
-            style={{
-              left: page.notInSchool.left,
-              top: page.notInSchool.top,
-              width: page.notInSchool.width,
-              height: page.notInSchool.height,
-            }}
+            className="waitlist-scaled-hit"
+            style={scaled(page.notInSchool, width)}
           />
         )}
 
@@ -224,13 +192,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
           <Link
             href={page.cta.href}
             aria-label={page.cta.label}
-            className="artboard-hit"
-            style={{
-              left: page.cta.left,
-              top: page.cta.top,
-              width: page.cta.width,
-              height: page.cta.height,
-            }}
+            className="waitlist-scaled-hit"
+            style={scaled(page.cta, width)}
           />
         )}
 
@@ -238,13 +201,8 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
           <Link
             href={page.secondaryLink.href}
             aria-label={page.secondaryLink.label}
-            className="artboard-hit"
-            style={{
-              left: page.secondaryLink.left,
-              top: page.secondaryLink.top,
-              width: page.secondaryLink.width,
-              height: page.secondaryLink.height,
-            }}
+            className="waitlist-scaled-hit"
+            style={scaled(page.secondaryLink, width)}
           />
         )}
 
@@ -252,17 +210,44 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
           <button
             type="button"
             aria-label={page.copyLink.label}
-            className="artboard-hit"
-            style={{
-              left: page.copyLink.left,
-              top: page.copyLink.top,
-              width: page.copyLink.width,
-              height: page.copyLink.height,
-            }}
+            className="waitlist-scaled-hit"
+            style={scaled(page.copyLink, width)}
           />
         )}
 
-        {children}
+        {"back" in page && page.back && (
+          <a
+            href={page.back.href}
+            aria-label="Go back"
+            className="waitlist-scaled-hit waitlist-scaled-hit--back"
+            style={scaled(page.back, width)}
+          />
+        )}
+
+        {progress &&
+          progressSegmentRects(progress).map((rect, i) => {
+            if (i >= filledCount - 1) return null;
+            const href = WAITLIST_PROGRESS_STEP_HREFS[i];
+            if (!href) return null;
+            return (
+              <a
+                key={`progress-${i}`}
+                href={href}
+                aria-label={`Go to step ${i + 1}`}
+                className="waitlist-scaled-hit waitlist-scaled-hit--progress"
+                style={scaled(rect, width)}
+              />
+            );
+          })}
+
+        {"waitingRoom" in page && page.waitingRoom && (
+          <a
+            href={page.waitingRoom.href}
+            aria-label={page.waitingRoom.label}
+            className="waitlist-scaled-hit waitlist-scaled-hit--waiting-room"
+            style={scaled(page.waitingRoom, width)}
+          />
+        )}
       </div>
     </div>
   );

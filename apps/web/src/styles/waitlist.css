@@ -1,22 +1,17 @@
-/* Bea waitlist — pixel-aligned to design/waitlist artboard */
-
-/* Mobile vs desktop artboard (matches ambassador onboarding breakpoint) */
-.waitlist-page-mobile {
-  display: block;
+/* Bea waitlist — mobile coded (<768px) + artboard desktop (≥768px) */
+.waitlist-artboard-root {
+  --wl-bg: #fbf5ef;
+  --wl-text: #1a1a1a;
+  --wl-bar-inactive: #e7dad0;
+  --wl-bar-active: #1a1a1a;
+  background-color: var(--wl-bg);
+  min-height: 100vh;
 }
 
-.waitlist-page-desktop {
-  display: none !important;
-}
-
-@media (min-width: 768px) {
-  .waitlist-page-mobile {
-    display: none !important;
-  }
-
-  .waitlist-page-desktop {
-    display: block !important;
-  }
+.page-transition-root:has(.waitlist-artboard-root),
+.page-transition-root.page-transition-enter:has(.waitlist-artboard-root) {
+  animation: none !important;
+  transform: none !important;
 }
 
 .waitlist-root {
@@ -166,7 +161,7 @@
 }
 
 .waitlist-box-input::placeholder {
-  color: #c5c1bd;
+  color: #8a847e;
 }
 
 .waitlist-btn-primary {
@@ -248,14 +243,20 @@
 .waitlist-city-card {
   position: relative;
   display: block;
+  flex: 0 0 auto;
+  width: 100%;
   aspect-ratio: 121 / 309;
   border-radius: 14px;
   overflow: hidden;
   border: 2px solid transparent;
   padding: 0;
+  margin: 0;
   cursor: pointer;
-  background: #ddd;
+  background: #141210;
   text-align: left;
+  font: inherit;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .waitlist-city-card--static {
@@ -266,47 +267,69 @@
   border-color: var(--wl-text);
 }
 
-.waitlist-city-card img {
+.waitlist-city-card-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
-.waitlist-city-card-overlay {
+.waitlist-city-card-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.15) 55%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 8, 6, 0) 38%,
+    rgba(10, 8, 6, 0.5) 68%,
+    rgba(10, 8, 6, 0.94) 100%
+  );
+  pointer-events: none;
 }
 
-.waitlist-city-card-text {
+.waitlist-city-card-label {
   position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 14px;
-  color: #fff;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 0 11px 14px;
+  box-sizing: border-box;
 }
 
-.waitlist-city-card-text .city-name {
+.waitlist-city-card-photo,
+.waitlist-city-card-meta,
+.waitlist-city-card-text,
+.waitlist-city-card-overlay {
+  display: none;
+}
+
+.waitlist-city-card-label .city-name {
   display: block;
   font-family: var(--wl-serif);
-  font-size: 15px;
-  line-height: 1.2;
+  font-size: 14px;
+  line-height: 1.15;
 }
 
-.waitlist-city-card-text .city-plans {
+.waitlist-city-card-label .city-plans {
   display: block;
-  margin-top: 4px;
+  margin-top: 5px;
+  font-family: var(--wl-sans);
   font-size: 18px;
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
-.waitlist-city-card-text .city-tonight {
+.waitlist-city-card-label .city-tonight {
   display: block;
-  margin-top: 2px;
-  font-size: 11px;
+  margin-top: 3px;
+  font-family: var(--wl-sans);
+  font-size: 10px;
   opacity: 0.9;
+  letter-spacing: 0.02em;
 }
 
 .waitlist-school-card {
@@ -626,14 +649,19 @@
 }
 
 .waitlist-footer-title {
+  font-family: var(--wl-sans);
   font-size: clamp(28px, 4vw, 40px);
+  font-weight: 400;
   line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .waitlist-footer-title em {
+  display: block;
   font-family: var(--wl-serif);
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
+  font-synthesis: none;
 }
 
 /* Confirmed page */
@@ -672,6 +700,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.waitlist-check-badge-img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  object-fit: contain;
+}
+
+.waitlist-check-badge-svg {
+  display: block;
+  width: 92px;
+  height: 92px;
+  margin: 8px auto 20px;
 }
 
 .waitlist-confirmed-title {
@@ -713,6 +756,12 @@
 .waitlist-rank-city {
   font-size: 14px;
   color: var(--wl-muted);
+}
+
+.waitlist-rank-divider {
+  height: 1px;
+  margin: 20px 0 16px;
+  background: var(--wl-border);
 }
 
 .waitlist-rank-progress-label {
@@ -761,6 +810,13 @@
   text-align: center;
   font-size: 11px;
   line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.waitlist-perk-card svg {
+  color: #8b5a3c;
 }
 
 .waitlist-perk-card--active {
@@ -772,6 +828,31 @@
   font-family: var(--wl-serif);
   font-size: 13px;
   font-weight: 500;
+}
+
+.waitlist-perk-card-desc {
+  margin: 0;
+  font-family: var(--wl-sans);
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--wl-muted);
+}
+
+.waitlist-perk-card-footer {
+  margin: 10px 0 0;
+  font-family: var(--wl-sans);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--wl-text);
+}
+
+.waitlist-perks-subtitle {
+  margin: 0 0 16px;
+  font-family: var(--wl-serif);
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
+  color: var(--wl-text);
 }
 
 .waitlist-section-divider {
@@ -809,7 +890,7 @@
   color: var(--wl-text);
 }
 
-.waitlist-share-icon span:first-child {
+.waitlist-share-icon-circle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -817,16 +898,18 @@
   height: 44px;
   border-radius: 999px;
   border: 1px solid var(--wl-border);
+  color: var(--wl-text);
 }
 
-/* ── Desktop artboard PNG + overlays (pixel-perfect) ── */
-.waitlist-page-desktop {
-  background-color: var(--wl-bg);
+.waitlist-share-icon span {
+  font-family: var(--wl-serif);
+  font-size: 11px;
 }
 
+/* ── Artboard PNG + overlays (pixel-perfect) ── */
 .waitlist-artboard-viewport {
+  position: relative;
   width: 100%;
-  max-width: 100vw;
   overflow: hidden;
   background-color: var(--wl-bg);
 }
@@ -834,11 +917,18 @@
 .waitlist-artboard-canvas {
   position: relative;
   transform-origin: top left;
+  pointer-events: none;
+}
+
+/* PNG is decorative — overlays receive all pointer events */
+.waitlist-artboard-canvas > .waitlist-artboard-image {
+  pointer-events: none;
 }
 
 @media (max-width: 1366px) {
   .waitlist-artboard-canvas {
-    transform: scale(calc(100vw / 1367px));
+    /* cqw = container content width (excludes vertical scrollbar, unlike 100vw) */
+    transform: scale(calc(100cqw / 1367px));
   }
 }
 
@@ -855,54 +945,128 @@
   }
 }
 
+.waitlist-artboard-viewport .artboard-input,
+.waitlist-artboard-viewport .waitlist-artboard-pill-input,
+.waitlist-artboard-viewport .waitlist-artboard-footer-input,
+.waitlist-artboard-viewport .waitlist-artboard-box-input,
+.waitlist-artboard-viewport .waitlist-artboard-underline {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.waitlist-artboard-viewport .artboard-input::placeholder,
+.waitlist-artboard-viewport .waitlist-artboard-pill-input::placeholder,
+.waitlist-artboard-viewport .waitlist-artboard-footer-input::placeholder,
+.waitlist-artboard-viewport .waitlist-artboard-box-input::placeholder {
+  color: transparent !important;
+}
+
 .waitlist-artboard-pill-input {
   border-radius: 999px !important;
   padding-left: 20px !important;
   padding-right: 48px !important;
   font-size: 14px !important;
-  background: #fff !important;
-}
-
-.waitlist-artboard-pill-input::placeholder {
-  color: #c5c1bd !important;
 }
 
 .waitlist-artboard-footer-input {
   border-radius: 20px !important;
   padding: 20px 22px !important;
   font-size: 15px !important;
-  background: #f5f2ee !important;
   align-items: flex-start;
-}
-
-.waitlist-artboard-footer-input::placeholder {
-  color: #c5c1bd !important;
 }
 
 .waitlist-artboard-box-input {
   border-radius: 14px !important;
   padding: 0 18px !important;
   font-size: 15px !important;
-  background: #fff !important;
 }
 
-.waitlist-artboard-box-input::placeholder {
-  color: #c5c1bd !important;
-}
-
-.waitlist-artboard-underline {
-  position: absolute;
-  z-index: 20;
-  border: none !important;
-  outline: none;
-  background: var(--wl-bg) !important;
+.waitlist-scaled-input.waitlist-artboard-underline {
   padding: 0 2px 6px;
   font-size: 16px;
   color: var(--wl-text);
   caret-color: var(--wl-text);
+}
+
+.waitlist-artboard-viewport .artboard-hit {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.waitlist-artboard-viewport .artboard-hit--waiting-room {
+  z-index: 30;
+}
+
+/* Header hits sit outside the scaled canvas so clicks align on all viewports */
+.waitlist-scaled-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.waitlist-scaled-hit,
+.waitlist-scaled-input {
+  position: absolute;
+  pointer-events: auto;
+}
+
+.waitlist-scaled-hit {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.waitlist-scaled-input {
+  z-index: 20;
+  background: transparent !important;
+  border: none !important;
+  outline: none;
   box-shadow: none;
   appearance: none;
   -webkit-appearance: none;
+}
+
+/* Live stepper — single SVG masks PNG art and paints bars */
+.waitlist-scaled-progress-svg {
+  position: absolute;
+  z-index: 45;
+  pointer-events: none;
+  display: block;
+}
+
+.waitlist-scaled-hit--hero-cta {
+  z-index: 58;
+}
+
+.waitlist-scaled-hit--back {
+  z-index: 55;
+}
+
+.waitlist-scaled-hit--waiting-room {
+  z-index: 56;
+  box-sizing: content-box;
+  padding: 10px;
+  margin: -10px;
+}
+
+.waitlist-scaled-hit--progress {
+  z-index: 60;
 }
 
 /* ── Landing mobile (coded) ── */
@@ -982,9 +1146,36 @@
   padding-bottom: 64px;
 }
 
+.waitlist-launch-subtitle {
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--wl-text);
+  max-width: 420px;
+}
+
+.waitlist-footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.waitlist-footer-input::placeholder {
+  color: #4a4540;
+  opacity: 1;
+}
+
+.waitlist-footer-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
 .waitlist-footer-input {
-  min-height: 112px;
-  padding: 22px 20px !important;
+  min-height: 56px;
+  padding: 16px 18px !important;
   background: #f5f2ee !important;
   border-color: #ebe6e0 !important;
   border-radius: 18px !important;
@@ -999,11 +1190,24 @@
   margin-top: 32px;
   font-size: 13px;
   line-height: 1.55;
+  color: var(--wl-text);
+  text-align: center;
+}
+
+.waitlist-confirmed-heart {
+  display: block;
+  margin: 0 auto 12px;
   color: var(--wl-muted);
 }
 
+.waitlist-confirmed-footer-muted {
+  margin-top: 8px;
+  color: var(--wl-muted);
+  font-size: 12px;
+}
+
 .waitlist-prizes-mobile {
-  padding: 48px var(--wl-gutter);
+  padding: 18px var(--wl-gutter) 56px;
   max-width: 480px;
 }
 
@@ -1011,4 +1215,581 @@
   font-size: 15px;
   line-height: 1.5;
   margin: 0 0 16px;
+}
+
+/* ── Prizes (artboard 9) — full feature set, coded ── */
+.waitlist-prizes-title {
+  margin: 10px 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.waitlist-prizes-sub {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--wl-muted);
+}
+
+.waitlist-prizes-sub span {
+  display: block;
+}
+
+.waitlist-prizes-card,
+.waitlist-points-card,
+.waitlist-reward-card,
+.waitlist-info-card {
+  border: 1px solid var(--wl-border);
+  border-radius: 16px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.waitlist-card-heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* YOUR POINTS */
+.waitlist-points-card {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 24px;
+  padding: 18px;
+}
+
+.waitlist-points-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.waitlist-points-eyebrow {
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #6f6a64;
+}
+
+.waitlist-points-value {
+  margin: 8px 0 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.waitlist-points-bar {
+  height: 6px;
+  margin: 14px 0 0;
+  border-radius: 999px;
+  background: #ece4da;
+  overflow: hidden;
+}
+
+.waitlist-points-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #3a322c;
+}
+
+.waitlist-points-note {
+  margin: 10px 0 0;
+  font-size: 11.5px;
+  color: var(--wl-muted);
+}
+
+.waitlist-points-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.waitlist-points-gift {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: #f1e8db;
+  color: #8b5a3c;
+}
+
+.waitlist-points-history {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 11px;
+  color: var(--wl-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Section header (Featured rewards + View all) */
+.waitlist-prizes-sectionhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.waitlist-prizes-viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--wl-text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Featured reward cards */
+.waitlist-reward-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.waitlist-reward-card {
+  padding: 18px;
+}
+
+.waitlist-reward-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f3e4d3;
+  color: #9a5a28;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.waitlist-reward-title {
+  margin: 12px 0 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.waitlist-reward-desc {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--wl-muted);
+}
+
+.waitlist-reward-desc span {
+  display: block;
+}
+
+.waitlist-reward-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.waitlist-reward-cost {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--wl-muted);
+}
+
+.waitlist-reward-redeem {
+  border: none;
+  border-radius: 10px;
+  background: var(--wl-text);
+  color: #fff;
+  padding: 9px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Generic info cards (school / prompts / earn / standing) */
+.waitlist-info-card {
+  margin-top: 16px;
+  padding: 18px;
+}
+
+.waitlist-info-eyebrow {
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #6f6a64;
+}
+
+.waitlist-info-text {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--wl-muted);
+}
+
+.waitlist-info-strong {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--wl-text);
+}
+
+.waitlist-info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2a2522;
+  flex-shrink: 0;
+}
+
+.waitlist-school-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.waitlist-info-divider {
+  height: 1px;
+  margin: 16px 0;
+  background: var(--wl-border);
+}
+
+/* Prompt points breakdown */
+.waitlist-prompt-groups {
+  margin-top: 14px;
+}
+
+.waitlist-prompt-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--wl-border);
+}
+
+.waitlist-prompt-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wl-text);
+}
+
+.waitlist-prompt-places {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: right;
+  font-size: 11.5px;
+  color: var(--wl-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ways to earn / Your standing lists */
+.waitlist-earn-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.waitlist-earn-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-top: 1px solid var(--wl-border);
+}
+
+.waitlist-earn-item:first-child {
+  border-top: none;
+}
+
+.waitlist-earn-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.waitlist-earn-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.waitlist-earn-desc {
+  margin: 3px 0 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: var(--wl-muted);
+}
+
+.waitlist-earn-points {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #f1e8db;
+  color: #2a2522;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.waitlist-standing-value {
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.waitlist-standing-cta {
+  margin-top: 16px;
+}
+
+/* ── Mobile app shell (artboard 9 chrome) ── */
+.waitlist-appbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  padding-top: calc(10px + env(safe-area-inset-top));
+  background: rgba(251, 245, 239, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #efe7dd;
+}
+
+.waitlist-appbar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--wl-text);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.waitlist-appbar-logo {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--wl-text);
+  text-decoration: none;
+}
+
+.waitlist-appbar-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding: 5px 10px 5px 5px;
+  border: 1px solid #ece4da;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.waitlist-appbar-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  object-fit: cover;
+  background: #ece4da;
+  flex-shrink: 0;
+  display: block;
+}
+
+.waitlist-appbar-avatar--lg {
+  width: 44px;
+  height: 44px;
+}
+
+.waitlist-appbar-profile-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.waitlist-appbar-profile-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wl-text);
+}
+
+.waitlist-appbar-profile-org {
+  font-size: 11px;
+  color: var(--wl-muted);
+}
+
+/* Drawer */
+.waitlist-drawer-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.waitlist-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(20, 16, 12, 0.38);
+  cursor: pointer;
+}
+
+.waitlist-drawer {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: min(82vw, 320px);
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px calc(20px + env(safe-area-inset-bottom));
+  padding-top: calc(14px + env(safe-area-inset-top));
+  background: #fbf5ef;
+  border-right: 1px solid #efe7dd;
+  box-shadow: 0 0 40px rgba(20, 16, 12, 0.18);
+  animation: waitlist-drawer-in 0.22s ease;
+}
+
+@keyframes waitlist-drawer-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.waitlist-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+
+.waitlist-drawer-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-bottom: 8px;
+  border: 1px solid #ece4da;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.waitlist-drawer-profile-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.waitlist-drawer-profile-name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--wl-text);
+}
+
+.waitlist-drawer-profile-org {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--wl-muted);
+}
+
+.waitlist-drawer-nav {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.waitlist-drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 14px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--wl-text);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+.waitlist-drawer-link.is-active {
+  background: #efe7dd;
+  font-weight: 700;
+}
+
+.waitlist-drawer-ranks {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.waitlist-drawer-rank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #ece4da;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.waitlist-drawer-rank-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #e7ddd1;
+  flex-shrink: 0;
+}
+
+.waitlist-drawer-rank-org {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wl-text);
+}
+
+.waitlist-drawer-rank-detail {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--wl-muted);
 }

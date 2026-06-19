@@ -7,6 +7,7 @@
 @import "./artboard.css";
 @import "./onboarding-mobile.css";
 @import "./waitlist.css";
+@import "./waitlist-mobile.css";
 
 html,
 body {

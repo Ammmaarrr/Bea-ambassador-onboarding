@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   images: {
     unoptimized: true,
   },
@@ -14,6 +15,7 @@ const nextConfig: NextConfig = {
       { source: "/waitlist/school", destination: "/waitlist/5", permanent: true },
       { source: "/waitlist/email", destination: "/waitlist/7", permanent: true },
       { source: "/waitlist/confirmed", destination: "/waitlist/8", permanent: true },
+      { source: "/waitlist/waiting-room", destination: "/waitlist/9", permanent: true },
     ];
   },
 };

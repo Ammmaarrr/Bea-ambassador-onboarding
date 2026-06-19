@@ -14,12 +14,12 @@ export const fraunces = Fraunces({
   fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
-/** UI/body sans. */
+/** UI/body sans — Lato via Google Fonts (Regular/Light/Bold; artboard also uses Medium/Semibold). */
 export const lato = Lato({
   subsets: ["latin"],
   weight: ["300", "400", "700"],
   style: ["normal"],
   display: "swap",
   variable: "--font-lato",
-  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+  fallback: ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "sans-serif"],
 });

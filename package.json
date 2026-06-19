@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "npm run install:web",
     "dev": "npm run dev --prefix apps/web",
+    "dev:clean": "npm run dev:clean --prefix apps/web",
     "build": "npm run build --prefix apps/web",
     "start": "npm run start --prefix apps/web",
     "lint": "npm run lint --prefix apps/web",

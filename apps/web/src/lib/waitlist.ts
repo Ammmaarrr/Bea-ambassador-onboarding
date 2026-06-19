@@ -13,7 +13,7 @@
  */
 
 export const WAITLIST = {
-  bg: "#f8f3ef",
+  bg: "#fbf5ef",
   text: "#1a1a1a",
   muted: "#9a9490",
   border: "#d8d5cf",
@@ -34,7 +34,7 @@ export type WaitlistArtboardMeta = {
   file: string;
   label: string;
   href: string;
-  /** 0-based index on the 5-segment progress bar (join steps only) */
+  /** Number of filled stepper segments on join steps (1–4). */
   progressIndex: number | null;
   backHref: string | null;
   nextHref: string | null;
@@ -109,30 +109,38 @@ export const WAITLIST_ARTBOARDS: Record<WaitlistArtboardId, WaitlistArtboardMeta
 /** Ordered join flow (skips artboard 6 per design note). */
 export const WAITLIST_JOIN_FLOW: WaitlistArtboardId[] = ["3", "4", "5", "7", "8", "9"];
 
+/** Progress stepper segment destinations (market → name → school → email). */
+export const WAITLIST_PROGRESS_STEP_HREFS = [
+  "/waitlist/3",
+  "/waitlist/4",
+  "/waitlist/5",
+  "/waitlist/7",
+] as const;
+
 export const WAITLIST_CITIES = [
   {
     id: "nyc",
     name: "New York",
     plans: "2,481",
-    image: "/waitlist/cities/new-york.png",
+    image: "/waitlist/cities/new-york.png?v=3",
   },
   {
     id: "boston",
     name: "Boston",
     plans: "1,202",
-    image: "/waitlist/cities/boston.png",
+    image: "/waitlist/cities/boston.png?v=3",
   },
   {
     id: "miami",
     name: "Miami",
     plans: "973",
-    image: "/waitlist/cities/miami.png",
+    image: "/waitlist/cities/miami.png?v=3",
   },
   {
     id: "la",
     name: "Los Angeles",
     plans: "1,156",
-    image: "/waitlist/cities/los-angeles.png",
+    image: "/waitlist/cities/los-angeles.png?v=3",
   },
 ] as const;
 
@@ -143,6 +151,11 @@ export const WAITLIST_HERO_CITIES = [
   "Los Angeles",
   "Chicago",
 ] as const;
+
+/** Hero photo on landing (same asset as laptop artboard). */
+export const WAITLIST_HERO_IMAGE = "/waitlist/hero/couple.png";
+
+export type WaitlistCity = (typeof WAITLIST_CITIES)[number];
 
 export function waitlistHref(id: WaitlistArtboardId): string {
   return WAITLIST_ARTBOARDS[id].href;

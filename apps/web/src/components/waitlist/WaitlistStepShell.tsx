@@ -24,7 +24,7 @@ export function WaitlistStepShell({
   children,
   footer,
 }: Props) {
-  const progressIndex = WAITLIST_ARTBOARDS[artboardId].progressIndex ?? 0;
+  const filledCount = WAITLIST_ARTBOARDS[artboardId].progressIndex ?? 0;
 
   return (
     <div className="waitlist-root">
@@ -33,7 +33,7 @@ export function WaitlistStepShell({
           <Link href={backHref} className="waitlist-back" aria-label="Go back">
             <ChevronLeft size={22} strokeWidth={1.75} />
           </Link>
-          <WaitlistProgress activeIndex={progressIndex} />
+          <WaitlistProgress filledCount={filledCount} />
         </div>
 
         <div className="waitlist-step-body">

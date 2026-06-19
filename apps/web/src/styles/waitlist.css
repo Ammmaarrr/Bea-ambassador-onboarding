@@ -23,7 +23,7 @@
   --wl-bar-active: #1a1a1a;
   --wl-input-bg: #ffffff;
   --wl-serif: "Canela Text", var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --wl-sans: var(--font-lato), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+  --wl-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
     sans-serif;
   --wl-content-max: 520px;
   --wl-gutter: 28px;
@@ -1076,8 +1076,8 @@
 
 .waitlist-landing-mobile .waitlist-landing-logo {
   font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
 .waitlist-landing-mobile .waitlist-hero {
@@ -1091,7 +1091,7 @@
 
 .waitlist-landing-mobile .waitlist-hero-title {
   font-size: 40px;
-  font-weight: 700;
+  font-weight: 400;
   margin-top: 14px;
 }
 

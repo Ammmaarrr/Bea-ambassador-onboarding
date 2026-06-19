@@ -7,9 +7,9 @@ export const ARTBOARD = {
   prizesSectionPaddingTop: 44,
 } as const;
 
-/** Illustrator design: Lato + SF Pro Display for UI/body. */
+/** Artboard UI/body sans — Inter (neutral grotesque) with system fallbacks. */
 export const fontSans =
-  "var(--font-lato), -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif";
+  "var(--font-inter), -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif";
 export const fontLato = fontSans;
 /** @deprecated Use fontSans — kept so existing components pick up the design stack. */
 export const fontAptos = fontSans;

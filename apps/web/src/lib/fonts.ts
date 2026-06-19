@@ -1,4 +1,4 @@
-import { Fraunces, Lato } from "next/font/google";
+import { Fraunces, Inter, Lato } from "next/font/google";
 
 /** Literal stack for inline styles — matches fonts.css @font-face family name. */
 export const fontCanelaFamily =
@@ -21,5 +21,15 @@ export const lato = Lato({
   style: ["normal"],
   display: "swap",
   variable: "--font-lato",
+  fallback: ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "sans-serif"],
+});
+
+/** Waitlist display/UI sans — Inter matches the artboard's neutral grotesque (logo + headings). */
+export const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
+  display: "swap",
+  variable: "--font-inter",
   fallback: ["-apple-system", "BlinkMacSystemFont", "SF Pro Display", "Segoe UI", "sans-serif"],
 });

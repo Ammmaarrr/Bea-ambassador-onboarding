@@ -14,7 +14,7 @@ export function WaitlistLandingMobile() {
     <div className="waitlist-root waitlist-landing-mobile">
       <header className="waitlist-landing-header">
         <Link href="/waitlist" className="waitlist-landing-logo">
-          bea
+          Bea
         </Link>
         <Link href={joinHref} className="waitlist-landing-cta">
           Join waitlist

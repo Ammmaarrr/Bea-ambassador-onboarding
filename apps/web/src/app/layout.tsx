@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 
-import { fraunces, lato } from "@/lib/fonts";
+import { fraunces, inter, lato } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "Welcome — Campus launch | bea",
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${lato.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${lato.variable} ${inter.variable}`}>
       <head>
         <link
           rel="preload"

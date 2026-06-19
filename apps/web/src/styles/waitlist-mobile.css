@@ -62,11 +62,20 @@
   font-family: var(--wl-sans);
 }
 
-.waitlist-page-mobile .waitlist-landing-logo,
-.waitlist-page-mobile .waitlist-hero-title,
-.waitlist-page-mobile .waitlist-section-heading {
-  font-weight: 700;
+.waitlist-page-mobile .waitlist-landing-logo {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Artboard headings are a light/regular grotesque, not bold */
+.waitlist-page-mobile .waitlist-hero-title {
+  font-weight: 400;
   letter-spacing: -0.03em;
+}
+
+.waitlist-page-mobile .waitlist-section-heading {
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .waitlist-page-mobile .waitlist-landing-cta,
@@ -337,14 +346,14 @@
   font-size: 9.5px;
 }
 
-/* Prizes page — Canela display to match artboard (logo, page title, reward titles) */
+/* Prizes page — neutral grotesque (Inter) matching artboard logo + titles */
 .waitlist-page-mobile .waitlist-appbar-logo,
 .waitlist-page-mobile .waitlist-prizes-title,
 .waitlist-page-mobile .waitlist-reward-title {
-  font-family: "Canela Text", var(--font-fraunces), Georgia, "Times New Roman", serif;
-  font-weight: 500;
+  font-family: var(--wl-sans);
+  font-weight: 600;
   font-synthesis: none;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   -webkit-font-smoothing: antialiased;
 }
 

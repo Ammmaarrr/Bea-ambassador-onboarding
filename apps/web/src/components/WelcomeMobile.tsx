@@ -78,7 +78,10 @@ export function WelcomeMobile() {
               A little friendly competition to help launch bea on your campus.
             </p>
 
-            <Link href="/your-school" className="btn-login onboarding-btn-link">
+            <Link
+              href="/your-school"
+              className="btn-login onboarding-btn-link onboarding-welcome-cta"
+            >
               <span>Start your journey</span>
               <span className="btn-arrow">
                 <ArrowRight strokeWidth={2} aria-hidden="true" />

@@ -75,7 +75,7 @@ export function WaitlistStepMobile({ artboardId }: Props) {
           </div>
           <div className="waitlist-underline-field">
             <label className="waitlist-field-label" htmlFor="age">
-              Age
+              How old are you?
             </label>
             <input
               id="age"

@@ -10,7 +10,7 @@ type Props = {
   artboardId: WaitlistArtboardId;
 };
 
-/** Phone-only waitlist layouts (<768px). */
+/** Coded waitlist layouts — all viewports (real HTML, selectable text). */
 export function WaitlistMobile({ artboardId }: Props) {
   if (artboardId === "1") {
     return <WaitlistLandingMobile />;

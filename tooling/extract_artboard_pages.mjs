@@ -57,10 +57,14 @@ const ab2 = PNG.sync.read(fs.readFileSync(path.join(srcDir, "Artboard 1_2.png"))
 crop(ab2, { left: 76, top: 380, right: 555, bottom: 455 }, path.join(outDir, "prize-row-campus.png"));
 crop(ab2, { left: 76, top: 475, right: 555, bottom: 550 }, path.join(outDir, "prize-row-market.png"));
 crop(ab2, { left: 76, top: 570, right: 555, bottom: 645 }, path.join(outDir, "prize-row-national.png"));
+crop(ab2, { left: 695, top: 200, right: 1290, bottom: 820 }, path.join(outDir, "prizes-path.png"));
+// Legacy crop kept for reference
 crop(ab2, { left: 600, top: 200, right: 1290, bottom: 820 }, path.join(outDir, "prizes-illus.png"));
 
-// School page right image from artboard 1_1
+// School page right image from artboard 1_1 — building only (no header ghost UI)
 const ab1 = PNG.sync.read(fs.readFileSync(path.join(srcDir, "Artboard 1_1.png")));
+crop(ab1, { left: 760, top: 120, right: 1366, bottom: 1000 }, path.join(outDir, "school-building.png"));
+// Legacy wide crop kept for reference
 crop(ab1, { left: 480, top: 0, right: 1366, bottom: 1000 }, path.join(outDir, "school-hero.png"));
 
 // School card from artboard 1_1

@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import "@/styles/login.css";
-
 import {
   getMobileTitleLines,
   ONBOARDING_PAGE_CONTENT,
@@ -11,6 +9,7 @@ import {
 import { ARTBOARD } from "@/lib/design";
 
 import { OnboardingMobileContent, YoureInShareSection } from "./OnboardingMobileContent";
+import { AppleIcon, GoogleIcon } from "./SocialProviderIcons";
 
 type Props = {
   pageKey: OnboardingPageKey;
@@ -90,9 +89,28 @@ export function OnboardingMobilePage({ pageKey }: Props) {
           )}
 
           {isAccount && (
-            <Link href={content.cta.href} className="btn-login onboarding-btn-link justify-center">
-              <span>{content.cta.label}</span>
-            </Link>
+            <>
+              <Link href={content.cta.href} className="btn-login onboarding-btn-link justify-center">
+                <span>{content.cta.label}</span>
+              </Link>
+              <div className="or-divider">
+                <span className="or-text">or continue with</span>
+              </div>
+              <div className="onboarding-social-row">
+                <button type="button" className="btn-social">
+                  <GoogleIcon />
+                  Google
+                </button>
+                <button type="button" className="btn-social">
+                  <AppleIcon />
+                  Apple
+                </button>
+              </div>
+              <p className="onboarding-legal">
+                By creating an account, you agree to our{" "}
+                <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+              </p>
+            </>
           )}
         </div>
       </div>

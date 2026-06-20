@@ -27,6 +27,13 @@ body {
 }
 
 /* ── Page transitions (2026-style soft slide + fade) ── */
+.page-transition-root:has(.onboarding-artboard-root),
+.page-transition-root.page-transition-enter:has(.onboarding-artboard-root) {
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
 .page-transition-root {
   min-height: 100%;
 }

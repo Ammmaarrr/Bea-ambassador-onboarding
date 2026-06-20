@@ -1,15 +1,10 @@
-import { WelcomeDesktop } from "./WelcomeDesktop";
-import { WelcomeMobile } from "./WelcomeMobile";
+import { OnboardingShell } from "./OnboardingShell";
+import { WelcomeCoded } from "./WelcomeCoded";
 
 export function WelcomePage() {
   return (
-    <>
-      <div className="onboarding-page-mobile">
-        <WelcomeMobile />
-      </div>
-      <div className="onboarding-page-desktop">
-        <WelcomeDesktop />
-      </div>
-    </>
+    <OnboardingShell>
+      <WelcomeCoded />
+    </OnboardingShell>
   );
 }

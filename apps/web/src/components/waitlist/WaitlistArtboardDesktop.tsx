@@ -132,6 +132,7 @@ export function WaitlistArtboardDesktop({ artboardId, children }: Props) {
         )}
 
         {"cityPills" in page &&
+          artboardId !== "1" &&
           page.cityPills?.map((pill) => (
             <button
               key={pill.label}

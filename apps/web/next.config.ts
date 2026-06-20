@@ -5,8 +5,13 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // OneDrive-synced workspaces corrupt webpack's persistent dev cache — disable it.
+  webpack: (config, { dev }) => {
+    if (dev) config.cache = false;
+    return config;
+  },
   experimental: {
-    viewTransition: true,
+    viewTransition: false,
   },
   async redirects() {
     return [

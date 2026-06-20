@@ -20,8 +20,7 @@ export function ArtboardStepHeader({
   return (
     <div
       className={
-        "artboard-header max-md:hidden" +
-        (variant === "welcome" ? " artboard-header--welcome" : "")
+        "artboard-header" + (variant === "welcome" ? " artboard-header--welcome" : "")
       }
       style={{
         width,

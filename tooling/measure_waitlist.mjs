@@ -168,7 +168,8 @@ function measureLanding() {
     width: img.width,
     height: img.height,
     src: "/waitlist/artboards/Artboard 1.png",
-    heroEmail: findRoundedInput(img, L, R, 300, 420),
+    heroEmail: findRoundedInput(img, L, R, 420, 540),
+    heroSubmit: { left: 564, top: 458, width: 44, height: 44, href: "/waitlist/3", label: "Submit email" },
     heroCta: { left: 1138, top: 46, width: 128, height: 56, href: "/waitlist/3", label: "Join waitlist" },
     cityPills: [
       { left: 76, top: 612, width: 56, height: 32, label: "NYC" },

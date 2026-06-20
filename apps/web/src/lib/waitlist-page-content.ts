@@ -9,23 +9,48 @@ export type WaitlistStepContent = {
 };
 
 export const WAITLIST_LANDING_CONTENT = {
-  eyebrow: "Together, today.",
+  eyebrow: "LAUNCHING THIS SUMMER",
   title: "Together,\ntoday.",
-  subtitle: "Join the waitlist for early access to Bea in your city.",
+  subtitle: "24 hour to chat. Only see active profiles.",
   emailPlaceholder: "Enter email to join waitlist",
+  heroCities: ["NYC", "Boston", "Miami", "Los Angeles", "Chicago"] as const,
   timerHeading: "The countdown is on",
   timerBody: "We're launching city by city. The sooner you join, the sooner your market unlocks.",
-  featuresHeading: "Why join early?",
+  featuresEyebrow: "BUILT FOR THE MOMENT",
+  featuresTitle: "24 hours to connect.",
+  featuresSub: "Less text, more date.",
   features: [
-    "First access when your city goes live",
-    "Earn perks for moving up the waitlist",
-    "Shape the product with early feedback",
+    { icon: "♡", label: "Match with intention" },
+    { icon: "◷", label: "Connect today" },
+    { icon: "◎", label: "Explore anywhere" },
   ],
+  launchCitiesLabel: "Launching first in",
   launchHeading: "Launching soon in",
   launchSubtitle:
-    "We're building communities in these cities. Join the waitlist to get early access.",
-  footerTitle: "Don't miss your city's launch.",
-  footerEmphasis: "Join the waitlist.",
+    "We're curating something special.",
+  experienceHeading: "Experience the waitlist",
+  experienceSteps: [
+    {
+      number: 1,
+      title: "Join the waitlist",
+      description: "Choose your campus and market",
+      icon: "calendar" as const,
+    },
+    {
+      number: 2,
+      title: "Friendly competition",
+      description: "Daily icebreaker prompts\nPost and vote to gain points",
+      icon: "star" as const,
+    },
+    {
+      number: 3,
+      title: "Win prizes & perks",
+      description: "We're giving away in-app perks, merch, cash, & a car!",
+      icon: "gift" as const,
+    },
+  ],
+  footerTitle: "Join the waitlist for",
+  footerEmphasis: "early access and perks",
   footerEmailPlaceholder: "Your email address",
   footerCta: "Join waitlist",
 } as const;

@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-import { WAITLIST_ARTBOARDS, WAITLIST_HERO_CITIES, WAITLIST_HERO_IMAGE } from "@/lib/waitlist";
+import { WAITLIST_ARTBOARDS, WAITLIST_HERO_IMAGE } from "@/lib/waitlist";
 import { WAITLIST_LANDING_CONTENT } from "@/lib/waitlist-page-content";
 
-import { WaitlistCityCarousel } from "./WaitlistCityCarousel";
+import { WaitlistCountdownRing } from "./WaitlistCountdownRing";
+import { WaitlistExperienceBanner } from "./WaitlistExperienceBanner";
+import { WaitlistHeroCityPills } from "./WaitlistHeroCityPills";
+import { WaitlistLaunchCityRow } from "./WaitlistLaunchCityRow";
 
-/** Phone-only waitlist landing — coded layout (artboard 1). */
+/** Coded waitlist landing — selectable HTML, artboard layout at desktop widths. */
 export function WaitlistLandingMobile() {
   const joinHref = WAITLIST_ARTBOARDS["1"].nextHref!;
 
@@ -16,13 +19,18 @@ export function WaitlistLandingMobile() {
         <Link href="/waitlist" className="waitlist-landing-logo">
           Bea
         </Link>
+        <nav className="waitlist-landing-nav" aria-label="Primary">
+          <a href="#faq">FAQ</a>
+          <a href="#ambassadors">Ambassadors</a>
+          <a href="#calendar">Calendar</a>
+        </nav>
         <Link href={joinHref} className="waitlist-landing-cta">
           Join waitlist
         </Link>
       </header>
 
       <section className="waitlist-hero">
-        <div>
+        <div className="waitlist-hero-copy">
           <p className="waitlist-hero-eyebrow">{WAITLIST_LANDING_CONTENT.eyebrow}</p>
           <h1 className="waitlist-hero-title">
             Together,
@@ -43,18 +51,7 @@ export function WaitlistLandingMobile() {
             </button>
           </form>
 
-          <div className="waitlist-city-pills">
-            {WAITLIST_HERO_CITIES.map((city, i) => (
-              <span
-                key={city}
-                className={
-                  "waitlist-city-pill" + (i === 0 ? " waitlist-city-pill--active" : "")
-                }
-              >
-                {city}
-              </span>
-            ))}
-          </div>
+          <WaitlistHeroCityPills cities={WAITLIST_LANDING_CONTENT.heroCities} defaultActive="NYC" />
         </div>
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -67,54 +64,53 @@ export function WaitlistLandingMobile() {
         />
       </section>
 
+      {/*
+        Timer + Features section (artboard: timer ring LEFT, features text RIGHT).
+        DOM order keeps text first so mobile stacks: text → timer.
+        CSS `order` swaps them at desktop → timer LEFT, features text RIGHT.
+      */}
       <section className="waitlist-section waitlist-section--timer">
         <div className="waitlist-section-grid">
-          <div>
-            <h2 className="waitlist-section-heading">{WAITLIST_LANDING_CONTENT.timerHeading}</h2>
-            <p className="waitlist-section-serif">{WAITLIST_LANDING_CONTENT.timerBody}</p>
-          </div>
-          <div className="waitlist-timer-ring" aria-hidden>
-            <svg viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="44" fill="none" stroke="#ebe4dc" strokeWidth="6" />
-              <circle
-                cx="50"
-                cy="50"
-                r="44"
-                fill="none"
-                stroke="#1a1a1a"
-                strokeWidth="6"
-                strokeDasharray="210 276"
-                strokeLinecap="round"
-              />
-            </svg>
-            <div className="waitlist-timer-inner">
-              <span className="waitlist-timer-time">12:04:33</span>
-              <div className="waitlist-timer-labels">
-                <span>HRS</span>
-                <span>MIN</span>
-                <span>SEC</span>
-              </div>
+          <div className="waitlist-timer-features">
+            <p className="waitlist-features-eyebrow">{WAITLIST_LANDING_CONTENT.featuresEyebrow}</p>
+            <h2 className="waitlist-section-heading waitlist-features-title waitlist-section-heading--serif">
+              {WAITLIST_LANDING_CONTENT.featuresTitle}
+            </h2>
+            <p className="waitlist-features-sub">{WAITLIST_LANDING_CONTENT.featuresSub}</p>
+            <div className="waitlist-feature-row">
+              {WAITLIST_LANDING_CONTENT.features.map((feature) => (
+                <div key={feature.label} className="waitlist-feature-item">
+                  <span className="waitlist-feature-icon" aria-hidden>
+                    {feature.icon}
+                  </span>
+                  <span>{feature.label}</span>
+                </div>
+              ))}
             </div>
           </div>
+          <WaitlistCountdownRing />
         </div>
       </section>
 
-      <section className="waitlist-section">
-        <h2 className="waitlist-section-heading">{WAITLIST_LANDING_CONTENT.featuresHeading}</h2>
-        <div className="waitlist-feature-row">
-          {WAITLIST_LANDING_CONTENT.features.map((feature) => (
-            <div key={feature} className="waitlist-feature-item">
-              <span aria-hidden>✓</span>
-              <span>{feature}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
+      {/*
+        Cities section (artboard: "LAUNCHING SOON" text LEFT, city cards RIGHT).
+        waitlist-launch-grid switches to 2-col at desktop.
+      */}
       <section className="waitlist-section waitlist-section--launch">
-        <h2 className="waitlist-section-heading">{WAITLIST_LANDING_CONTENT.launchHeading}</h2>
-        <p className="waitlist-launch-subtitle">{WAITLIST_LANDING_CONTENT.launchSubtitle}</p>
-        <WaitlistCityCarousel />
+        <div className="waitlist-launch-grid">
+          <div className="waitlist-launch-copy">
+            <p className="waitlist-features-eyebrow">LAUNCHING SOON</p>
+            <h2 className="waitlist-section-heading waitlist-section-heading--serif">
+              {WAITLIST_LANDING_CONTENT.launchSubtitle}
+            </h2>
+          </div>
+          <WaitlistLaunchCityRow />
+        </div>
+      </section>
+
+      {/* Experience section — mobile only; hidden at desktop (not in artboard 1 desktop layout) */}
+      <section className="waitlist-section waitlist-section--experience">
+        <WaitlistExperienceBanner />
       </section>
 
       <section className="waitlist-section waitlist-section--footer">

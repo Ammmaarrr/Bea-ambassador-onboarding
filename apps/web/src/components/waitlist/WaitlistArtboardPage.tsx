@@ -1,28 +1,21 @@
 import type { WaitlistArtboardId } from "@/lib/waitlist";
 
-import { WaitlistArtboardDesktop } from "./WaitlistArtboardDesktop";
+import { WaitlistDesktopCanvas } from "./WaitlistDesktopCanvas";
 import { WaitlistMobile } from "./WaitlistMobile";
 
 type Props = {
   artboardId: WaitlistArtboardId;
-  /** Extra overlay rendered only in the desktop scaled artboard (design-px space). */
-  desktopChildren?: React.ReactNode;
 };
 
-/**
- * Phones (<768px): coded mobile layout.
- * Tablet, laptop, desktop (≥768px): scaled artboard PNG — unchanged.
- */
-export function WaitlistArtboardPage({ artboardId, desktopChildren }: Props) {
+/** Mobile stack + pixel-perfect 1367px desktop canvas (matches onboarding). */
+export function WaitlistArtboardPage({ artboardId }: Props) {
   return (
     <>
-      <div className="waitlist-page-mobile">
+      <div className="waitlist-page-mobile waitlist-mobile-only">
         <WaitlistMobile artboardId={artboardId} />
       </div>
-      <div className="waitlist-page-desktop">
-        <WaitlistArtboardDesktop artboardId={artboardId}>
-          {desktopChildren}
-        </WaitlistArtboardDesktop>
+      <div className="waitlist-page-desktop waitlist-desktop-only">
+        <WaitlistDesktopCanvas artboardId={artboardId} />
       </div>
     </>
   );

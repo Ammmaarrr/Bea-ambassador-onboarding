@@ -152,6 +152,22 @@ export const WAITLIST_HERO_CITIES = [
   "Chicago",
 ] as const;
 
+/** Full launch-market row on landing (artboard 1). */
+export const WAITLIST_LAUNCH_CITIES = [
+  "NYC",
+  "Boston",
+  "Miami",
+  "Los Angeles",
+  "Chicago",
+  "Austin",
+  "Phoenix",
+  "Atlanta",
+  "Charlotte",
+  "Denver",
+  "Columbus",
+  "DC",
+] as const;
+
 /** Hero photo on landing (same asset as laptop artboard). */
 export const WAITLIST_HERO_IMAGE = "/waitlist/hero/couple.png";
 

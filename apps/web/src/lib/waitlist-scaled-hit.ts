@@ -9,7 +9,8 @@ type Rect = {
 
 /** Map design-space overlay coords to viewport pixels (outside CSS transform). */
 export function waitlistScaledHitStyle(rect: Rect, designWidth: number): CSSProperties {
-  const scale = `min(1, 100vw / ${designWidth}px)`;
+  /* Match .waitlist-artboard-canvas scale — cqw excludes scrollbar width on Windows */
+  const scale = `min(1, 100cqw / ${designWidth}px)`;
   return {
     left: `calc(${rect.left}px * ${scale})`,
     top: `calc(${rect.top}px * ${scale})`,

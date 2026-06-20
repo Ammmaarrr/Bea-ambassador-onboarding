@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { fontAptos } from "@/lib/design";
 
 export type PrizeCardData = {
@@ -21,9 +19,9 @@ export function PrizeCard({ card }: { card: PrizeCardData }) {
     <article
       className="prize-card relative flex w-full shrink-0 flex-col rounded-[14px] bg-white"
       style={{
-        border: "1px solid rgba(0,0,0,0.08)",
-        boxShadow: "0 1px 3px rgba(0,0,0,0.03)",
-        height: "313px",
+        border: "1px solid rgba(0,0,0,0.09)",
+        boxShadow: "0 1px 2px rgba(0,0,0,0.02)",
+        height: "324px",
       }}
     >
       <div className="absolute inset-x-3 top-[14px] z-10 flex justify-end">
@@ -50,7 +48,8 @@ export function PrizeCard({ card }: { card: PrizeCardData }) {
       </div>
 
       <div className="prize-card-illus-wrap">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={card.illustration}
           alt=""
           aria-hidden
@@ -61,15 +60,15 @@ export function PrizeCard({ card }: { card: PrizeCardData }) {
         />
       </div>
 
-      <div className="px-4 pb-[22px] pt-1 text-center w-full">
+      <div className="px-4 pb-[24px] pt-1 text-center w-full">
         <h3
-          className="font-canela onboarding-heading text-[18px] leading-[20px] text-[#000000]"
+          className="prize-card__title"
           style={{ whiteSpace: card.titleNoWrap ? "nowrap" : undefined }}
         >
           {card.title}
         </h3>
         <p
-          className="mt-[6px] text-[13px] leading-[18px] text-[#8a8480]"
+          className="mt-[6px] text-[15px] leading-[1.3] tracking-[-0.01em] text-[#8a8480]"
           style={{ fontFamily: fontAptos, fontWeight: 400 }}
         >
           {card.subtitle}

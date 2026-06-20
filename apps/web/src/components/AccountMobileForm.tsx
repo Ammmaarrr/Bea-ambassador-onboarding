@@ -68,23 +68,6 @@ export function AccountMobileForm() {
         <p className="onboarding-field-hint">Must be at least 8 characters</p>
       </div>
 
-      <div className="or-divider">
-        <span className="or-text">or continue with</span>
-      </div>
-
-      <button type="button" className="btn-social">
-        <GoogleIcon />
-        Google
-      </button>
-      <button type="button" className="btn-social">
-        <AppleIcon />
-        Apple
-      </button>
-
-      <p className="onboarding-legal">
-        By creating an account, you agree to our{" "}
-        <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-      </p>
     </form>
   );
 }

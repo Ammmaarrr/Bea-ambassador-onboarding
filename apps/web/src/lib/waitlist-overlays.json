@@ -7,16 +7,16 @@
       "height": 2102,
       "src": "/waitlist/artboards/Artboard 1.png",
       "heroEmail": {
-        "left": 88,
-        "top": 432,
-        "width": 168,
-        "height": 41,
+        "left": 96,
+        "top": 456,
+        "width": 460,
+        "height": 48,
         "id": "hero-email",
         "type": "email",
         "placeholder": "Enter email to join waitlist"
       },
       "heroSubmit": {
-        "left": 248,
+        "left": 564,
         "top": 458,
         "width": 44,
         "height": 44,
@@ -45,9 +45,9 @@
       ],
       "footerEmail": {
         "left": 720,
-        "top": 1926,
-        "width": 556,
-        "height": 80,
+        "top": 1880,
+        "width": 560,
+        "height": 71,
         "id": "footer-email",
         "type": "email",
         "placeholder": "Your email address"

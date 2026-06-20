@@ -901,6 +901,7 @@
   font-size: 14px;
   line-height: 1.4;
   color: #6f6a64;
+  white-space: pre-line;
 }
 
 .onboarding-canvas--account .onboarding-canvas__copy .form-subtitle,
@@ -983,7 +984,7 @@
 }
 
 .onboarding-canvas--account .onboarding-canvas__cta {
-  border-radius: 999px;
+  border-radius: 14px;
   font-size: 14px;
   font-weight: 500;
 }

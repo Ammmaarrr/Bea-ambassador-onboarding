@@ -134,7 +134,7 @@
       "badge": { "left": 635, "top": 196, "width": 96, "height": 96 },
       "title": { "left": 409, "top": 316, "width": 548 },
       "subtitle": { "left": 409, "top": 438, "width": 548 },
-      "rankCard": { "left": 409, "top": 560, "width": 548, "height": 670 },
+      "rankCard": { "left": 409, "top": 560, "width": 548, "height": 629 },
       "perksDivider": { "left": 409, "top": 1316, "width": 548 },
       "perksSub": { "left": 409, "top": 1374, "width": 548 },
       "perkCards": [

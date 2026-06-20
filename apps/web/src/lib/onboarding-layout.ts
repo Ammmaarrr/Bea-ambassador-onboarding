@@ -93,12 +93,12 @@ export const ACCOUNT_SOCIAL = overlays.pages.account.social;
 export const ACCOUNT_DESKTOP = {
   eyebrow: { left: 76, top: 280 },
   title: { left: 76, top: 302, width: 520 },
-  subtitle: { left: 76, top: 356, width: 520 },
+  subtitle: { left: 76, top: 360, width: 520 },
   labelLeft: 106,
-  labelTops: { name: 384, email: 526, password: 672 },
-  hint: { left: 106, top: 786 },
-  orDivider: { left: 106, top: 920, width: 476 },
-  legal: { left: 76, top: 1060, width: 506 },
+  labelTops: { name: 445, email: 587, password: 733 },
+  hint: { left: 106, top: 847 },
+  orDivider: { left: 106, top: 981, width: 476 },
+  legal: { left: 76, top: 1121, width: 506 },
 } as const;
 
 export type AccountFieldId = keyof typeof ACCOUNT_DESKTOP.labelTops;

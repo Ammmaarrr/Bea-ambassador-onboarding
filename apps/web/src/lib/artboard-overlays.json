@@ -63,7 +63,7 @@
         "href": "/invites",
         "label": "Create account",
         "left": 106,
-        "top": 834,
+        "top": 895,
         "width": 544,
         "height": 46
       },
@@ -73,7 +73,7 @@
           "type": "text",
           "placeholder": "Enter your full name",
           "left": 106,
-          "top": 404,
+          "top": 465,
           "width": 544,
           "height": 72
         },
@@ -82,7 +82,7 @@
           "type": "email",
           "placeholder": "Enter your email",
           "left": 106,
-          "top": 547,
+          "top": 608,
           "width": 544,
           "height": 71
         },
@@ -91,7 +91,7 @@
           "type": "password",
           "placeholder": "Create your password",
           "left": 106,
-          "top": 693,
+          "top": 754,
           "width": 544,
           "height": 71
         }
@@ -100,14 +100,14 @@
         {
           "label": "Google",
           "left": 106,
-          "top": 970,
+          "top": 1031,
           "width": 228,
           "height": 48
         },
         {
           "label": "Apple",
           "left": 354,
-          "top": 970,
+          "top": 1031,
           "width": 228,
           "height": 48
         }

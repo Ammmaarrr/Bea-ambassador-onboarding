@@ -24,7 +24,7 @@ export default function LeaderboardPage() {
             rank: 1,
             name: 'Ron',
             sublabel: 'University of Connecticut',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             prompts: 200,
             invites: 400,
             total: 600,
@@ -34,7 +34,7 @@ export default function LeaderboardPage() {
         {
             rank: 2,
             name: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             prompts: null,
             invites: null,
             total: 1102,
@@ -44,7 +44,7 @@ export default function LeaderboardPage() {
         {
             rank: 3,
             name: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             prompts: null,
             invites: null,
             total: 1102,
@@ -53,7 +53,7 @@ export default function LeaderboardPage() {
         {
             rank: 4,
             name: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             prompts: null,
             invites: null,
             total: 1102,
@@ -62,7 +62,7 @@ export default function LeaderboardPage() {
         {
             rank: 5,
             name: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             prompts: null,
             invites: null,
             total: 1102,
@@ -71,7 +71,7 @@ export default function LeaderboardPage() {
         {
             rank: 6,
             name: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             prompts: null,
             invites: null,
             total: 1102,
@@ -80,7 +80,7 @@ export default function LeaderboardPage() {
         {
             rank: 7,
             name: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             prompts: null,
             invites: null,
             total: 1102,

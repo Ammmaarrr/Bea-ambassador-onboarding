@@ -18,7 +18,7 @@ export default function SchoolsPage() {
         {
             rank: 1,
             schoolName: 'University of Connecticut',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             participants: 200,
             prompts: 200,
             invites: 400,
@@ -27,7 +27,7 @@ export default function SchoolsPage() {
         {
             rank: 2,
             schoolName: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             participants: null,
             prompts: null,
             invites: null,
@@ -36,7 +36,7 @@ export default function SchoolsPage() {
         {
             rank: 3,
             schoolName: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             participants: null,
             prompts: null,
             invites: null,
@@ -45,7 +45,7 @@ export default function SchoolsPage() {
         {
             rank: 4,
             schoolName: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             participants: null,
             prompts: null,
             invites: null,
@@ -54,7 +54,7 @@ export default function SchoolsPage() {
         {
             rank: 5,
             schoolName: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             participants: null,
             prompts: null,
             invites: null,
@@ -63,7 +63,7 @@ export default function SchoolsPage() {
         {
             rank: 6,
             schoolName: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             participants: null,
             prompts: null,
             invites: null,
@@ -72,7 +72,7 @@ export default function SchoolsPage() {
         {
             rank: 7,
             schoolName: 'Ron',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             participants: null,
             prompts: null,
             invites: null,

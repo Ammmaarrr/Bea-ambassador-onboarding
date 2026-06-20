@@ -25,7 +25,7 @@ export default function ForumPage() {
             body: 'Be kind and have fun.',
             author: 'Emily R.',
             time: '15m ago',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             likes: 0,
             comments: 0,
             liked: false
@@ -36,7 +36,7 @@ export default function ForumPage() {
             body: 'Be kind and have fun.',
             author: 'Emily R.',
             time: '15m ago',
-            avatar: '/images/ron-avatar.png',
+            avatar: '/images/ron-avatar-new.png',
             likes: 12,
             comments: 3,
             liked: false

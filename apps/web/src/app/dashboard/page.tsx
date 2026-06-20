@@ -42,7 +42,7 @@ export default function DashboardPage() {
                 school: 'Northeastern',
                 commentsCount: 0,
                 trophyText: 'Top School Response wins 3 months of Bea Premium',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             },
             {
                 id: 'school-2',
@@ -55,7 +55,7 @@ export default function DashboardPage() {
                 school: 'Northeastern',
                 commentsCount: 0,
                 trophyText: 'Top School Response wins 3 months of Bea Premium',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             },
             {
                 id: 'school-3',
@@ -68,7 +68,7 @@ export default function DashboardPage() {
                 school: 'Northeastern',
                 commentsCount: 0,
                 trophyText: 'Top School Response wins 3 months of Bea Premium',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             }
         ],
         market: [
@@ -83,7 +83,7 @@ export default function DashboardPage() {
                 school: 'Boston University',
                 commentsCount: 4,
                 trophyText: 'Top Market Response wins a free dinner date',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             },
             {
                 id: 'market-2',
@@ -96,7 +96,7 @@ export default function DashboardPage() {
                 school: 'Harvard',
                 commentsCount: 2,
                 trophyText: 'Top Market Response wins a free dinner date',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             },
             {
                 id: 'market-3',
@@ -109,7 +109,7 @@ export default function DashboardPage() {
                 school: 'Boston College',
                 commentsCount: 1,
                 trophyText: 'Top Market Response wins a free dinner date',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             }
         ],
         national: [
@@ -124,7 +124,7 @@ export default function DashboardPage() {
                 school: 'NYU',
                 commentsCount: 18,
                 trophyText: 'National Winner gets featured on the App Store frontpage',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             },
             {
                 id: 'national-2',
@@ -137,7 +137,7 @@ export default function DashboardPage() {
                 school: 'UCLA',
                 commentsCount: 12,
                 trophyText: 'National Winner gets featured on the App Store frontpage',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             },
             {
                 id: 'national-3',
@@ -150,7 +150,7 @@ export default function DashboardPage() {
                 school: 'Stanford',
                 commentsCount: 8,
                 trophyText: 'National Winner gets featured on the App Store frontpage',
-                avatarSrc: '/images/ron-avatar.png'
+                avatarSrc: '/images/ron-avatar-new.png'
             }
         ]
     };

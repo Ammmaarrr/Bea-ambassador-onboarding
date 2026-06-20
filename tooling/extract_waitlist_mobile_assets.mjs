@@ -163,14 +163,31 @@ writePng(
 
 
 writePng(
-
-  crop(ab8, { left: 584, top: 168, width: 200, height: 200 }),
-
+  crop(ab8, { left: 612, top: 192, width: 142, height: 112 }),
   path.join(outDir, "confirmed", "check-badge.png"),
-
 );
 
+const perkIcons = [
+  { name: "perk-icon-early", left: 272, top: 964, width: 32, height: 32 },
+  { name: "perk-icon-time", left: 669, top: 964, width: 32, height: 32 },
+  { name: "perk-icon-premium", left: 1066, top: 964, width: 32, height: 32 },
+];
+for (const icon of perkIcons) {
+  writePng(
+    crop(ab8, icon),
+    path.join(outDir, "confirmed", `${icon.name}.png`),
+  );
+}
 
+const ab9 = PNG.sync.read(fs.readFileSync(path.join(artDir, "9.png")));
+writePng(
+  crop(ab9, { left: 1094, top: 128, width: 48, height: 48 }),
+  path.join(outDir, "prizes", "gift-icon.png"),
+);
+writePng(
+  crop(ab9, { left: 1108, top: 42, width: 36, height: 36 }),
+  path.join(outDir, "avatars", "ron.png"),
+);
 
 console.log("Wrote waitlist mobile assets to", outDir);
 

@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronLeft, Copy, Heart } from "lucide-react";
+import { ChevronLeft, Heart } from "lucide-react";
 
+import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
 import { WAITLIST_CONFIRMED_LAYOUT } from "@/lib/waitlist-layout";
 import { WAITLIST_CONFIRMED_CONTENT } from "@/lib/waitlist-page-content";
 
@@ -145,7 +146,15 @@ export function WaitlistConfirmedDesktopCanvas() {
             height: L.copyLink.height,
           }}
         >
-          <Copy size={16} strokeWidth={2} aria-hidden />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={WAITLIST_ASSETS.share.copyLink}
+            alt=""
+            width={16}
+            height={16}
+            draggable={false}
+            aria-hidden
+          />
           <span>{c.copyLabel}</span>
         </button>
 

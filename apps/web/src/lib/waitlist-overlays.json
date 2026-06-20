@@ -61,13 +61,13 @@
       "progress": { "left": 186, "top": 79, "width": 378, "height": 5, "steps": 4, "activeIndex": 1 },
       "copy": { "left": 100, "top": 180, "width": 520 },
       "title": { "left": 100, "top": 190, "width": 520 },
-      "subtitle": { "left": 100, "top": 233, "width": 420 },
-      "searchLabel": { "left": 100, "top": 562, "width": 520, "height": 20, "text": "SEARCH ANY CITY" },
+      "subtitle": { "left": 100, "top": 288, "width": 420 },
+      "searchLabel": { "left": 100, "top": 549, "width": 520, "height": 20, "text": "SEARCH ANY CITY" },
       "cityCards": [
-        { "left": 100, "top": 248, "width": 121, "height": 309 },
-        { "left": 233, "top": 248, "width": 121, "height": 309 },
-        { "left": 366, "top": 248, "width": 121, "height": 309 },
-        { "left": 499, "top": 248, "width": 121, "height": 309 }
+        { "left": 100, "top": 316, "width": 121, "height": 241 },
+        { "left": 233, "top": 316, "width": 121, "height": 241 },
+        { "left": 366, "top": 316, "width": 121, "height": 241 },
+        { "left": 499, "top": 316, "width": 121, "height": 241 }
       ],
       "inputs": [
         { "left": 100, "top": 598, "width": 520, "height": 52, "id": "city-search", "type": "search", "placeholder": "Search" }
@@ -75,7 +75,7 @@
       "cta": { "left": 100, "top": 706, "width": 520, "height": 51, "href": "/waitlist/4", "label": "Claim my spot" },
       "secondaryLink": {
         "left": 100,
-        "top": 775,
+        "top": 781,
         "width": 340,
         "height": 22,
         "href": "/waitlist/4",
@@ -130,22 +130,22 @@
       "height": 2749,
       "src": "/waitlist/artboards/8.png",
       "back": { "left": 64, "top": 58, "width": 56, "height": 48, "href": "/waitlist/7" },
-      "waitingRoom": { "left": 1088, "top": 26, "width": 190, "height": 52, "href": "/waitlist/9", "label": "Waiting room" },
-      "badge": { "left": 635, "top": 200, "width": 96, "height": 96 },
-      "title": { "left": 409, "top": 324, "width": 548 },
-      "subtitle": { "left": 409, "top": 382, "width": 548 },
-      "rankCard": { "left": 409, "top": 408, "width": 548, "height": 368 },
-      "perksDivider": { "left": 409, "top": 868, "width": 548 },
-      "perksSub": { "left": 409, "top": 904, "width": 548 },
+      "waitingRoom": { "left": 1090, "top": 28, "width": 188, "height": 48, "href": "/waitlist/9", "label": "Waiting room" },
+      "badge": { "left": 635, "top": 196, "width": 96, "height": 96 },
+      "title": { "left": 409, "top": 316, "width": 548 },
+      "subtitle": { "left": 409, "top": 376, "width": 548 },
+      "rankCard": { "left": 409, "top": 420, "width": 548, "height": 352 },
+      "perksDivider": { "left": 409, "top": 860, "width": 548 },
+      "perksSub": { "left": 409, "top": 896, "width": 548 },
       "perkCards": [
-        { "left": 96, "top": 948, "width": 381, "height": 389 },
-        { "left": 493, "top": 948, "width": 381, "height": 389 },
-        { "left": 890, "top": 948, "width": 381, "height": 389 }
+        { "left": 96, "top": 940, "width": 381, "height": 389 },
+        { "left": 493, "top": 940, "width": 381, "height": 389 },
+        { "left": 890, "top": 940, "width": 381, "height": 389 }
       ],
-      "shareDivider": { "left": 409, "top": 1620, "width": 548 },
-      "share": { "left": 409, "top": 1688, "width": 548, "height": 88 },
-      "copyLink": { "left": 508, "top": 2255, "width": 350, "height": 40, "label": "Copy Invite Link" },
-      "footer": { "left": 409, "top": 2396, "width": 548 }
+      "shareDivider": { "left": 409, "top": 1612, "width": 548 },
+      "share": { "left": 409, "top": 1676, "width": 548, "height": 96 },
+      "copyLink": { "left": 508, "top": 2268, "width": 352, "height": 48, "label": "Copy Invite Link" },
+      "footer": { "left": 409, "top": 2400, "width": 548 }
     },
     "9": {
       "width": 1367,
@@ -153,16 +153,16 @@
       "src": "/waitlist/artboards/9.png",
       "back": { "left": 64, "top": 58, "width": 56, "height": 48, "href": "/waitlist/8" },
       "sidebar": { "left": 0, "top": 0, "width": 210, "height": 1696 },
-      "profile": { "left": 1100, "top": 36, "width": 190, "height": 52 },
+      "profile": { "left": 1100, "top": 34, "width": 190, "height": 52 },
       "title": { "left": 250, "top": 108, "width": 540 },
-      "points": { "left": 820, "top": 86, "width": 350, "height": 140 },
-      "featuredHead": { "left": 250, "top": 284, "width": 920 },
-      "rewards": { "left": 250, "top": 340, "width": 920, "height": 350 },
-      "school": { "left": 250, "top": 702, "width": 920, "height": 216 },
-      "prompts": { "left": 250, "top": 922, "width": 920, "height": 186 },
-      "earnLeft": { "left": 250, "top": 1124, "width": 290, "height": 476 },
-      "earnRight": { "left": 548, "top": 1124, "width": 272, "height": 476 },
-      "standing": { "left": 820, "top": 1124, "width": 350, "height": 476 }
+      "points": { "left": 820, "top": 84, "width": 350, "height": 144 },
+      "featuredHead": { "left": 250, "top": 280, "width": 920 },
+      "rewards": { "left": 250, "top": 324, "width": 920, "height": 360 },
+      "school": { "left": 250, "top": 700, "width": 920, "height": 220 },
+      "prompts": { "left": 250, "top": 920, "width": 920, "height": 188 },
+      "earnLeft": { "left": 250, "top": 1120, "width": 290, "height": 480 },
+      "earnRight": { "left": 548, "top": 1120, "width": 272, "height": 480 },
+      "standing": { "left": 820, "top": 1120, "width": 350, "height": 480 }
     }
   }
 }

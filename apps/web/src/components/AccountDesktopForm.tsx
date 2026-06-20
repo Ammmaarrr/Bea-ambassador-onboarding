@@ -3,9 +3,9 @@
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
-import { ACCOUNT_DESKTOP, ACCOUNT_FIELDS } from "@/lib/onboarding-layout";
+import { ACCOUNT_DESKTOP, ACCOUNT_FIELDS, type AccountFieldId } from "@/lib/onboarding-layout";
 
-const FIELD_LABELS: Record<(typeof ACCOUNT_FIELDS)[number]["id"], string> = {
+const FIELD_LABELS: Record<AccountFieldId, string> = {
   name: "Full Name",
   email: "Email Address",
   password: "Password",

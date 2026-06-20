@@ -2,6 +2,6 @@
   "home": "/",
   "login": "/login",
   "onboardingStart": "/",
-  "dashboard": "/youre-in",
+  "dashboard": "/dashboard",
   "apply": "/"
 }

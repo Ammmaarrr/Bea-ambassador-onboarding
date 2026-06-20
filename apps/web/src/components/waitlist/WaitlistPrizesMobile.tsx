@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { WAITLIST_APP_SHELL, WAITLIST_PRIZES_DETAIL } from "@/lib/waitlist-page-content";
+import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
 
 import { WaitlistPrizesAppBar } from "./WaitlistPrizesAppBar";
 
@@ -97,7 +98,8 @@ export function WaitlistPrizesMobile() {
             </div>
             <div className="waitlist-points-aside">
               <span className="waitlist-points-gift" aria-hidden>
-                <Gift size={22} strokeWidth={1.5} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={WAITLIST_ASSETS.prizes.gift} alt="" width={22} height={22} draggable={false} />
               </span>
               <button type="button" className="waitlist-points-history">
                 {c.points.historyLabel}

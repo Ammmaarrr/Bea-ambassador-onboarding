@@ -16,6 +16,7 @@ import {
 
 import { WAITLIST_PRIZES_LAYOUT } from "@/lib/waitlist-layout";
 import { WAITLIST_APP_SHELL, WAITLIST_PRIZES_DETAIL } from "@/lib/waitlist-page-content";
+import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
 
 const RANK_ICONS = {
   campus: GraduationCap,
@@ -135,7 +136,8 @@ export function WaitlistPrizesDesktopCanvas() {
           <div className="waitlist-canvas__points-divider" aria-hidden />
           <div className="waitlist-canvas__points-aside">
             <span className="waitlist-canvas__points-gift" aria-hidden>
-              <Gift size={22} strokeWidth={1.5} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={WAITLIST_ASSETS.prizes.gift} alt="" width={28} height={28} draggable={false} />
             </span>
             <button type="button" className="waitlist-canvas__points-history">
               {c.points.historyLabel}

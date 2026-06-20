@@ -27,7 +27,7 @@
     "apple": "/api/auth/social",
     "useExternalBackend": false,
     "externalBaseUrl": "",
-    "redirectOnSuccess": "/youre-in"
+    "redirectOnSuccess": "/dashboard"
   },
   "leftPanel": {
     "image": "/images/login-page-image.png",

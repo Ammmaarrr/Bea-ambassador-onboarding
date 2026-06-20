@@ -327,6 +327,27 @@
   line-height: 1.48;
 }
 
+/* Step 3 mobile — vertical rhythm from artboard 3.png */
+.waitlist-page-coded .waitlist-step-shell--3 .waitlist-step-title {
+  white-space: pre-line;
+}
+
+.waitlist-page-coded .waitlist-step-shell--3 .waitlist-step-subtitle {
+  margin-top: 14px;
+}
+
+.waitlist-page-coded .waitlist-step-shell--3 .waitlist-city-carousel {
+  margin-top: 28px;
+}
+
+.waitlist-page-coded .waitlist-step-shell--3 .waitlist-search-block {
+  margin-top: 32px;
+}
+
+.waitlist-page-coded .waitlist-step-shell--3 .waitlist-btn-primary {
+  margin-top: 40px;
+}
+
 .waitlist-page-coded .waitlist-experience-step-desc {
   font-weight: 400;
 }
@@ -483,6 +504,28 @@
   .waitlist-page-coded .waitlist-step-subtitle {
     font-size: 17px;
     margin-top: 20px;
+  }
+
+  .waitlist-page-coded .waitlist-step-shell--3 .waitlist-step-body {
+    margin-top: 96px;
+  }
+
+  .waitlist-page-coded .waitlist-step-shell--3 .waitlist-step-title {
+    font-size: 64px;
+    line-height: 1.05;
+  }
+
+  .waitlist-page-coded .waitlist-step-shell--3 .waitlist-step-subtitle {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+
+  .waitlist-page-coded .waitlist-step-shell--3 .waitlist-city-carousel {
+    margin-top: 36px;
+  }
+
+  .waitlist-page-coded .waitlist-step-shell--3 .waitlist-search-block {
+    margin-top: 40px;
   }
 
   .waitlist-page-coded .waitlist-underline-field {
@@ -874,21 +917,23 @@
   z-index: 10;
 }
 
-/* Step 3 — absolute copy from artboard 3.png (title y=190, subtitle y=233, cards y=248) */
+/* Step 3 — measured from artboard 3.png (title y=190, subtitle y=288, cards y=316) */
 .waitlist-canvas--3 .waitlist-canvas__step-title {
   z-index: 15;
   margin: 0;
-  font-size: 38px;
-  line-height: 1.02;
+  font-family: var(--wl-serif);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.06;
   letter-spacing: -0.03em;
-  white-space: nowrap;
+  white-space: pre-line;
 }
 
 .waitlist-canvas--3 .waitlist-canvas__step-subtitle {
   z-index: 15;
   margin: 0;
-  font-size: 14px;
-  line-height: 1;
+  font-size: 15px;
+  line-height: 1.4;
   color: #1a1a1a;
 }
 
@@ -1121,6 +1166,14 @@
   z-index: 10;
 }
 
+.waitlist-canvas__confirmed-badge .waitlist-check-badge-img {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0;
+  object-fit: contain;
+}
+
 .waitlist-canvas__confirmed-badge .waitlist-check-badge-svg {
   display: block;
   width: 96px;
@@ -1321,6 +1374,13 @@
   border-color: #e0cdb8;
 }
 
+.waitlist-canvas__perk-slot .waitlist-perk-card-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
 .waitlist-canvas__perk-slot .waitlist-perk-card svg {
   color: #8b5a3c;
 }
@@ -1376,7 +1436,7 @@
 
 .waitlist-canvas__share-block {
   box-sizing: border-box;
-  padding-top: 46px;
+  padding-top: 28px;
   z-index: 10;
 }
 
@@ -1409,6 +1469,13 @@
   color: #1a1a1a;
 }
 
+.waitlist-canvas__share-block .waitlist-share-icon-circle img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
 .waitlist-canvas__share-block .waitlist-share-icon span:last-child {
   font-family: var(--wl-serif);
   font-size: 11px;
@@ -1428,6 +1495,14 @@
   font-weight: 600;
   cursor: pointer;
   z-index: 10;
+}
+
+.waitlist-canvas__copy-link img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .waitlist-canvas__confirmed-footer {
@@ -1595,9 +1670,10 @@
 
 .waitlist-canvas__prizes-title {
   margin: 0;
-  font-size: 34px;
-  font-weight: 700;
-  line-height: 1.08;
+  font-family: var(--wl-serif);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.06;
   letter-spacing: -0.02em;
 }
 
@@ -1689,7 +1765,13 @@
   height: 52px;
   border-radius: 999px;
   background: #f1e8db;
-  color: #8b5a3c;
+}
+
+.waitlist-canvas__points-gift img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .waitlist-canvas__points-history {

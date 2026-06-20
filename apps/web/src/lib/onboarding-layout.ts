@@ -89,8 +89,6 @@ export const STEP_PAGE_LAYOUTS: Record<OnboardingPageKey, OnboardingPageLayout> 
 
 export const ACCOUNT_SOCIAL = overlays.pages.account.social;
 
-export const ACCOUNT_FIELDS = overlays.pages.account.inputs;
-
 /** Account creation (Artboard 4) — absolute desktop coords. */
 export const ACCOUNT_DESKTOP = {
   eyebrow: { left: 76, top: 280 },
@@ -102,3 +100,17 @@ export const ACCOUNT_DESKTOP = {
   orDivider: { left: 106, top: 920, width: 476 },
   legal: { left: 76, top: 1060, width: 506 },
 } as const;
+
+export type AccountFieldId = keyof typeof ACCOUNT_DESKTOP.labelTops;
+
+type AccountFieldInput = {
+  id: AccountFieldId;
+  type: "text" | "email" | "password";
+  placeholder: string;
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+};
+
+export const ACCOUNT_FIELDS = overlays.pages.account.inputs as AccountFieldInput[];

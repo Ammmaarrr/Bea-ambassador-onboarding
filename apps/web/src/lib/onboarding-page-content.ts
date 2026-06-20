@@ -47,7 +47,7 @@ export const ONBOARDING_PAGE_CONTENT: Record<OnboardingPageKey, OnboardingPageCo
     eyebrow: "AMBASSADOR",
     title: "You're In.",
     subtitle: "Welcome to the waitlist experience.",
-    cta: { href: "#", label: "Open Dashboard" },
+    cta: { href: "/dashboard", label: "Open Dashboard" },
   },
 };
 

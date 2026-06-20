@@ -28,7 +28,7 @@ export function WaitlistStepShell({
 
   return (
     <div className="waitlist-root">
-      <div className="waitlist-step-shell">
+      <div className={`waitlist-step-shell waitlist-step-shell--${artboardId}`}>
         <div className="waitlist-step-top">
           <Link href={backHref} className="waitlist-back" aria-label="Go back">
             <ChevronLeft size={22} strokeWidth={1.75} />

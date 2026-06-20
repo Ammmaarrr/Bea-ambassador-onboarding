@@ -57,7 +57,7 @@ export const WAITLIST_LANDING_CONTENT = {
 
 export const WAITLIST_PAGE_CONTENT: Record<WaitlistStepArtboardId, WaitlistStepContent> = {
   "3": {
-    title: "Which market do you want to join",
+    title: "Which market do you\nwant to join",
     subtitle: "Select your city or search a city.",
     titleSerif: true,
     cta: { label: "Claim my spot", href: "/waitlist/4" },

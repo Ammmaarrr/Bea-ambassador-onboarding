@@ -6,4 +6,4 @@ Set-Location $WebApp
 Write-Output "Cleaning .next cache (fixes blank/unstyled pages on OneDrive)..."
 npm run clean
 Write-Output "Starting Next.js dev server at http://localhost:3000 ..."
-npm run dev
+npm run dev:fresh

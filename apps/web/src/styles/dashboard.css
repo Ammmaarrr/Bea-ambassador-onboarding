@@ -1,0 +1,23 @@
+/* Ahmad dashboard — Tailwind font utility classes */
+@theme {
+  --font-canela: "Canela Text", "CanelaTextTri", Georgia, "Times New Roman", serif;
+  --font-sfpro: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-minion: "Minion Concept", "Minion Pro", Georgia, serif;
+  --font-lato: var(--font-lato), Lato, sans-serif;
+}
+
+.font-canela {
+  font-family: var(--font-canela);
+}
+
+.font-sfpro {
+  font-family: var(--font-sfpro);
+}
+
+.font-minion {
+  font-family: var(--font-minion);
+}
+
+.font-lato {
+  font-family: var(--font-lato), Lato, sans-serif;
+}

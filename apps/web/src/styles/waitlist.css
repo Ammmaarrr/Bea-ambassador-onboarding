@@ -14,6 +14,7 @@
 .page-transition-root.page-transition-enter:has(.waitlist-artboard-root) {
   animation: none !important;
   transform: none !important;
+  opacity: 1 !important;
 }
 
 .waitlist-root {
@@ -828,8 +829,8 @@
 
 .waitlist-check-badge-img {
   display: block;
-  width: 120px;
-  height: 120px;
+  width: 96px;
+  height: 96px;
   margin: 0 auto 20px;
   object-fit: contain;
 }
@@ -839,6 +840,28 @@
   width: 92px;
   height: 92px;
   margin: 8px auto 20px;
+}
+
+.waitlist-perk-card-icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.waitlist-share-icon-circle img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.waitlist-copy-link-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 
 .waitlist-confirmed-title {

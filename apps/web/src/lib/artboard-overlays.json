@@ -127,7 +127,7 @@
     "youre-in": {
       "src": "/artboards/youre-in.png",
       "cta": {
-        "href": "#",
+        "href": "/dashboard",
         "label": "Open Dashboard",
         "left": 410,
         "top": 683,

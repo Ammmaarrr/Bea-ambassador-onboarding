@@ -64,10 +64,10 @@
       "subtitle": { "left": 100, "top": 288, "width": 420 },
       "searchLabel": { "left": 100, "top": 549, "width": 520, "height": 20, "text": "SEARCH ANY CITY" },
       "cityCards": [
-        { "left": 100, "top": 316, "width": 121, "height": 241 },
-        { "left": 233, "top": 316, "width": 121, "height": 241 },
-        { "left": 366, "top": 316, "width": 121, "height": 241 },
-        { "left": 499, "top": 316, "width": 121, "height": 241 }
+        { "left": 100, "top": 316, "width": 121, "height": 220 },
+        { "left": 233, "top": 316, "width": 121, "height": 220 },
+        { "left": 366, "top": 316, "width": 121, "height": 220 },
+        { "left": 499, "top": 316, "width": 121, "height": 220 }
       ],
       "inputs": [
         { "left": 100, "top": 598, "width": 520, "height": 52, "id": "city-search", "type": "search", "placeholder": "Search" }
@@ -157,12 +157,12 @@
       "title": { "left": 250, "top": 108, "width": 540 },
       "points": { "left": 820, "top": 84, "width": 350, "height": 144 },
       "featuredHead": { "left": 250, "top": 280, "width": 920 },
-      "rewards": { "left": 250, "top": 324, "width": 920, "height": 360 },
-      "school": { "left": 250, "top": 700, "width": 920, "height": 220 },
-      "prompts": { "left": 250, "top": 920, "width": 920, "height": 188 },
-      "earnLeft": { "left": 250, "top": 1120, "width": 290, "height": 480 },
-      "earnRight": { "left": 548, "top": 1120, "width": 272, "height": 480 },
-      "standing": { "left": 820, "top": 1120, "width": 350, "height": 480 }
+      "rewards": { "left": 250, "top": 324, "width": 920, "height": 264 },
+      "school": { "left": 250, "top": 604, "width": 920, "height": 220 },
+      "prompts": { "left": 250, "top": 824, "width": 920, "height": 188 },
+      "earnLeft": { "left": 250, "top": 1024, "width": 290, "height": 480 },
+      "earnRight": { "left": 548, "top": 1024, "width": 272, "height": 480 },
+      "standing": { "left": 820, "top": 1024, "width": 350, "height": 480 }
     }
   }
 }

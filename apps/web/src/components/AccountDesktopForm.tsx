@@ -3,7 +3,7 @@
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
-import { ACCOUNT_FIELDS } from "@/lib/onboarding-layout";
+import { ACCOUNT_DESKTOP, ACCOUNT_FIELDS } from "@/lib/onboarding-layout";
 
 const FIELD_LABELS: Record<(typeof ACCOUNT_FIELDS)[number]["id"], string> = {
   name: "Full Name",
@@ -11,14 +11,7 @@ const FIELD_LABELS: Record<(typeof ACCOUNT_FIELDS)[number]["id"], string> = {
   password: "Password",
 };
 
-/** Label tops measured from account artboard (inputs sit in overlay boxes below). */
-const FIELD_LABEL_TOP: Record<(typeof ACCOUNT_FIELDS)[number]["id"], number> = {
-  name: 382,
-  email: 525,
-  password: 671,
-};
-
-/** Pixel-perfect account form — absolute positions from artboard-overlays.json. */
+/** Pixel-perfect account form — absolute positions from Artboard 4. */
 export function AccountDesktopForm() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -29,7 +22,7 @@ export function AccountDesktopForm() {
           <label
             className="onboarding-canvas__field-label"
             htmlFor={`account-${field.id}`}
-            style={{ left: 76, top: FIELD_LABEL_TOP[field.id] }}
+            style={{ left: ACCOUNT_DESKTOP.labelLeft, top: ACCOUNT_DESKTOP.labelTops[field.id] }}
           >
             {FIELD_LABELS[field.id]}
           </label>
@@ -79,7 +72,10 @@ export function AccountDesktopForm() {
           </div>
 
           {field.id === "password" ? (
-            <p className="onboarding-canvas__field-hint" style={{ left: 113, top: 772 }}>
+            <p
+              className="onboarding-canvas__field-hint"
+              style={{ left: ACCOUNT_DESKTOP.hint.left, top: ACCOUNT_DESKTOP.hint.top }}
+            >
               Must be at least 8 characters
             </p>
           ) : null}

@@ -32,9 +32,9 @@
         "label": "Join waitlist"
       },
       "navLinks": [
-        { "left": 900, "top": 38, "width": 36, "height": 20, "href": "#faq", "label": "FAQ" },
-        { "left": 956, "top": 38, "width": 88, "height": 20, "href": "#ambassadors", "label": "Ambassadors" },
-        { "left": 1064, "top": 38, "width": 64, "height": 20, "href": "#calendar", "label": "Calendar" }
+        { "left": 743, "top": 58, "width": 32, "height": 20, "href": "#faq", "label": "FAQ" },
+        { "left": 853, "top": 58, "width": 88, "height": 20, "href": "#ambassadors", "label": "Ambassadors" },
+        { "left": 1006, "top": 58, "width": 58, "height": 20, "href": "#calendar", "label": "Calendar" }
       ],
       "cityPills": [
         { "left": 76, "top": 612, "width": 58, "height": 34, "label": "NYC" },
@@ -59,6 +59,8 @@
       "src": "/waitlist/artboards/3.png",
       "back": { "left": 64, "top": 58, "width": 56, "height": 48, "href": "/waitlist" },
       "progress": { "left": 186, "top": 79, "width": 378, "height": 5, "steps": 4, "activeIndex": 1 },
+      "copy": { "left": 100, "top": 180, "width": 520 },
+      "searchLabel": { "left": 100, "top": 562, "width": 520, "height": 20, "text": "SEARCH ANY CITY" },
       "cityCards": [
         { "left": 100, "top": 248, "width": 121, "height": 309 },
         { "left": 233, "top": 248, "width": 121, "height": 309 },
@@ -84,8 +86,11 @@
       "src": "/waitlist/artboards/4.png",
       "back": { "left": 64, "top": 58, "width": 56, "height": 48, "href": "/waitlist/3" },
       "progress": { "left": 186, "top": 79, "width": 378, "height": 5, "steps": 4, "activeIndex": 2 },
+      "copy": { "left": 100, "top": 180, "width": 520 },
       "inputs": [
+        { "left": 100, "top": 282, "width": 520, "height": 20, "id": "firstName-label", "type": "label", "text": "First name" },
         { "left": 100, "top": 318, "width": 520, "height": 40, "id": "firstName", "type": "text", "placeholder": "", "variant": "underline" },
+        { "left": 100, "top": 374, "width": 520, "height": 20, "id": "age-label", "type": "label", "text": "How old are you?" },
         { "left": 100, "top": 410, "width": 520, "height": 40, "id": "age", "type": "number", "placeholder": "", "variant": "underline" }
       ],
       "cta": { "left": 100, "top": 711, "width": 520, "height": 51, "href": "/waitlist/5", "label": "Continue" }
@@ -96,6 +101,8 @@
       "src": "/waitlist/artboards/5.png",
       "back": { "left": 64, "top": 58, "width": 56, "height": 48, "href": "/waitlist/4" },
       "progress": { "left": 186, "top": 79, "width": 378, "height": 5, "steps": 4, "activeIndex": 3 },
+      "copy": { "left": 100, "top": 180, "width": 520 },
+      "searchLabel": { "left": 100, "top": 242, "width": 520, "height": 20, "text": "Search your school" },
       "inputs": [
         { "left": 100, "top": 278, "width": 520, "height": 52, "id": "school-search", "type": "search", "placeholder": "Search" }
       ],
@@ -109,6 +116,7 @@
       "src": "/waitlist/artboards/7.png",
       "back": { "left": 64, "top": 58, "width": 56, "height": 48, "href": "/waitlist/5" },
       "progress": { "left": 186, "top": 79, "width": 378, "height": 5, "steps": 4, "activeIndex": 4 },
+      "copy": { "left": 100, "top": 180, "width": 520 },
       "inputs": [
         { "left": 100, "top": 321, "width": 520, "height": 52, "id": "email", "type": "email", "placeholder": "you@email.com" }
       ],

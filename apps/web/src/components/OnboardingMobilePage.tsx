@@ -9,7 +9,6 @@ import {
 import { ARTBOARD } from "@/lib/design";
 
 import { OnboardingMobileContent, YoureInShareSection } from "./OnboardingMobileContent";
-import { AppleIcon, GoogleIcon } from "./SocialProviderIcons";
 
 type Props = {
   pageKey: OnboardingPageKey;
@@ -96,13 +95,11 @@ export function OnboardingMobilePage({ pageKey }: Props) {
               <div className="or-divider">
                 <span className="or-text">or continue with</span>
               </div>
-              <div className="onboarding-social-row">
+              <div className="onboarding-social-row onboarding-social-row--text-only">
                 <button type="button" className="btn-social">
-                  <GoogleIcon />
                   Google
                 </button>
                 <button type="button" className="btn-social">
-                  <AppleIcon />
                   Apple
                 </button>
               </div>

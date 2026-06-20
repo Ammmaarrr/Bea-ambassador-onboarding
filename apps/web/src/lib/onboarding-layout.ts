@@ -35,8 +35,8 @@ export const WELCOME_LAYOUT = {
   canvas: ONBOARDING_CANVAS,
   photo: { left: 0, top: 0, width: 404, height: ARTBOARD.heroHeight },
   trophy: { left: 992, top: 122, width: 292, height: 490 },
-  copy: { left: 504, top: 280, width: 505 },
-  cta: overlays.pages.welcome.cta,
+  copy: { left: 504, top: 258, width: 505 },
+  cta: { ...overlays.pages.welcome.cta, top: 553 },
   prizes: {
     top: ARTBOARD.heroHeight,
     paddingTop: ARTBOARD.prizesSectionPaddingTop,
@@ -90,3 +90,13 @@ export const STEP_PAGE_LAYOUTS: Record<OnboardingPageKey, OnboardingPageLayout> 
 export const ACCOUNT_SOCIAL = overlays.pages.account.social;
 
 export const ACCOUNT_FIELDS = overlays.pages.account.inputs;
+
+/** Account creation (Artboard 4) — absolute desktop coords. */
+export const ACCOUNT_DESKTOP = {
+  labelLeft: 76,
+  labelTops: { name: 384, email: 526, password: 672 },
+  hint: { left: 106, top: 786 },
+  orDivider: { left: 106, top: 920, width: 476 },
+  legal: { left: 76, top: 1060, width: 506 },
+  subtitleOffset: 81,
+} as const;

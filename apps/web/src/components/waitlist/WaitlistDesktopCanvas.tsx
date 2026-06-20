@@ -3,9 +3,9 @@
 import type { WaitlistArtboardId } from "@/lib/waitlist";
 import { isWaitlistStepId } from "@/lib/waitlist-page-content";
 
-import { WaitlistConfirmedMobile } from "./WaitlistConfirmedMobile";
+import { WaitlistConfirmedDesktopCanvas } from "./WaitlistConfirmedDesktopCanvas";
 import { WaitlistLandingDesktopCanvas } from "./WaitlistLandingDesktopCanvas";
-import { WaitlistPrizesMobile } from "./WaitlistPrizesMobile";
+import { WaitlistPrizesDesktopCanvas } from "./WaitlistPrizesDesktopCanvas";
 import { WaitlistStepDesktopCanvas } from "./WaitlistStepDesktopCanvas";
 
 type Props = {
@@ -23,23 +23,11 @@ export function WaitlistDesktopCanvas({ artboardId }: Props) {
   }
 
   if (artboardId === "8") {
-    return (
-      <div className="waitlist-canvas-viewport waitlist-canvas-viewport--tall">
-        <div className="waitlist-canvas waitlist-canvas--confirmed-fallback">
-          <WaitlistConfirmedMobile />
-        </div>
-      </div>
-    );
+    return <WaitlistConfirmedDesktopCanvas />;
   }
 
   if (artboardId === "9") {
-    return (
-      <div className="waitlist-canvas-viewport waitlist-canvas-viewport--tall">
-        <div className="waitlist-canvas waitlist-canvas--prizes-fallback">
-          <WaitlistPrizesMobile />
-        </div>
-      </div>
-    );
+    return <WaitlistPrizesDesktopCanvas />;
   }
 
   return null;

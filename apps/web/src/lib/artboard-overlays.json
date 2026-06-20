@@ -62,9 +62,9 @@
       "cta": {
         "href": "/invites",
         "label": "Create account",
-        "left": 113,
+        "left": 106,
         "top": 834,
-        "width": 484,
+        "width": 534,
         "height": 52
       },
       "inputs": [
@@ -72,9 +72,9 @@
           "id": "name",
           "type": "text",
           "placeholder": "Enter your full name",
-          "left": 114,
+          "left": 106,
           "top": 404,
-          "width": 486,
+          "width": 534,
           "height": 72
         },
         {
@@ -83,16 +83,16 @@
           "placeholder": "Enter your email",
           "left": 106,
           "top": 547,
-          "width": 494,
+          "width": 534,
           "height": 71
         },
         {
           "id": "password",
           "type": "password",
           "placeholder": "Create your password",
-          "left": 113,
+          "left": 106,
           "top": 693,
-          "width": 487,
+          "width": 534,
           "height": 71
         }
       ],

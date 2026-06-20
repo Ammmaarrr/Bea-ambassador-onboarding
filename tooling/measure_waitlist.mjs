@@ -1,6 +1,9 @@
 /**
  * Precise waitlist artboard overlay coordinates (design/waitlist artboard).
  * Run: node measure_waitlist.mjs
+ *
+ * NOTE: Output is merged manually into waitlist-overlays.json — do not run blindly;
+ * the detector misses some fields (hero email, underline labels, all city cards).
  */
 import { PNG } from "pngjs";
 import fs from "node:fs";

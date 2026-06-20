@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 import { artboardActiveIndex } from "@/lib/design";
 import {
+  ACCOUNT_DESKTOP,
   ACCOUNT_SOCIAL,
   ONBOARDING_CANVAS,
   STEP_PAGE_LAYOUTS,
@@ -18,7 +19,6 @@ import {
 import { AccountDesktopForm } from "./AccountDesktopForm";
 import { ArtboardStepHeader } from "./ArtboardStepHeader";
 import { OnboardingMobileContent, YoureInShareSection } from "./OnboardingMobileContent";
-import { AppleIcon, GoogleIcon } from "./SocialProviderIcons";
 
 type Props = {
   pageKey: OnboardingPageKey;
@@ -61,9 +61,14 @@ function DesktopTitle({ pageKey }: { pageKey: OnboardingPageKey }) {
 }
 
 function AccountDesktopExtras() {
+  const { orDivider, legal } = ACCOUNT_DESKTOP;
+
   return (
     <>
-      <div className="onboarding-canvas__or-divider" style={{ left: 106, top: 920, width: 476 }}>
+      <div
+        className="onboarding-canvas__or-divider"
+        style={{ left: orDivider.left, top: orDivider.top, width: orDivider.width }}
+      >
         <span className="or-text">or continue with</span>
       </div>
       {ACCOUNT_SOCIAL.map((btn) => (
@@ -73,11 +78,13 @@ function AccountDesktopExtras() {
           className="btn-social onboarding-canvas__social-btn"
           style={{ left: btn.left, top: btn.top, width: btn.width, height: btn.height }}
         >
-          {btn.label === "Google" ? <GoogleIcon /> : <AppleIcon />}
           {btn.label}
         </button>
       ))}
-      <p className="onboarding-legal onboarding-canvas__legal" style={{ left: 76, top: 1040, width: 506 }}>
+      <p
+        className="onboarding-legal onboarding-canvas__legal"
+        style={{ left: legal.left, top: legal.top, width: legal.width }}
+      >
         By creating an account, you agree to our <a href="#">Terms of Service</a> and{" "}
         <a href="#">Privacy Policy</a>.
       </p>
@@ -143,9 +150,11 @@ export function OnboardingDesktopCanvas({ pageKey, children }: Props) {
             </>
           )}
 
-          <p className={"form-subtitle" + (isYoureIn ? " text-center mx-auto" : "")}>
-            {content.subtitle}
-          </p>
+          {!isAccount && (
+            <p className={"form-subtitle" + (isYoureIn ? " text-center mx-auto" : "")}>
+              {content.subtitle}
+            </p>
+          )}
 
           {!isAccount && (
             <div className="onboarding-canvas__body">
@@ -156,6 +165,19 @@ export function OnboardingDesktopCanvas({ pageKey, children }: Props) {
 
           {isYoureIn && <YoureInShareSection />}
         </div>
+
+        {isAccount && (
+          <p
+            className="form-subtitle onboarding-canvas__account-subtitle"
+            style={{
+              left: copy.left,
+              top: copy.top + ACCOUNT_DESKTOP.subtitleOffset,
+              width: copy.width,
+            }}
+          >
+            {content.subtitle}
+          </p>
+        )}
 
         {isYoureIn && (
           <Link

@@ -53,16 +53,16 @@ export function WaitlistStepDesktopCanvas({ artboardId }: Props) {
   const content = WAITLIST_PAGE_CONTENT[artboardId];
   const meta = WAITLIST_ARTBOARDS[artboardId];
   const filledCount = meta.progressIndex ?? 0;
-  const { width, height, back, copy, cta } = layout;
+  const { height, back, copy, cta } = layout;
 
   return (
     <div
       className="waitlist-canvas-viewport"
-      style={{ height: `calc(${height}px * min(1, 100cqw / ${width}px))` }}
+      style={{ ["--wl-canvas-h" as string]: `${height}px` }}
     >
       <div
         className={`waitlist-canvas waitlist-canvas--step waitlist-canvas--${artboardId}`}
-        style={{ width, height, backgroundColor: WAITLIST_STEPPER.maskBg }}
+        style={{ backgroundColor: WAITLIST_STEPPER.maskBg }}
       >
         <Link
           href={back.href}
@@ -100,36 +100,36 @@ export function WaitlistStepDesktopCanvas({ artboardId }: Props) {
             );
           })}
 
-        {layout.inputs?.map((field, i) => (
-          <div key={field.id}>
-            {"variant" in field && field.variant === "underline" ? (
+        {layout.searchLabel ? (
+          <label
+            className="waitlist-canvas__field-label"
+            style={{
+              left: layout.searchLabel.left,
+              top: layout.searchLabel.top,
+              width: layout.searchLabel.width,
+            }}
+          >
+            {layout.searchLabel.text}
+          </label>
+        ) : null}
+
+        {layout.inputs?.map((field) => {
+          if ("type" in field && field.type === "label" && "text" in field) {
+            return (
               <label
+                key={field.id}
                 className="waitlist-canvas__field-label waitlist-canvas__field-label--plain"
-                style={{ left: field.left, top: field.top - 36, width: field.width }}
-                htmlFor={field.id}
+                style={{ left: field.left, top: field.top, width: field.width }}
+                htmlFor={field.id.replace("-label", "")}
               >
-                {i === 0 ? "First name" : "How old are you?"}
+                {String(field.text)}
               </label>
-            ) : null}
-            {artboardId === "3" && (
-              <label
-                className="waitlist-canvas__field-label"
-                style={{ left: field.left, top: field.top - 28, width: field.width }}
-                htmlFor={field.id}
-              >
-                SEARCH ANY CITY
-              </label>
-            )}
-            {artboardId === "5" && (
-              <label
-                className="waitlist-canvas__field-label"
-                style={{ left: field.left, top: field.top - 28, width: field.width }}
-                htmlFor={field.id}
-              >
-                Search your school
-              </label>
-            )}
+            );
+          }
+
+          return (
             <input
+              key={field.id}
               id={field.id}
               name={field.id}
               type={field.type as "text" | "email" | "search" | "number"}
@@ -146,8 +146,8 @@ export function WaitlistStepDesktopCanvas({ artboardId }: Props) {
                 height: field.height,
               }}
             />
-          </div>
-        ))}
+          );
+        })}
 
         {artboardId === "5" && layout.schoolCard && (
           <button

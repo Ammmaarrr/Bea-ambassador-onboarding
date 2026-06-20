@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { WAITLIST_ARTBOARDS, WAITLIST_HERO_IMAGE } from "@/lib/waitlist";
+import { WAITLIST_LANDING_LAYOUT } from "@/lib/waitlist-layout";
 import { WAITLIST_LANDING_CONTENT } from "@/lib/waitlist-page-content";
 
 import { WaitlistCountdownRing } from "./WaitlistCountdownRing";
@@ -20,9 +21,11 @@ export function WaitlistLandingMobile() {
           Bea
         </Link>
         <nav className="waitlist-landing-nav" aria-label="Primary">
-          <a href="#faq">FAQ</a>
-          <a href="#ambassadors">Ambassadors</a>
-          <a href="#calendar">Calendar</a>
+          {WAITLIST_LANDING_LAYOUT.header.nav.map((link) => (
+            <a key={link.label} href={link.href}>
+              {link.label}
+            </a>
+          ))}
         </nav>
         <Link href={joinHref} className="waitlist-landing-cta">
           Join waitlist

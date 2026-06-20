@@ -20,13 +20,10 @@ export function WaitlistLandingDesktopCanvas() {
 
   return (
     <div
-      className="waitlist-canvas-viewport waitlist-canvas-viewport--landing"
-      style={{ height: `calc(${L.height}px * min(1, 100cqw / ${L.width}px))` }}
+      className="waitlist-canvas-viewport"
+      style={{ ["--wl-canvas-h" as string]: `${L.height}px` }}
     >
-      <div
-        className="waitlist-canvas waitlist-canvas--landing"
-        style={{ width: L.width, height: L.height }}
-      >
+      <div className="waitlist-canvas waitlist-canvas--landing">
         <Link href="/waitlist" className="waitlist-canvas__logo" style={{ left: L.header.logo.left, top: L.header.logo.top }}>
           Bea
         </Link>
@@ -76,27 +73,30 @@ export function WaitlistLandingDesktopCanvas() {
           style={{ left: L.hero.image.left, top: L.hero.image.top }}
         />
 
-        <form
-          className="waitlist-canvas__email-pill"
-          action={joinHref}
-          style={{
-            left: L.hero.email.left,
-            top: L.hero.email.top,
-            width: L.hero.email.width + L.hero.submit.width + 8,
-            height: L.hero.email.height,
-          }}
-        >
+        <form className="waitlist-canvas__email-pill" action={joinHref}>
           <input
             type="email"
             name="email"
             placeholder={WAITLIST_LANDING_CONTENT.emailPlaceholder}
             aria-label={WAITLIST_LANDING_CONTENT.emailPlaceholder}
-            style={{ width: L.hero.email.width, height: L.hero.email.height }}
+            className="waitlist-canvas__email-input"
+            style={{
+              left: L.hero.email.left,
+              top: L.hero.email.top,
+              width: L.hero.email.width,
+              height: L.hero.email.height,
+            }}
           />
           <button
             type="submit"
             aria-label="Join waitlist"
-            style={{ width: L.hero.submit.width, height: L.hero.submit.height }}
+            className="waitlist-canvas__email-submit"
+            style={{
+              left: L.hero.submit.left,
+              top: L.hero.submit.top,
+              width: L.hero.submit.width,
+              height: L.hero.submit.height,
+            }}
           >
             <ArrowRight size={16} strokeWidth={2} />
           </button>

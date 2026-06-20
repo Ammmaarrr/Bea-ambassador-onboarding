@@ -604,7 +604,14 @@
   }
 }
 
+/* Fixed 1367px artboard canvas — uniform scale on all laptop widths (matches onboarding). */
+.waitlist-page-desktop {
+  width: 100%;
+  background-color: #fbf5ef;
+}
+
 .waitlist-canvas-viewport {
+  --wl-canvas-h: 847px;
   width: 100%;
   max-width: 100vw;
   overflow: hidden;
@@ -613,49 +620,44 @@
   -webkit-user-select: text;
 }
 
-.waitlist-canvas-viewport--tall {
-  overflow: auto;
-  max-height: 100vh;
-}
-
 .waitlist-canvas {
   position: relative;
+  width: 1367px;
+  height: var(--wl-canvas-h);
   transform-origin: top left;
   background-color: #fbf5ef;
   user-select: text;
   -webkit-user-select: text;
 }
 
-.waitlist-canvas--confirmed-fallback,
-.waitlist-canvas--prizes-fallback {
-  width: 100% !important;
-  max-width: 1367px;
-  height: auto !important;
-  min-height: 100vh;
-  margin: 0 auto;
-  transform: none !important;
-}
-
 @media (max-width: 1366px) {
-  .waitlist-canvas:not(.waitlist-canvas--confirmed-fallback):not(.waitlist-canvas--prizes-fallback) {
+  .waitlist-canvas-viewport {
+    height: calc(var(--wl-canvas-h) * (100vw / 1367px));
+  }
+
+  .waitlist-canvas {
     transform: scale(calc(100vw / 1367px));
   }
 }
 
 @media (min-width: 1367px) {
-  .waitlist-canvas-viewport:not(.waitlist-canvas-viewport--tall) {
-    max-width: 1367px;
+  .waitlist-canvas-viewport {
+    width: 1367px;
+    height: var(--wl-canvas-h);
     margin-left: auto;
     margin-right: auto;
+    overflow: visible;
   }
 
-  .waitlist-canvas:not(.waitlist-canvas--confirmed-fallback):not(.waitlist-canvas--prizes-fallback) {
+  .waitlist-canvas {
     transform: none;
   }
 }
 
+/* Flow-layout fallbacks removed — pages 8 & 9 use absolute canvas layouts. */
+
 /* Shared absolute layer — direct canvas children only */
-.waitlist-canvas > [class*="waitlist-canvas__"] {
+.waitlist-canvas > :is([class*="waitlist-canvas__"], aside, form) {
   position: absolute;
   box-sizing: border-box;
 }
@@ -669,10 +671,18 @@
   z-index: 20;
 }
 
+.waitlist-canvas__nav {
+  position: static;
+  z-index: 20;
+}
+
 .waitlist-canvas__nav-link {
+  position: absolute;
   display: flex;
   align-items: center;
   font-size: 13px;
+  font-weight: 400;
+  line-height: 1;
   color: #1a1a1a;
   text-decoration: none;
   z-index: 20;
@@ -724,25 +734,31 @@
   z-index: 1;
 }
 
-.waitlist-canvas__email-pill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.waitlist-canvas__hero-copy {
   z-index: 10;
 }
 
-.waitlist-canvas__email-pill input {
-  flex: 0 0 auto;
+.waitlist-canvas__email-pill {
+  position: static;
+  z-index: 10;
+}
+
+.waitlist-canvas__email-input,
+.waitlist-canvas__email-submit {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.waitlist-canvas__email-input {
   border: 1px solid #d8d5cf;
   border-radius: 999px;
   padding: 0 20px;
   font-size: 14px;
   background: #fff;
   outline: none;
-  box-sizing: border-box;
 }
 
-.waitlist-canvas__email-pill button {
+.waitlist-canvas__email-submit {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -751,7 +767,10 @@
   background: #1a1a1a;
   color: #fff;
   cursor: pointer;
-  flex-shrink: 0;
+}
+
+.waitlist-canvas__email-pill {
+  display: block;
 }
 
 .waitlist-canvas__city-pill {
@@ -976,4 +995,582 @@
   font-weight: 500;
   cursor: pointer;
   z-index: 10;
+}
+
+/* ── Confirmed canvas (artboard 8) ── */
+.waitlist-canvas__waiting-room {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid #d8d5cf;
+  border-radius: 999px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 30;
+}
+
+.waitlist-canvas__confirmed-hero {
+  text-align: center;
+  z-index: 10;
+}
+
+.waitlist-canvas__confirmed-hero .waitlist-check-badge-svg {
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.waitlist-canvas__confirmed-title {
+  margin: 0;
+  font-family: var(--wl-serif);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.waitlist-canvas__confirmed-sub {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #9a9490;
+}
+
+.waitlist-canvas__rank-card {
+  box-sizing: border-box;
+  padding: 32px 28px;
+  border: 1px solid #d8d5cf;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+  z-index: 10;
+}
+
+.waitlist-canvas__rank-eyebrow {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #9a9490;
+}
+
+.waitlist-canvas__rank-number {
+  margin: 12px 0 0;
+  font-family: var(--wl-serif);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+}
+
+.waitlist-canvas__rank-city {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
+.waitlist-canvas__rank-divider {
+  height: 1px;
+  margin: 24px 0 20px;
+  background: #ebe6e0;
+}
+
+.waitlist-canvas__rank-progress-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #9a9490;
+}
+
+.waitlist-canvas__rank-progress-bar {
+  height: 6px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: #ebe6e0;
+  overflow: hidden;
+}
+
+.waitlist-canvas__rank-progress-fill {
+  width: 85%;
+  height: 100%;
+  border-radius: inherit;
+  background: #5c4033;
+}
+
+.waitlist-canvas__rank-hint {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.45;
+  color: #9a9490;
+}
+
+.waitlist-canvas__section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #9a9490;
+  z-index: 10;
+}
+
+.waitlist-canvas__section-divider::before,
+.waitlist-canvas__section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d8d5cf;
+}
+
+.waitlist-canvas__perks-sub {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #9a9490;
+  z-index: 10;
+}
+
+.waitlist-canvas__perks-row {
+  z-index: 10;
+}
+
+.waitlist-canvas__perks-row .waitlist-perk-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.waitlist-canvas__perks-row .waitlist-perk-card {
+  min-height: 320px;
+  padding: 24px 20px;
+  border: 1px solid #d8d5cf;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+.waitlist-canvas__perks-row .waitlist-perk-card--active {
+  background: #f3e8dc;
+  border-color: #e0cdb8;
+}
+
+.waitlist-canvas__share-block {
+  z-index: 10;
+}
+
+.waitlist-canvas__share-block .waitlist-share-icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.waitlist-canvas__copy-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 14px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.waitlist-canvas__confirmed-footer {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #9a9490;
+  z-index: 10;
+}
+
+.waitlist-canvas__confirmed-footer-muted {
+  margin-top: 6px;
+}
+
+/* ── Prizes canvas (artboard 9) ── */
+.waitlist-canvas__prizes-sidebar {
+  box-sizing: border-box;
+  padding: 20px 12px 24px;
+  border-right: 1px solid #efe7dd;
+  background: #fbf5ef;
+  z-index: 5;
+}
+
+.waitlist-canvas__prizes-logo {
+  display: block;
+  padding: 6px 12px 20px;
+  font-family: var(--wl-serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.waitlist-canvas__prizes-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.waitlist-canvas__prizes-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #6b6b6b;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.waitlist-canvas__prizes-nav-link.is-active {
+  background: #efe7dd;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.waitlist-canvas__prizes-ranks {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.waitlist-canvas__prizes-rank {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.waitlist-canvas__prizes-rank-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #d8d5cf;
+  flex-shrink: 0;
+}
+
+.waitlist-canvas__prizes-rank-detail {
+  color: #9a9490;
+}
+
+.waitlist-canvas__prizes-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 20;
+}
+
+.waitlist-canvas__prizes-profile img {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.waitlist-canvas__prizes-profile-org {
+  font-weight: 500;
+  color: #9a9490;
+}
+
+.waitlist-canvas__prizes-heading {
+  z-index: 10;
+}
+
+.waitlist-canvas__prizes-title {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.waitlist-canvas__prizes-sub {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #9a9490;
+}
+
+.waitlist-canvas__prizes-sub span {
+  display: block;
+}
+
+.waitlist-canvas__points-card {
+  display: flex;
+  gap: 16px;
+  box-sizing: border-box;
+  padding: 18px;
+  border: 1px solid #d8d5cf;
+  border-radius: 16px;
+  background: #fff;
+  z-index: 10;
+}
+
+.waitlist-canvas__points-eyebrow {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #9a9490;
+}
+
+.waitlist-canvas__points-value {
+  margin: 8px 0 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.waitlist-canvas__points-bar {
+  height: 6px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: #ebe6e0;
+  overflow: hidden;
+}
+
+.waitlist-canvas__points-bar > div {
+  height: 100%;
+  border-radius: inherit;
+  background: #5c4033;
+}
+
+.waitlist-canvas__points-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #9a9490;
+}
+
+.waitlist-canvas__points-aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.waitlist-canvas__points-aside button {
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.waitlist-canvas__prizes-sectionhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.waitlist-canvas__prizes-sectionhead h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.waitlist-canvas__prizes-sectionhead button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.waitlist-canvas__reward-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  z-index: 10;
+}
+
+.waitlist-canvas__reward-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  padding: 28px;
+  border: 1px solid #efe7dd;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.waitlist-canvas__reward-badge {
+  align-self: flex-start;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: #f3e4d3;
+  color: #9a5a28;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.waitlist-canvas__reward-card h3 {
+  margin: 22px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.waitlist-canvas__reward-card p span {
+  display: block;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #6f6a64;
+}
+
+.waitlist-canvas__reward-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.waitlist-canvas__reward-foot button {
+  padding: 11px 26px;
+  border: none;
+  border-radius: 10px;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.waitlist-canvas__info-card {
+  box-sizing: border-box;
+  padding: 20px 22px;
+  border: 1px solid #d8d5cf;
+  border-radius: 16px;
+  background: #fff;
+  z-index: 10;
+}
+
+.waitlist-canvas__info-card--school {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.waitlist-canvas__info-split {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.waitlist-canvas__info-eyebrow {
+  margin: 0 0 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #9a9490;
+}
+
+.waitlist-canvas__info-strong {
+  margin: 4px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.waitlist-canvas__prompt-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.waitlist-canvas__prompt-groups > div span {
+  display: block;
+}
+
+.waitlist-canvas__info-card--earn h2,
+.waitlist-canvas__info-card--standing h2 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.waitlist-canvas__info-card--earn ul,
+.waitlist-canvas__info-card--standing ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.waitlist-canvas__info-card--earn li,
+.waitlist-canvas__info-card--standing li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 0;
+  border-top: 1px solid #ebe6e0;
+}
+
+.waitlist-canvas__earn-desc {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #9a9490;
+}
+
+.waitlist-canvas__standing-value {
+  margin-left: auto;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.waitlist-canvas__info-card--standing button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }

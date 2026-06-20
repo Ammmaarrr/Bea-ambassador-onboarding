@@ -13,10 +13,9 @@ export const WAITLIST_ASSETS = {
     instagram: "/waitlist/confirmed/share-instagram.png",
     messages: "/waitlist/confirmed/share-messages.png",
     whatsapp: "/waitlist/confirmed/share-whatsapp.png",
-    copyLink: "/waitlist/confirmed/share-messages.png",
   },
   prizes: {
-    gift: "/waitlist/confirmed/perk-icon-early.png",
+    gift: "/waitlist/prizes/gift-icon.png",
     avatar: "/waitlist/avatars/ron.png",
   },
 } as const;

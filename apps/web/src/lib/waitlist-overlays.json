@@ -133,19 +133,19 @@
       "waitingRoom": { "left": 1090, "top": 28, "width": 188, "height": 48, "href": "/waitlist/9", "label": "Waiting room" },
       "badge": { "left": 635, "top": 196, "width": 96, "height": 96 },
       "title": { "left": 409, "top": 316, "width": 548 },
-      "subtitle": { "left": 409, "top": 376, "width": 548 },
-      "rankCard": { "left": 409, "top": 420, "width": 548, "height": 352 },
-      "perksDivider": { "left": 409, "top": 860, "width": 548 },
-      "perksSub": { "left": 409, "top": 896, "width": 548 },
+      "subtitle": { "left": 409, "top": 438, "width": 548 },
+      "rankCard": { "left": 409, "top": 560, "width": 548, "height": 670 },
+      "perksDivider": { "left": 409, "top": 1316, "width": 548 },
+      "perksSub": { "left": 409, "top": 1374, "width": 548 },
       "perkCards": [
-        { "left": 96, "top": 940, "width": 381, "height": 389 },
-        { "left": 493, "top": 940, "width": 381, "height": 389 },
-        { "left": 890, "top": 940, "width": 381, "height": 389 }
+        { "left": 96, "top": 1495, "width": 381, "height": 372 },
+        { "left": 493, "top": 1495, "width": 381, "height": 372 },
+        { "left": 890, "top": 1495, "width": 381, "height": 372 }
       ],
-      "shareDivider": { "left": 409, "top": 1612, "width": 548 },
-      "share": { "left": 409, "top": 1676, "width": 548, "height": 96 },
-      "copyLink": { "left": 508, "top": 2268, "width": 352, "height": 48, "label": "Copy Invite Link" },
-      "footer": { "left": 409, "top": 2400, "width": 548 }
+      "shareDivider": { "left": 409, "top": 1965, "width": 548 },
+      "share": { "left": 409, "top": 2028, "width": 548, "height": 130 },
+      "copyLink": { "left": 508, "top": 2250, "width": 352, "height": 48, "label": "Copy Invite Link" },
+      "footer": { "left": 409, "top": 2388, "width": 548 }
     },
     "9": {
       "width": 1367,

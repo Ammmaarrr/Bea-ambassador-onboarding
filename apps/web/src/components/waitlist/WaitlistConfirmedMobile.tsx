@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { ChevronLeft, Heart } from "lucide-react";
+import { ChevronLeft, Heart, Link2 } from "lucide-react";
 
 import { WAITLIST_ARTBOARDS } from "@/lib/waitlist";
-import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
 import { WAITLIST_CONFIRMED_CONTENT } from "@/lib/waitlist-page-content";
 
 import { WaitlistCheckBadge } from "./WaitlistCheckBadge";
@@ -56,16 +55,7 @@ export function WaitlistConfirmedMobile() {
         <WaitlistShareIcons />
 
         <button type="button" className="waitlist-btn-primary waitlist-btn-primary--compact">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={WAITLIST_ASSETS.share.copyLink}
-            alt=""
-            width={16}
-            height={16}
-            draggable={false}
-            aria-hidden
-            className="waitlist-copy-link-icon"
-          />
+          <Link2 size={16} strokeWidth={1.75} aria-hidden className="waitlist-copy-link-icon" />
           <span>{content.copyLabel}</span>
         </button>
 

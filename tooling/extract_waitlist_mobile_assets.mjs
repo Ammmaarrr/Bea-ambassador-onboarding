@@ -168,9 +168,9 @@ writePng(
 );
 
 const perkIcons = [
-  { name: "perk-icon-early", left: 272, top: 964, width: 32, height: 32 },
-  { name: "perk-icon-time", left: 669, top: 964, width: 32, height: 32 },
-  { name: "perk-icon-premium", left: 1066, top: 964, width: 32, height: 32 },
+  { name: "perk-icon-early", left: 304, top: 1548, width: 47, height: 58 },
+  { name: "perk-icon-time", left: 645, top: 1551, width: 51, height: 57 },
+  { name: "perk-icon-premium", left: 981, top: 1554, width: 69, height: 57 },
 ];
 for (const icon of perkIcons) {
   writePng(
@@ -179,13 +179,25 @@ for (const icon of perkIcons) {
   );
 }
 
+const shareIcons = [
+  { name: "share-instagram", left: 460, top: 2039, width: 64, height: 64 },
+  { name: "share-messages", left: 640, top: 2039, width: 64, height: 64 },
+  { name: "share-whatsapp", left: 820, top: 2039, width: 64, height: 64 },
+];
+for (const icon of shareIcons) {
+  writePng(
+    crop(ab8, icon),
+    path.join(outDir, "confirmed", `${icon.name}.png`),
+  );
+}
+
 const ab9 = PNG.sync.read(fs.readFileSync(path.join(artDir, "9.png")));
 writePng(
-  crop(ab9, { left: 1094, top: 128, width: 48, height: 48 }),
+  crop(ab9, { left: 1217, top: 190, width: 33, height: 34 }),
   path.join(outDir, "prizes", "gift-icon.png"),
 );
 writePng(
-  crop(ab9, { left: 1108, top: 42, width: 36, height: 36 }),
+  crop(ab9, { left: 1163, top: 43, width: 52, height: 52 }),
   path.join(outDir, "avatars", "ron.png"),
 );
 

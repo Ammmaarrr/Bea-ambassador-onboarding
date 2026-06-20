@@ -138,7 +138,11 @@
 }
 
 .onboarding-account-form .field-group {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+.onboarding-account-form .field-group:last-of-type {
+  margin-bottom: 0;
 }
 
 .onboarding-inner-mobile .onboarding-social-row {
@@ -161,7 +165,7 @@
 .onboarding-account-form .field-label {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .onboarding-account-form .field-input {
@@ -173,13 +177,13 @@
 }
 
 .onboarding-account-form .onboarding-field-hint {
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 12px;
 }
 
 /* Account mobile — social row matches login page (globals login.css + local spacing) */
 .onboarding-account-form .or-divider {
-  margin-top: 20px;
+  margin-top: 24px;
   margin-bottom: 4px;
 }
 
@@ -190,7 +194,15 @@
 }
 
 .onboarding-account-form .onboarding-legal {
-  margin-top: 16px;
+  margin-top: 20px;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .form-subtitle {
+  margin-bottom: 28px;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .onboarding-btn-link {
+  margin-top: 24px;
 }
 
 .onboarding-legal {
@@ -861,7 +873,24 @@
   line-height: 1.02;
   letter-spacing: -0.02em;
   color: #000000;
-  margin-bottom: 8px;
+  margin: 0;
+}
+
+.onboarding-canvas__account-eyebrow {
+  position: absolute;
+  z-index: 11;
+  margin: 0;
+  color: #c48b58;
+}
+
+.onboarding-canvas__account-title {
+  position: absolute;
+  z-index: 11;
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: #000000;
 }
 
 .onboarding-canvas--account .onboarding-canvas__account-subtitle {
@@ -951,6 +980,12 @@
 
 .onboarding-canvas__cta.justify-center {
   justify-content: center;
+}
+
+.onboarding-canvas--account .onboarding-canvas__cta {
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .onboarding-canvas__account-form {

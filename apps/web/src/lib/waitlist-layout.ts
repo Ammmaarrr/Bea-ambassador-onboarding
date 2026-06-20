@@ -66,12 +66,15 @@ export type WaitlistStepLayout = {
   back: (typeof overlays.pages)["3"]["back"];
   progress: (typeof overlays.pages)["3"]["progress"];
   copy: WaitlistRect;
+  title?: WaitlistRect;
+  subtitle?: WaitlistRect;
   cta: (typeof overlays.pages)["3"]["cta"];
   secondaryLink?: (typeof overlays.pages)["3"]["secondaryLink"];
   searchLabel?: { left: number; top: number; width: number; height: number; text: string };
   inputs?: WaitlistFieldOverlay[];
   cityCards?: (typeof overlays.pages)["3"]["cityCards"];
   schoolCard?: (typeof overlays.pages)["5"]["schoolCard"];
+  orDivider?: (typeof overlays.pages)["5"]["orDivider"];
   notInSchool?: (typeof overlays.pages)["5"]["notInSchool"];
 };
 
@@ -82,6 +85,8 @@ export const WAITLIST_STEP_LAYOUTS: Record<WaitlistStepArtboardId, WaitlistStepL
     back: overlays.pages["3"].back,
     progress: overlays.pages["3"].progress,
     copy: overlays.pages["3"].copy as WaitlistRect,
+    title: overlays.pages["3"].title as WaitlistRect,
+    subtitle: overlays.pages["3"].subtitle as WaitlistRect,
     cta: overlays.pages["3"].cta,
     secondaryLink: overlays.pages["3"].secondaryLink,
     searchLabel: overlays.pages["3"].searchLabel,
@@ -107,6 +112,7 @@ export const WAITLIST_STEP_LAYOUTS: Record<WaitlistStepArtboardId, WaitlistStepL
     searchLabel: overlays.pages["5"].searchLabel,
     inputs: overlays.pages["5"].inputs,
     schoolCard: overlays.pages["5"].schoolCard,
+    orDivider: overlays.pages["5"].orDivider,
     notInSchool: overlays.pages["5"].notInSchool,
   },
   "7": {
@@ -126,14 +132,17 @@ export const WAITLIST_CONFIRMED_LAYOUT = {
   height: overlays.pages["8"].height,
   back: overlays.pages["8"].back,
   waitingRoom: overlays.pages["8"].waitingRoom!,
+  badge: overlays.pages["8"].badge!,
+  title: overlays.pages["8"].title!,
+  subtitle: overlays.pages["8"].subtitle!,
+  rankCard: overlays.pages["8"].rankCard!,
+  perksDivider: overlays.pages["8"].perksDivider!,
+  perksSub: overlays.pages["8"].perksSub!,
+  perkCards: overlays.pages["8"].perkCards!,
+  shareDivider: overlays.pages["8"].shareDivider!,
+  share: overlays.pages["8"].share!,
   copyLink: overlays.pages["8"].copyLink!,
-  hero: { left: 409, top: 156, width: 548 },
-  rankCard: { left: 409, top: 408, width: 548, height: 368 },
-  perksDivider: { left: 409, top: 868, width: 548 },
-  perks: { left: 96, top: 948, width: 1175, height: 420 },
-  shareDivider: { left: 409, top: 1620, width: 548 },
-  share: { left: 409, top: 1688, width: 548, height: 200 },
-  footer: { left: 409, top: 2388, width: 548 },
+  footer: overlays.pages["8"].footer!,
 } as const;
 
 /** Prizes dashboard — artboard 9.png */
@@ -141,17 +150,17 @@ export const WAITLIST_PRIZES_LAYOUT = {
   width: overlays.pages["9"].width,
   height: overlays.pages["9"].height,
   back: overlays.pages["9"].back,
-  sidebar: { left: 0, top: 0, width: 210, height: 1696 },
-  profile: { left: 1120, top: 48, width: 200, height: 44 },
-  title: { left: 260, top: 108, width: 520, height: 100 },
-  points: { left: 830, top: 96, width: 340, height: 148 },
-  featuredHead: { left: 260, top: 284, width: 910, height: 36 },
-  rewards: { left: 260, top: 340, width: 910, height: 352 },
-  school: { left: 260, top: 724, width: 910, height: 112 },
-  prompts: { left: 260, top: 860, width: 910, height: 148 },
-  earnLeft: { left: 260, top: 1048, width: 270, height: 520 },
-  earnRight: { left: 548, top: 1048, width: 270, height: 520 },
-  standing: { left: 836, top: 1048, width: 334, height: 520 },
+  sidebar: overlays.pages["9"].sidebar!,
+  profile: overlays.pages["9"].profile!,
+  title: overlays.pages["9"].title!,
+  points: overlays.pages["9"].points!,
+  featuredHead: overlays.pages["9"].featuredHead!,
+  rewards: overlays.pages["9"].rewards!,
+  school: overlays.pages["9"].school!,
+  prompts: overlays.pages["9"].prompts!,
+  earnLeft: overlays.pages["9"].earnLeft!,
+  earnRight: overlays.pages["9"].earnRight!,
+  standing: overlays.pages["9"].standing!,
 } as const;
 
 export function waitlistCanvasHeight(id: WaitlistArtboardId): number {

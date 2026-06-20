@@ -93,10 +93,12 @@ export const ACCOUNT_FIELDS = overlays.pages.account.inputs;
 
 /** Account creation (Artboard 4) — absolute desktop coords. */
 export const ACCOUNT_DESKTOP = {
-  labelLeft: 76,
+  eyebrow: { left: 76, top: 280 },
+  title: { left: 76, top: 302, width: 520 },
+  subtitle: { left: 76, top: 356, width: 520 },
+  labelLeft: 106,
   labelTops: { name: 384, email: 526, password: 672 },
   hint: { left: 106, top: 786 },
   orDivider: { left: 106, top: 920, width: 476 },
   legal: { left: 76, top: 1060, width: 506 },
-  subtitleOffset: 81,
 } as const;

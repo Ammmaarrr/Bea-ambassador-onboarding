@@ -67,17 +67,17 @@ export const WAITLIST_PAGE_CONTENT: Record<WaitlistStepArtboardId, WaitlistStepC
     },
   },
   "4": {
-    title: "What do we call you?",
+    title: "What do we\ncall you?",
     titleSerif: true,
     cta: { label: "Continue", href: "/waitlist/5" },
   },
   "5": {
-    title: "Which school are you affiliated with?",
+    title: "Which school are\nyou affiliated with?",
     titleSerif: true,
     cta: { label: "Continue", href: "/waitlist/7" },
   },
   "7": {
-    title: "Where should we send the invite to?",
+    title: "Where should we\nsend the invite to?",
     subtitle: "We'll let you know the moment you can join",
     titleSerif: true,
     cta: { label: "Confirm email", href: "/waitlist/8" },

@@ -5,7 +5,7 @@ import {
   ArrowRight,
   Building2,
   CalendarDays,
-  ChevronLeft,
+  ChevronDown,
   Gift,
   Globe,
   GraduationCap,
@@ -43,15 +43,6 @@ export function WaitlistPrizesDesktopCanvas() {
       style={{ ["--wl-canvas-h" as string]: `${L.height}px` }}
     >
       <div className="waitlist-canvas waitlist-canvas--prizes">
-        <Link
-          href={L.back.href}
-          className="waitlist-canvas__back"
-          style={{ left: L.back.left, top: L.back.top, width: L.back.width, height: L.back.height }}
-          aria-label="Go back"
-        >
-          <ChevronLeft size={22} strokeWidth={1.75} />
-        </Link>
-
         <aside
           className="waitlist-canvas__prizes-sidebar"
           style={{
@@ -86,7 +77,7 @@ export function WaitlistPrizesDesktopCanvas() {
               <div key={r.detail} className="waitlist-canvas__prizes-rank">
                 <span className="waitlist-canvas__prizes-rank-dot" aria-hidden />
                 <div>
-                  <p>{r.org}</p>
+                  <p className="waitlist-canvas__prizes-rank-org">{r.org}</p>
                   <p className="waitlist-canvas__prizes-rank-detail">{r.detail}</p>
                 </div>
               </div>
@@ -105,8 +96,11 @@ export function WaitlistPrizesDesktopCanvas() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={profile.avatar} alt="" width={36} height={36} />
-          <span>{profile.name}</span>
-          <span className="waitlist-canvas__prizes-profile-org">{profile.org}</span>
+          <div className="waitlist-canvas__prizes-profile-copy">
+            <span className="waitlist-canvas__prizes-profile-name">{profile.name}</span>
+            <span className="waitlist-canvas__prizes-profile-org">{profile.org}</span>
+          </div>
+          <ChevronDown size={16} strokeWidth={1.75} aria-hidden />
         </div>
 
         <div
@@ -130,7 +124,7 @@ export function WaitlistPrizesDesktopCanvas() {
             height: L.points.height,
           }}
         >
-          <div>
+          <div className="waitlist-canvas__points-main">
             <p className="waitlist-canvas__points-eyebrow">{c.points.eyebrow}</p>
             <p className="waitlist-canvas__points-value">{c.points.value}</p>
             <div className="waitlist-canvas__points-bar">
@@ -138,9 +132,14 @@ export function WaitlistPrizesDesktopCanvas() {
             </div>
             <p className="waitlist-canvas__points-note">{c.points.note}</p>
           </div>
+          <div className="waitlist-canvas__points-divider" aria-hidden />
           <div className="waitlist-canvas__points-aside">
-            <Gift size={22} strokeWidth={1.5} aria-hidden />
-            <button type="button">{c.points.historyLabel}</button>
+            <span className="waitlist-canvas__points-gift" aria-hidden>
+              <Gift size={22} strokeWidth={1.5} />
+            </span>
+            <button type="button" className="waitlist-canvas__points-history">
+              {c.points.historyLabel}
+            </button>
           </div>
         </div>
 
@@ -184,18 +183,19 @@ export function WaitlistPrizesDesktopCanvas() {
           className="waitlist-canvas__info-card waitlist-canvas__info-card--school"
           style={{ left: L.school.left, top: L.school.top, width: L.school.width, height: L.school.height }}
         >
-          <div className="waitlist-canvas__info-split">
+          <div className="waitlist-canvas__school-row">
             <Trophy size={22} strokeWidth={1.5} aria-hidden />
             <div>
               <p className="waitlist-canvas__info-eyebrow">{c.school.eyebrow}</p>
-              <p>{c.school.desc}</p>
+              <p className="waitlist-canvas__info-text">{c.school.desc}</p>
               <p className="waitlist-canvas__info-strong">{c.school.prize}</p>
             </div>
           </div>
-          <div>
+          <div className="waitlist-canvas__school-divider" aria-hidden />
+          <div className="waitlist-canvas__school-leader">
             <p className="waitlist-canvas__info-eyebrow">{c.school.leaderLabel}</p>
             <p className="waitlist-canvas__info-strong">{c.school.leaderName}</p>
-            <p className="waitlist-canvas__info-strong">{c.school.leaderPts}</p>
+            <p className="waitlist-canvas__info-muted">{c.school.leaderPts}</p>
           </div>
         </div>
 
@@ -204,17 +204,17 @@ export function WaitlistPrizesDesktopCanvas() {
           style={{ left: L.prompts.left, top: L.prompts.top, width: L.prompts.width, height: L.prompts.height }}
         >
           <p className="waitlist-canvas__info-eyebrow">{c.prompts.eyebrow}</p>
-          <p>{c.prompts.desc}</p>
+          <p className="waitlist-canvas__info-text">{c.prompts.desc}</p>
           <div className="waitlist-canvas__prompt-groups">
             {c.prompts.groups.map((g) => {
               const Icon = RANK_ICONS[g.icon];
               return (
-                <div key={g.label}>
-                  <span>
+                <div key={g.label} className="waitlist-canvas__prompt-group">
+                  <span className="waitlist-canvas__prompt-head">
                     <Icon size={18} strokeWidth={1.5} aria-hidden />
                     {g.label}
                   </span>
-                  <span>
+                  <span className="waitlist-canvas__prompt-places">
                     {g.places.map((p) => (
                       <span key={p}>{p}</span>
                     ))}
@@ -236,10 +236,10 @@ export function WaitlistPrizesDesktopCanvas() {
               {c.earn.items.map((it) => (
                 <li key={`${idx}-${it.title}`}>
                   <div>
-                    <p>{it.title}</p>
+                    <p className="waitlist-canvas__earn-title">{it.title}</p>
                     <p className="waitlist-canvas__earn-desc">{it.desc}</p>
                   </div>
-                  <span>{it.points}</span>
+                  <span className="waitlist-canvas__earn-points">{it.points}</span>
                 </li>
               ))}
             </ul>
@@ -263,7 +263,7 @@ export function WaitlistPrizesDesktopCanvas() {
                 <li key={r.title}>
                   <Icon size={18} strokeWidth={1.5} aria-hidden />
                   <div>
-                    <p>{r.title}</p>
+                    <p className="waitlist-canvas__earn-title">{r.title}</p>
                     <p className="waitlist-canvas__earn-desc">{r.desc}</p>
                   </div>
                   <span className="waitlist-canvas__standing-value">{r.value}</span>

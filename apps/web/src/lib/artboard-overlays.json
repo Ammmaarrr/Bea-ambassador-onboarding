@@ -64,8 +64,8 @@
         "label": "Create account",
         "left": 106,
         "top": 834,
-        "width": 534,
-        "height": 52
+        "width": 544,
+        "height": 46
       },
       "inputs": [
         {
@@ -74,7 +74,7 @@
           "placeholder": "Enter your full name",
           "left": 106,
           "top": 404,
-          "width": 534,
+          "width": 544,
           "height": 72
         },
         {
@@ -83,7 +83,7 @@
           "placeholder": "Enter your email",
           "left": 106,
           "top": 547,
-          "width": 534,
+          "width": 544,
           "height": 71
         },
         {
@@ -92,7 +92,7 @@
           "placeholder": "Create your password",
           "left": 106,
           "top": 693,
-          "width": 534,
+          "width": 544,
           "height": 71
         }
       ],

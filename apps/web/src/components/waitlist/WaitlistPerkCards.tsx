@@ -9,14 +9,21 @@ const PERK_ICONS = {
 } as const;
 
 /** Perk row — copy and layout from laptop artboard 8. */
-export function WaitlistPerkCards({ showSubtitle = true }: { showSubtitle?: boolean }) {
+export function WaitlistPerkCards({
+  showSubtitle = true,
+  singleIndex,
+}: {
+  showSubtitle?: boolean;
+  singleIndex?: number;
+}) {
   const { perksSubtitle, perks } = WAITLIST_CONFIRMED_CONTENT;
+  const visiblePerks = singleIndex === undefined ? perks : [perks[singleIndex]!].filter(Boolean);
 
   return (
     <>
       {showSubtitle ? <p className="waitlist-perks-subtitle">{perksSubtitle}</p> : null}
       <div className="waitlist-perk-cards">
-        {perks.map((perk) => {
+        {visiblePerks.map((perk) => {
           const Icon = PERK_ICONS[perk.id];
           return (
             <div

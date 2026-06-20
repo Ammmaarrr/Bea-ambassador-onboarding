@@ -126,57 +126,80 @@ export function OnboardingDesktopCanvas({ pageKey, children }: Props) {
           />
         ) : null}
 
-        <div
-          className={
-            "ambassador-login-root onboarding-canvas__copy" +
-            (centered ? " onboarding-canvas__copy--centered onboarding-youre-in-mobile" : "")
-          }
-          style={{ left: copy.left, top: copy.top, width: copy.width }}
-        >
-          {!isYoureIn && (
-            <p className="form-eyebrow onboarding-step-eyebrow">{content.eyebrow}</p>
-          )}
-
-          <DesktopTitle pageKey={pageKey} />
-
-          {isYoureIn && (
-            <>
-              <p className="onboarding-youre-in-school font-canela onboarding-heading text-center">
-                University of Connecticut
-              </p>
-              <p className="form-eyebrow onboarding-step-eyebrow onboarding-youre-in-eyebrow text-center">
-                {content.eyebrow}
-              </p>
-            </>
-          )}
-
-          {!isAccount && (
-            <p className={"form-subtitle" + (isYoureIn ? " text-center mx-auto" : "")}>
+        {isAccount ? (
+          <>
+            <p
+              className="form-eyebrow onboarding-step-eyebrow onboarding-canvas__account-eyebrow"
+              style={{ left: ACCOUNT_DESKTOP.eyebrow.left, top: ACCOUNT_DESKTOP.eyebrow.top }}
+            >
+              {content.eyebrow}
+            </p>
+            <h1
+              className="form-title onboarding-form-title font-canela onboarding-canvas__account-title"
+              style={{
+                left: ACCOUNT_DESKTOP.title.left,
+                top: ACCOUNT_DESKTOP.title.top,
+                width: ACCOUNT_DESKTOP.title.width,
+              }}
+            >
+              {getMobileTitleLines(pageKey).map((line, i, lines) => (
+                <span key={line}>
+                  {line}
+                  {i < lines.length - 1 ? <br /> : null}
+                </span>
+              ))}
+            </h1>
+            <p
+              className="form-subtitle onboarding-canvas__account-subtitle"
+              style={{
+                left: ACCOUNT_DESKTOP.subtitle.left,
+                top: ACCOUNT_DESKTOP.subtitle.top,
+                width: ACCOUNT_DESKTOP.subtitle.width,
+              }}
+            >
               {content.subtitle}
             </p>
-          )}
-
-          {!isAccount && (
-            <div className="onboarding-canvas__body">
-              <OnboardingMobileContent pageKey={pageKey} />
-              {children}
-            </div>
-          )}
-
-          {isYoureIn && <YoureInShareSection />}
-        </div>
-
-        {isAccount && (
-          <p
-            className="form-subtitle onboarding-canvas__account-subtitle"
-            style={{
-              left: copy.left,
-              top: copy.top + ACCOUNT_DESKTOP.subtitleOffset,
-              width: copy.width,
-            }}
+          </>
+        ) : (
+          <div
+            className={
+              "ambassador-login-root onboarding-canvas__copy" +
+              (centered ? " onboarding-canvas__copy--centered onboarding-youre-in-mobile" : "")
+            }
+            style={{ left: copy.left, top: copy.top, width: copy.width }}
           >
-            {content.subtitle}
-          </p>
+            {!isYoureIn && (
+              <p className="form-eyebrow onboarding-step-eyebrow">{content.eyebrow}</p>
+            )}
+
+            <DesktopTitle pageKey={pageKey} />
+
+            {isYoureIn && (
+              <>
+                <p className="onboarding-youre-in-school font-canela onboarding-heading text-center">
+                  University of Connecticut
+                </p>
+                <p className="form-eyebrow onboarding-step-eyebrow onboarding-youre-in-eyebrow text-center">
+                  {content.eyebrow}
+                </p>
+              </>
+            )}
+
+            {!isAccount && (
+              <p className={"form-subtitle" + (isYoureIn ? " text-center mx-auto" : "")}>
+                {content.subtitle}
+              </p>
+            )}
+
+            {!isAccount && (
+              <div className="onboarding-canvas__body">
+                <OnboardingMobileContent pageKey={pageKey} />
+                {children}
+              </div>
+            )}
+
+            {isYoureIn && <YoureInShareSection />}
+          </div>
         )}
 
         {isYoureIn && (

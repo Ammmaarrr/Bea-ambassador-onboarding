@@ -75,15 +75,42 @@ export function WaitlistStepDesktopCanvas({ artboardId }: Props) {
 
         <CanvasProgress filledCount={filledCount} />
 
-        <div
-          className="waitlist-canvas__copy"
-          style={{ left: copy.left, top: copy.top, width: copy.width }}
-        >
-          <h1 className="waitlist-canvas__title">{content.title}</h1>
-          {content.subtitle ? (
-            <p className="waitlist-canvas__subtitle">{content.subtitle}</p>
-          ) : null}
-        </div>
+        {artboardId === "3" && layout.title ? (
+          <>
+            <h1
+              className="waitlist-canvas__title waitlist-canvas__step-title"
+              style={{
+                left: layout.title.left,
+                top: layout.title.top,
+                width: layout.title.width,
+              }}
+            >
+              {content.title}
+            </h1>
+            {layout.subtitle && content.subtitle ? (
+              <p
+                className="waitlist-canvas__subtitle waitlist-canvas__step-subtitle"
+                style={{
+                  left: layout.subtitle.left,
+                  top: layout.subtitle.top,
+                  width: layout.subtitle.width,
+                }}
+              >
+                {content.subtitle}
+              </p>
+            ) : null}
+          </>
+        ) : (
+          <div
+            className="waitlist-canvas__copy"
+            style={{ left: copy.left, top: copy.top, width: copy.width }}
+          >
+            <h1 className="waitlist-canvas__title">{content.title}</h1>
+            {content.subtitle ? (
+              <p className="waitlist-canvas__subtitle">{content.subtitle}</p>
+            ) : null}
+          </div>
+        )}
 
         {artboardId === "3" &&
           layout.cityCards?.map((card, i) => {
@@ -102,7 +129,11 @@ export function WaitlistStepDesktopCanvas({ artboardId }: Props) {
 
         {layout.searchLabel ? (
           <label
-            className="waitlist-canvas__field-label"
+            className={
+              artboardId === "5"
+                ? "waitlist-canvas__field-label waitlist-canvas__field-label--plain"
+                : "waitlist-canvas__field-label"
+            }
             style={{
               left: layout.searchLabel.left,
               top: layout.searchLabel.top,
@@ -133,7 +164,7 @@ export function WaitlistStepDesktopCanvas({ artboardId }: Props) {
               id={field.id}
               name={field.id}
               type={field.type as "text" | "email" | "search" | "number"}
-              placeholder={field.placeholder || "Search"}
+              placeholder={field.placeholder ?? undefined}
               className={
                 "variant" in field && field.variant === "underline"
                   ? "waitlist-canvas__underline-input"
@@ -160,9 +191,26 @@ export function WaitlistStepDesktopCanvas({ artboardId }: Props) {
               height: layout.schoolCard.height,
             }}
           >
-            <span className="waitlist-canvas__school-name">New York University</span>
-            <span className="waitlist-canvas__school-city">New York</span>
+            <span className="waitlist-canvas__school-card-text">
+              <span className="waitlist-canvas__school-name">New York University</span>
+              <span className="waitlist-canvas__school-city">New York</span>
+            </span>
+            <span className="waitlist-canvas__school-dot" aria-hidden />
           </button>
+        )}
+
+        {artboardId === "5" && layout.orDivider && (
+          <div
+            className="waitlist-canvas__or-divider"
+            style={{
+              left: layout.orDivider.left,
+              top: layout.orDivider.top,
+              width: layout.orDivider.width,
+              height: layout.orDivider.height,
+            }}
+          >
+            or
+          </div>
         )}
 
         {artboardId === "5" && layout.notInSchool && (

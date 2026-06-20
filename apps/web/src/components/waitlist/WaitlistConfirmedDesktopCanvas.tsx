@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronLeft, Copy } from "lucide-react";
+import { ChevronLeft, Copy, Heart } from "lucide-react";
 
 import { WAITLIST_CONFIRMED_LAYOUT } from "@/lib/waitlist-layout";
 import { WAITLIST_CONFIRMED_CONTENT } from "@/lib/waitlist-page-content";
@@ -45,13 +45,25 @@ export function WaitlistConfirmedDesktopCanvas() {
         </Link>
 
         <div
-          className="waitlist-canvas__confirmed-hero"
-          style={{ left: L.hero.left, top: L.hero.top, width: L.hero.width }}
+          className="waitlist-canvas__confirmed-badge"
+          style={{ left: L.badge.left, top: L.badge.top, width: L.badge.width, height: L.badge.height }}
         >
           <WaitlistCheckBadge />
-          <h1 className="waitlist-canvas__confirmed-title">{c.title}</h1>
-          <p className="waitlist-canvas__confirmed-sub">{c.subtitle}</p>
         </div>
+
+        <h1
+          className="waitlist-canvas__confirmed-title"
+          style={{ left: L.title.left, top: L.title.top, width: L.title.width }}
+        >
+          {c.title}
+        </h1>
+
+        <p
+          className="waitlist-canvas__confirmed-sub"
+          style={{ left: L.subtitle.left, top: L.subtitle.top, width: L.subtitle.width }}
+        >
+          {c.subtitle}
+        </p>
 
         <div
           className="waitlist-canvas__rank-card"
@@ -89,22 +101,25 @@ export function WaitlistConfirmedDesktopCanvas() {
 
         <p
           className="waitlist-canvas__perks-sub"
-          style={{ left: L.hero.left, top: L.perksDivider.top + 36, width: L.hero.width }}
+          style={{ left: L.perksSub.left, top: L.perksSub.top, width: L.perksSub.width }}
         >
           {c.perksSubtitle}
         </p>
 
-        <div
-          className="waitlist-canvas__perks-row"
-          style={{
-            left: L.perks.left,
-            top: L.perks.top,
-            width: L.perks.width,
-            height: L.perks.height,
-          }}
-        >
-          <WaitlistPerkCards showSubtitle={false} />
-        </div>
+        {L.perkCards.map((slot, i) => (
+          <div
+            key={c.perks[i]?.id ?? i}
+            className="waitlist-canvas__perk-slot"
+            style={{
+              left: slot.left,
+              top: slot.top,
+              width: slot.width,
+              height: slot.height,
+            }}
+          >
+            <WaitlistPerkCards showSubtitle={false} singleIndex={i} />
+          </div>
+        ))}
 
         <div
           className="waitlist-canvas__section-divider"
@@ -115,7 +130,7 @@ export function WaitlistConfirmedDesktopCanvas() {
 
         <div
           className="waitlist-canvas__share-block"
-          style={{ left: L.share.left, top: L.share.top, width: L.share.width }}
+          style={{ left: L.share.left, top: L.share.top, width: L.share.width, height: L.share.height }}
         >
           <WaitlistShareIcons />
         </div>
@@ -138,6 +153,7 @@ export function WaitlistConfirmedDesktopCanvas() {
           className="waitlist-canvas__confirmed-footer"
           style={{ left: L.footer.left, top: L.footer.top, width: L.footer.width }}
         >
+          <Heart size={14} strokeWidth={1.5} aria-hidden className="waitlist-canvas__confirmed-heart" />
           <p>{c.footerThankYou}</p>
           <p className="waitlist-canvas__confirmed-footer-muted">{c.footerClosing}</p>
         </div>

@@ -11,7 +11,7 @@ type Props = {
 export function WaitlistArtboardPage({ artboardId }: Props) {
   return (
     <>
-      <div className="waitlist-page-mobile waitlist-mobile-only">
+      <div className="waitlist-page-mobile waitlist-page-coded waitlist-mobile-only">
         <WaitlistMobile artboardId={artboardId} />
       </div>
       <div className="waitlist-page-desktop waitlist-desktop-only">

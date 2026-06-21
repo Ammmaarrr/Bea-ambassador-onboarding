@@ -444,10 +444,36 @@
   }
 
   .waitlist-page-coded .waitlist-confirmed {
-    max-width: 560px;
+    max-width: 440px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
   }
+
+  /* Artboard 8 confirmed — title, rank, perks */
+  .waitlist-page-coded .waitlist-confirmed-title {
+    font-size: 38px;
+    letter-spacing: -0.025em;
+  }
+
+  .waitlist-page-coded .waitlist-rank-number {
+    font-size: 64px;
+  }
+
+  .waitlist-page-coded .waitlist-perk-card h4 {
+    font-size: 12px;
+  }
+
+  .waitlist-page-coded .waitlist-perk-card-desc,
+  .waitlist-page-coded .waitlist-perk-card-footer {
+    font-size: 10px;
+  }
+
+  .waitlist-page-coded .waitlist-btn-primary--compact {
+    margin-top: 20px;
+  }
+
 
   .waitlist-page-coded .waitlist-city-pills {
     flex-wrap: wrap;

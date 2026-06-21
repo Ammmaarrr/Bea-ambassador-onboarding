@@ -23,7 +23,7 @@ export const textSecondary = "#9a9490";
 export const linkTeal = "#3d7a6e";
 
 export const stepRoutes = [
-  "/",
+  "/onboarding",
   "/your-school",
   "/prizes",
   "/account",

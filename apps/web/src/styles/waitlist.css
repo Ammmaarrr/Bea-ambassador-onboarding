@@ -791,9 +791,9 @@
 
 /* Confirmed page */
 .waitlist-confirmed {
-  max-width: 480px;
+  max-width: 420px;
   margin: 0 auto;
-  padding: 24px 20px 48px;
+  padding: 24px 20px 56px;
   text-align: center;
 }
 
@@ -831,8 +831,52 @@
   display: block;
   width: 96px;
   height: 96px;
-  margin: 0 auto 20px;
+  margin: 0;
   object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.waitlist-check-badge-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 20px;
+}
+
+.waitlist-badge-sparkle {
+  position: absolute;
+  color: #1a1a1a;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.waitlist-badge-sparkle--tl {
+  width: 18px;
+  height: 18px;
+  top: -6px;
+  left: 4px;
+}
+
+.waitlist-badge-sparkle--tr {
+  width: 12px;
+  height: 12px;
+  top: 2px;
+  right: -8px;
+}
+
+.waitlist-badge-sparkle--bl {
+  width: 8px;
+  height: 8px;
+  bottom: 6px;
+  left: -6px;
+}
+
+.waitlist-badge-sparkle--br {
+  width: 12px;
+  height: 12px;
+  bottom: -4px;
+  right: 2px;
 }
 
 .waitlist-check-badge-svg {
@@ -867,19 +911,24 @@
 .waitlist-confirmed-title {
   margin: 0;
   font-family: var(--wl-serif);
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .waitlist-confirmed-sub {
-  margin: 8px 0 0;
-  font-size: 14px;
+  margin: 10px 0 0;
+  font-size: 15px;
+  font-family: var(--wl-serif);
+  font-style: italic;
   color: var(--wl-muted);
+  line-height: 1.45;
 }
 
 .waitlist-rank-card {
-  margin-top: 28px;
-  padding: 28px 24px;
+  margin-top: 24px;
+  padding: 24px 20px 20px;
   border: 1px solid var(--wl-border);
   border-radius: 16px;
   background: #fff;
@@ -894,10 +943,11 @@
 }
 
 .waitlist-rank-number {
-  margin: 12px 0 4px;
+  margin: 10px 0 4px;
   font-family: var(--wl-serif);
-  font-size: 48px;
+  font-size: 60px;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .waitlist-rank-city {
@@ -907,18 +957,19 @@
 
 .waitlist-rank-divider {
   height: 1px;
-  margin: 20px 0 16px;
+  margin: 18px 0 0;
   background: var(--wl-border);
 }
 
 .waitlist-rank-progress-label {
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
-  font-size: 10px;
+  margin-top: 16px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.12em;
   color: #8b7355;
+  text-transform: uppercase;
 }
 
 .waitlist-rank-progress-bar {
@@ -946,14 +997,15 @@
 .waitlist-perk-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .waitlist-perk-card {
-  padding: 16px 10px;
-  border-radius: 12px;
-  background: #f0ebe5;
+  padding: 16px 8px 14px;
+  border-radius: 14px;
+  background: #faf8f6;
+  border: 1px solid var(--wl-border);
   text-align: center;
   font-size: 11px;
   line-height: 1.4;
@@ -967,14 +1019,16 @@
 }
 
 .waitlist-perk-card--active {
-  background: #f5e1d6;
+  background: #f5e0d3;
+  border-color: #e8c4af;
 }
 
 .waitlist-perk-card h4 {
   margin: 8px 0 4px;
   font-family: var(--wl-serif);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
+  line-height: 1.3;
 }
 
 .waitlist-perk-card-desc {
@@ -994,22 +1048,24 @@
 }
 
 .waitlist-perks-subtitle {
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   font-family: var(--wl-serif);
   font-size: 14px;
   line-height: 1.45;
   text-align: center;
   color: var(--wl-text);
+  font-style: italic;
 }
 
 .waitlist-section-divider {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 32px 0 16px;
+  margin: 28px 0 14px;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--wl-muted);
 }
 
@@ -1024,8 +1080,8 @@
 .waitlist-share-icons {
   display: flex;
   justify-content: center;
-  gap: 32px;
-  margin: 20px 0;
+  gap: 28px;
+  margin: 16px 0 20px;
 }
 
 .waitlist-share-icon {
@@ -1033,24 +1089,31 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--wl-text);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--wl-sans);
 }
 
 .waitlist-share-icon-circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 999px;
-  border: 1px solid var(--wl-border);
+  border: 1.5px solid var(--wl-border);
   color: var(--wl-text);
+  background: transparent;
 }
 
 .waitlist-share-icon span {
-  font-family: var(--wl-serif);
-  font-size: 11px;
+  font-family: var(--wl-sans);
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .waitlist-section--experience {
@@ -1659,21 +1722,26 @@
 }
 
 .waitlist-confirmed-footer {
-  margin-top: 32px;
+  margin-top: 28px;
   font-size: 13px;
   line-height: 1.55;
   color: var(--wl-text);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .waitlist-confirmed-heart {
   display: block;
-  margin: 0 auto 12px;
+  margin: 0 auto 8px;
   color: var(--wl-muted);
+  flex-shrink: 0;
 }
 
 .waitlist-confirmed-footer-muted {
-  margin-top: 8px;
+  margin-top: 4px;
   color: var(--wl-muted);
   font-size: 12px;
 }

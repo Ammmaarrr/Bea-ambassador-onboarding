@@ -9,7 +9,7 @@ export type OnboardingStep = {
 };
 
 export const ONBOARDING_STEPS: OnboardingStep[] = [
-  { label: "Welcome", href: "/", left: 472, top: 78 },
+  { label: "Welcome", href: "/onboarding", left: 472, top: 78 },
   { label: "Your School", href: "/your-school", left: 579, top: 78 },
   { label: "Prizes", href: "/prizes", left: 735, top: 78 },
   { label: "Account creation", href: "/account", left: 886, top: 78 },

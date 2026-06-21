@@ -2,7 +2,7 @@
   "width": 1367,
   "height": 1153,
   "stepNav": [
-    { "label": "Welcome", "href": "/", "left": 500, "top": 78, "width": 110, "height": 32 },
+    { "label": "Welcome", "href": "/onboarding", "left": 500, "top": 78, "width": 110, "height": 32 },
     { "label": "Your School", "href": "/your-school", "left": 607, "top": 78, "width": 125, "height": 32 },
     { "label": "Prizes", "href": "/prizes", "left": 762, "top": 78, "width": 95, "height": 32 },
     { "label": "Account creation", "href": "/account", "left": 914, "top": 78, "width": 155, "height": 32 },

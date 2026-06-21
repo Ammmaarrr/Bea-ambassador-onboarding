@@ -92,7 +92,7 @@
     "apply": {
       "prompt": "New to the ambassador program?",
       "linkLabel": "Apply now",
-      "href": "/"
+      "href": "/onboarding"
     }
   },
   "footer": {

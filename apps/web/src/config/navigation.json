@@ -1,7 +1,7 @@
 {
   "home": "/",
   "login": "/login",
-  "onboardingStart": "/",
+  "onboardingStart": "/onboarding",
   "dashboard": "/dashboard",
-  "apply": "/"
+  "apply": "/onboarding"
 }

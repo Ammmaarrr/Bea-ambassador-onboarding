@@ -1,26 +1,17 @@
-/** Chain-link icon from artboard 8 copy button — currentColor inherits button text. */
+import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
+
+/** Chain-link icon — extracted from artboard 8 copy button (pixel-accurate). */
 export function WaitlistCopyLinkIcon({ className }: { className?: string }) {
   return (
-    <svg
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={WAITLIST_ASSETS.confirmed.copyLinkIcon}
+      alt=""
       className={className}
-      viewBox="0 0 20 20"
-      fill="none"
+      width={22}
+      height={18}
+      draggable={false}
       aria-hidden
-    >
-      <path
-        d="M8.2 11.8l2.65-2.65a2.35 2.35 0 1 1 3.32 3.32l-2.65 2.65"
-        stroke="currentColor"
-        strokeWidth="1.45"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M11.8 8.2l-2.65 2.65a2.35 2.35 0 1 1-3.32-3.32l2.65-2.65"
-        stroke="currentColor"
-        strokeWidth="1.45"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    />
   );
 }

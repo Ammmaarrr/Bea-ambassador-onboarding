@@ -172,17 +172,34 @@
 .waitlist-page-coded .waitlist-hero-title,
 .waitlist-page-coded .waitlist-step-title,
 .waitlist-page-coded .waitlist-step-title--serif,
-.waitlist-page-coded .waitlist-confirmed-title,
 .waitlist-page-coded .waitlist-prizes-title {
   font-weight: 400;
   font-style: normal;
   letter-spacing: -0.03em;
 }
 
-.waitlist-page-coded .waitlist-landing-logo,
-.waitlist-page-coded .waitlist-appbar-logo {
+/* Page 8 title — Georgia only; do not apply landing title tracking */
+.waitlist-page-coded .waitlist-confirmed-title {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
+}
+
+.waitlist-page-coded .waitlist-landing-logo {
   font-weight: 600;
   letter-spacing: -0.02em;
+}
+
+/* Page 9 wordmark — Canela Regular only (600/700 faux-bold skews "a") */
+.waitlist-page-coded .waitlist-appbar-logo,
+.waitlist-page-coded .waitlist-prizes-sidebar-logo {
+  font-family: var(--wl-serif);
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Section + card headings */
@@ -636,7 +653,7 @@
 .waitlist-page-coded .waitlist-perk-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: 12px;
   overflow: visible;
 }
 
@@ -689,6 +706,11 @@
 }
 
 /* Fixed 1367px artboard canvas — uniform scale on all laptop widths (matches onboarding). */
+.waitlist-page-desktop,
+.waitlist-artboard-root {
+  overflow-x: hidden;
+}
+
 .waitlist-page-desktop {
   width: 100%;
   background-color: #fbf6f4;
@@ -1206,7 +1228,7 @@
   background: transparent;
   background-color: transparent;
   color: #1a1a1a;
-  font-size: 19px;
+  font-size: 13px;
   font-weight: 500;
   text-decoration: none;
   -webkit-appearance: none;
@@ -1229,54 +1251,34 @@
 
 .waitlist-canvas__confirmed-badge .waitlist-check-badge-wrap {
   position: relative;
-  width: 216px;
-  height: 174px;
-  margin: 0;
-}
-
-.waitlist-canvas__confirmed-badge .waitlist-badge-sparkle-dots {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  color: #a88868;
-  pointer-events: none;
-}
-
-.waitlist-canvas__confirmed-badge .waitlist-check-badge-halo {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-}
-
-.waitlist-canvas__confirmed-badge .waitlist-check-badge-disc {
-  display: block;
-  width: 70px;
-  height: 70px;
-}
-
-.waitlist-canvas__confirmed-badge .waitlist-check-badge-svg {
-  display: block;
-  width: 96px;
-  height: 96px;
   margin: 0;
+}
+
+.waitlist-canvas__confirmed-badge .waitlist-check-badge-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .waitlist-canvas__confirmed-title {
   position: absolute;
   z-index: 10;
   margin: 0;
+  padding: 0;
   text-align: center;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 72px;
+  font-size: 48px;
   font-weight: 400;
   font-style: normal;
   font-synthesis: none;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
   color: #1a1a1a;
+  overflow: visible;
 }
 
 .waitlist-canvas__confirmed-sub {
@@ -1290,7 +1292,7 @@
   font-style: normal;
   font-synthesis: none;
   line-height: 1.45;
-  color: #888888;
+  color: #787675;
 }
 
 .waitlist-canvas__confirmed-hero {
@@ -1308,9 +1310,9 @@
   height: auto !important;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  padding: 58px 32px 66px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  align-items: center;
+  padding: 40px 32px 48px;
+  border: 1px solid #efe6e0;
   border-radius: 16px;
   background: #fbf6f4;
   text-align: center;
@@ -1320,6 +1322,7 @@
 
 .waitlist-canvas__rank-eyebrow {
   margin: 0;
+  text-align: center;
   font-family: var(--wl-sans);
   font-size: 15px;
   font-weight: 600;
@@ -1329,7 +1332,7 @@
 }
 
 .waitlist-canvas__rank-number {
-  margin: 60px 0 0;
+  margin: 24px 0 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 140px;
   font-weight: 400;
@@ -1342,14 +1345,19 @@
 
 .waitlist-canvas__rank-city {
   margin: 34px 0 0;
-  font-family: var(--wl-sans);
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 21px;
   font-weight: 400;
-  color: #9a9490;
+  color: #787675;
 }
 
 .waitlist-canvas__rank-divider {
-  display: none;
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 34px;
+  background: #e3dfdd;
+  border: none;
 }
 
 .waitlist-canvas__rank-progress-head {
@@ -1370,7 +1378,7 @@
   height: 10px;
   margin-top: 20px;
   border-radius: 999px;
-  background: #ebe6e0;
+  background: #e3dfdd;
   overflow: hidden;
 }
 
@@ -1378,7 +1386,7 @@
   width: 85%;
   height: 100%;
   border-radius: inherit;
-  background: #4d3730;
+  background: #494747;
 }
 
 .waitlist-canvas__section-label {
@@ -1396,22 +1404,32 @@
 }
 
 .waitlist-canvas__section-divider {
-  display: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .waitlist-canvas__section-divider::before,
 .waitlist-canvas__section-divider::after {
-  display: none;
+  content: "";
+  flex: 1 1 0;
+  min-width: 0;
+  height: 1px;
+  background: #d7d0cc;
+}
+
+.waitlist-canvas__section-divider span {
+  flex-shrink: 0;
 }
 
 .waitlist-canvas__rank-hint {
   margin: 34px 0 0;
-  font-family: var(--wl-sans);
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
   line-height: 1.5;
-  color: #9a9490;
+  color: #787675;
 }
 
 .waitlist-canvas__perks-sub {
@@ -1428,6 +1446,7 @@
 
 .waitlist-canvas__perk-slot {
   z-index: 10;
+  overflow: visible;
 }
 
 .waitlist-canvas__perk-slot .waitlist-perk-cards {
@@ -1448,40 +1467,41 @@
   padding: 32px 24px 28px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 14px;
-  background: #fbf6f4;
+  background: #f5f1ed;
   text-align: center;
   box-sizing: border-box;
+  overflow: visible;
+  --wl-perk-notch: 10px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(50% - var(--wl-perk-notch)),
+    calc(100% - var(--wl-perk-notch)) 50%,
+    100% calc(50% + var(--wl-perk-notch)),
+    100% 100%,
+    0 100%,
+    0 calc(50% + var(--wl-perk-notch)),
+    var(--wl-perk-notch) 50%,
+    0 calc(50% - var(--wl-perk-notch))
+  );
+  filter: drop-shadow(0 0 0 1px rgba(0, 0, 0, 0.06));
 }
 
 .waitlist-canvas__perk-slot .waitlist-perk-card::before,
 .waitlist-canvas__perk-slot .waitlist-perk-card::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 14px;
-  height: 28px;
-  border-radius: 999px;
-  background: #fbf6f4;
-  transform: translateY(-50%);
-}
-
-.waitlist-canvas__perk-slot .waitlist-perk-card::before {
-  left: -7px;
-}
-
-.waitlist-canvas__perk-slot .waitlist-perk-card::after {
-  right: -7px;
+  display: none;
 }
 
 .waitlist-canvas__perk-slot .waitlist-perk-card--active {
-  background: #ead0c2;
+  background: #f1e0d6;
   border-color: rgba(0, 0, 0, 0.06);
 }
 
 .waitlist-canvas__perk-slot .waitlist-perk-card-icon {
   display: block;
-  width: 48px;
+  width: auto;
   height: 48px;
+  max-width: 100%;
   object-fit: contain;
 }
 
@@ -1498,24 +1518,27 @@
   font-synthesis: none;
   line-height: 1.2;
   color: #1a1a1a;
-  white-space: pre-line;
+  white-space: normal;
 }
 
 .waitlist-canvas__perk-slot .waitlist-perk-card-desc {
   margin: 0;
-  font-family: var(--wl-sans);
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 17px;
   line-height: 1.45;
-  color: #9a9490;
+  color: #787675;
   white-space: pre-line;
 }
 
 .waitlist-canvas__perk-slot .waitlist-perk-card-footer {
   margin: auto 0 0;
   padding-top: 32px;
-  font-family: var(--wl-sans);
+  font-family: var(--wl-serif);
   font-size: 17px;
-  font-weight: 600;
+  font-weight: 500;
+  font-synthesis: none;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
   color: #1a1a1a;
 }
 
@@ -1526,7 +1549,7 @@
 .waitlist-canvas__perks-row .waitlist-perk-cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12px;
 }
 
 .waitlist-canvas__perks-row .waitlist-perk-card {
@@ -1534,12 +1557,27 @@
   padding: 32px 24px 28px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 14px;
-  background: #fbf6f4;
+  background: #f5f1ed;
   text-align: center;
+  overflow: visible;
+  --wl-perk-notch: 10px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(50% - var(--wl-perk-notch)),
+    calc(100% - var(--wl-perk-notch)) 50%,
+    100% calc(50% + var(--wl-perk-notch)),
+    100% 100%,
+    0 100%,
+    0 calc(50% + var(--wl-perk-notch)),
+    var(--wl-perk-notch) 50%,
+    0 calc(50% - var(--wl-perk-notch))
+  );
+  filter: drop-shadow(0 0 0 1px rgba(0, 0, 0, 0.06));
 }
 
 .waitlist-canvas__perks-row .waitlist-perk-card--active {
-  background: #ead0c2;
+  background: #f1e0d6;
   border-color: rgba(0, 0, 0, 0.06);
 }
 
@@ -1552,7 +1590,7 @@
 .waitlist-canvas__share-block .waitlist-share-icons {
   display: flex;
   justify-content: center;
-  gap: 70px;
+  gap: 112px;
 }
 
 .waitlist-canvas__share-block .waitlist-share-icon {
@@ -1571,15 +1609,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
   color: #1a1a1a;
 }
 
 .waitlist-canvas__share-block .waitlist-share-icon-circle img {
   display: block;
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
 }
 
@@ -1595,53 +1633,61 @@
   gap: 10px;
   box-sizing: border-box;
   border: none;
-  border-radius: 46px;
+  border-radius: 12px;
   background: #1a1a1a;
-  color: #c6c6c6;
-  font-family: var(--wl-sans);
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
+  font-style: normal;
   cursor: pointer;
   z-index: 10;
 }
 
 .waitlist-canvas__copy-link-icon {
   display: block;
-  width: 18px;
+  width: 22px;
   height: 18px;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .waitlist-canvas__confirmed-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  font-family: var(--wl-sans);
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 19px;
   line-height: 1.55;
-  color: #8d8c8c;
+  color: #787675;
   z-index: 10;
+  gap: 6px;
 }
 
 .waitlist-canvas__confirmed-footer-line {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
+  flex-wrap: wrap;
   margin: 0;
-  color: #8d8c8c;
+  color: #787675;
 }
 
 .waitlist-canvas__confirmed-heart {
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 15px;
   margin: 0;
-  color: #8d8c8c;
+  color: #787675;
+  flex-shrink: 0;
 }
 
 .waitlist-canvas__confirmed-footer-muted {
-  margin-top: 8px;
+  margin: 0;
   font-size: 18px;
-  color: #8d8c8c;
+  color: #787675;
 }
 
 /* ── Prizes canvas (artboard 9) ── */
@@ -1662,10 +1708,13 @@
   padding: 4px 10px 24px;
   font-family: var(--wl-serif);
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
   letter-spacing: -0.01em;
   color: #1a1a1a;
   text-decoration: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 .waitlist-canvas__prizes-nav {

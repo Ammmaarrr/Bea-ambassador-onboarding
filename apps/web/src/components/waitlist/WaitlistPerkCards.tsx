@@ -2,10 +2,28 @@ import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
 import { WAITLIST_CONFIRMED_CONTENT } from "@/lib/waitlist-page-content";
 
 const PERK_ICONS = {
-  early: WAITLIST_ASSETS.confirmed.perkIcons.early,
-  time: WAITLIST_ASSETS.confirmed.perkIcons.time,
-  premium: WAITLIST_ASSETS.confirmed.perkIcons.premium,
+  early: { src: WAITLIST_ASSETS.confirmed.perkIcons.early, width: 47, height: 58 },
+  time: { src: WAITLIST_ASSETS.confirmed.perkIcons.time, width: 51, height: 57 },
+  premium: { src: WAITLIST_ASSETS.confirmed.perkIcons.premium, width: 69, height: 57 },
 } as const;
+
+function PerkFooter({ text }: { text: string }) {
+  const match = text.match(/^Invite (\d+) friends?$/);
+  if (!match) {
+    return <p className="waitlist-perk-card-footer">{text}</p>;
+  }
+
+  const [, count] = match;
+  const suffix = text.endsWith("friends") ? "friends" : "friend";
+
+  return (
+    <p className="waitlist-perk-card-footer">
+      <span>Invite</span>
+      <span className="waitlist-perk-footer-num">{count}</span>
+      <span>{suffix}</span>
+    </p>
+  );
+}
 
 /** Perk row — copy and layout from laptop artboard 8. */
 export function WaitlistPerkCards({
@@ -31,17 +49,17 @@ export function WaitlistPerkCards({
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={PERK_ICONS[perk.id]}
+              src={PERK_ICONS[perk.id].src}
               alt=""
               className="waitlist-perk-card-icon"
-              width={44}
-              height={44}
+              width={PERK_ICONS[perk.id].width}
+              height={PERK_ICONS[perk.id].height}
               draggable={false}
               aria-hidden
             />
             <h4>{perk.title}</h4>
             <p className="waitlist-perk-card-desc">{perk.description}</p>
-            <p className="waitlist-perk-card-footer">{perk.footer}</p>
+            <PerkFooter text={perk.footer} />
           </div>
         ))}
       </div>

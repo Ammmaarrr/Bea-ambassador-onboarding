@@ -1,25 +1,25 @@
 /**
  * Artboard 8 — confirmed waitlist. Loaded last; single source of truth for page 8.
- * Serif = Georgia ONLY (no Canela / Fraunces — avoids slanted fallback glyphs).
+ * Display serif = Canela Text; UI labels = Inter.
  */
+
+.waitlist-confirmed,
+.waitlist-canvas--confirmed {
+  --wl-confirmed-serif: "Canela Text", var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --wl-confirmed-dark: #1a1a1a;
+  --wl-confirmed-body: #333333;
+  --wl-confirmed-muted: #888888;
+  --wl-confirmed-footer: #787675;
+  --wl-serif: "Canela Text", var(--font-fraunces), Georgia, "Times New Roman", serif;
+  font-style: normal !important;
+}
 
 .waitlist-artboard-root:has(.waitlist-confirmed),
 .waitlist-artboard-root:has(.waitlist-canvas--confirmed) {
   background-color: #fbf6f4 !important;
 }
 
-.waitlist-confirmed,
-.waitlist-canvas--confirmed {
-  --wl-confirmed-serif: Georgia, "Times New Roman", Times, serif;
-  --wl-confirmed-dark: #1a1a1a;
-  --wl-confirmed-body: #333333;
-  --wl-confirmed-muted: #888888;
-  --wl-confirmed-footer: #8d8c8c;
-  --wl-serif: Georgia, "Times New Roman", Times, serif;
-  font-style: normal !important;
-}
-
-/* Block synthetic italic / oblique everywhere on this page */
+/* Block synthetic slant / oblique styling everywhere on this page */
 .waitlist-confirmed,
 .waitlist-confirmed *,
 .waitlist-canvas--confirmed,
@@ -41,12 +41,10 @@
   text-decoration: none !important;
 }
 
-/* ── Heading + rank number — upright Georgia ── */
+/* ── Heading — Inter sans per artboard 8 ── */
 .waitlist-confirmed .waitlist-confirmed-title,
-.waitlist-canvas--confirmed .waitlist-canvas__confirmed-title,
-.waitlist-confirmed .waitlist-rank-number,
-.waitlist-canvas--confirmed .waitlist-canvas__rank-number {
-  font-family: Georgia, "Times New Roman", Times, serif !important;
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-title {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
   font-synthesis: none !important;
@@ -57,36 +55,51 @@
 
 .waitlist-confirmed .waitlist-confirmed-title,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-title {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-size: 34px !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.02em !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
   white-space: nowrap !important;
   text-align: center !important;
   margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  z-index: 2;
+  overflow: visible !important;
+  font-style: normal !important;
+  font-synthesis: none !important;
+  font-variation-settings: normal !important;
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  text-shadow: none !important;
 }
 
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-title {
-  font-size: 56px !important;
+  font-size: 48px !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
 }
 
 .waitlist-confirmed .waitlist-rank-number {
   font-size: 60px !important;
+  margin-top: 12px !important;
 }
 
 .waitlist-canvas--confirmed .waitlist-canvas__rank-number {
   font-size: 140px !important;
 }
 
-/* ── Subtext — plain gray, no multicolor spans ── */
+/* ── Subtext — Inter sans, artboard #787675 ── */
 .waitlist-confirmed .waitlist-confirmed-sub,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-sub {
-  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-size: 15px !important;
   font-weight: 400 !important;
   font-style: normal !important;
   line-height: 1.45 !important;
-  color: #888888 !important;
-  -webkit-text-fill-color: #888888 !important;
+  color: #787675 !important;
+  -webkit-text-fill-color: #787675 !important;
   text-decoration: none !important;
   margin-top: 14px !important;
 }
@@ -98,39 +111,64 @@
 
 .waitlist-confirmed .waitlist-confirmed-sub *,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-sub * {
-  color: #888888 !important;
-  -webkit-text-fill-color: #888888 !important;
+  color: #787675 !important;
+  -webkit-text-fill-color: #787675 !important;
   font-style: normal !important;
   text-decoration: none !important;
 }
 
-/* ── Rank card — progress INSIDE border ── */
-.waitlist-confirmed .waitlist-rank-card,
-.waitlist-canvas--confirmed .waitlist-canvas__rank-card {
+/* ── Rank card — mobile flow (full width of column) ── */
+.waitlist-confirmed .waitlist-rank-card {
   display: flex !important;
   flex-direction: column !important;
-  align-items: stretch !important;
+  align-items: center !important;
   width: 100% !important;
   height: auto !important;
   min-height: 0 !important;
   box-sizing: border-box !important;
   margin-top: 24px !important;
   padding: 28px 20px 24px !important;
-  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid #efe6e0 !important;
   border-radius: 16px !important;
   background: #fbf6f4 !important;
   text-align: center !important;
   overflow: hidden !important;
 }
 
+/* Canvas rank card — keep inline left/top/width from artboard overlays */
 .waitlist-canvas--confirmed .waitlist-canvas__rank-card {
-  padding: 58px 32px 66px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  padding: 40px 32px 48px !important;
+  border: 1px solid #efe6e0 !important;
+  border-radius: 16px !important;
+  background: #fbf6f4 !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  z-index: 10;
 }
 
 .waitlist-canvas--confirmed .waitlist-canvas__rank-card > * {
   position: static !important;
   width: 100% !important;
   box-sizing: border-box !important;
+  text-align: center !important;
+}
+
+.waitlist-confirmed .waitlist-rank-number,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-number {
+  font-family: var(--wl-confirmed-serif) !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-synthesis: none !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
 .waitlist-confirmed .waitlist-rank-card-progress,
@@ -140,7 +178,7 @@
   align-items: stretch !important;
   position: relative !important;
   width: 100% !important;
-  margin-top: 20px !important;
+  margin-top: 16px !important;
   padding: 0 !important;
   border: none !important;
   flex-shrink: 0 !important;
@@ -152,10 +190,21 @@
 
 .waitlist-confirmed .waitlist-rank-eyebrow,
 .waitlist-canvas--confirmed .waitlist-canvas__rank-eyebrow {
+  display: block;
+  width: 100%;
+  text-align: center !important;
   color: #1a1a1a !important;
   -webkit-text-fill-color: #1a1a1a !important;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-style: normal !important;
+}
+
+.waitlist-confirmed .waitlist-rank-hint,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-hint {
+  text-align: center !important;
+  font-family: var(--wl-confirmed-serif) !important;
+  color: #787675 !important;
+  -webkit-text-fill-color: #787675 !important;
 }
 
 .waitlist-confirmed .waitlist-rank-progress-label,
@@ -185,22 +234,129 @@
   width: 100% !important;
   margin-top: 8px !important;
   position: relative !important;
+  background: #e3dfdd !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  height: 8px !important;
+  display: block !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__rank-progress-bar {
+  height: 10px !important;
+  margin-top: 20px !important;
 }
 
 .waitlist-confirmed .waitlist-rank-progress-fill,
 .waitlist-canvas--confirmed .waitlist-canvas__rank-progress-fill {
-  background: #4d3730 !important;
+  display: block !important;
+  width: 85% !important;
+  max-width: 85% !important;
+  height: 100% !important;
+  background: #494747 !important;
+  border-radius: inherit;
 }
 
 .waitlist-confirmed .waitlist-rank-city,
-.waitlist-canvas--confirmed .waitlist-canvas__rank-city,
-.waitlist-confirmed .waitlist-rank-hint,
-.waitlist-canvas--confirmed .waitlist-canvas__rank-hint {
-  color: #8d8c8c !important;
-  -webkit-text-fill-color: #8d8c8c !important;
+.waitlist-canvas--confirmed .waitlist-canvas__rank-city {
+  font-family: var(--wl-confirmed-serif) !important;
+  color: #787675 !important;
+  -webkit-text-fill-color: #787675 !important;
+  text-align: center !important;
 }
 
-/* ── Section labels ── */
+.waitlist-rank-divider,
+.waitlist-canvas__rank-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 20px 0 0;
+  padding: 0;
+  border: none;
+  background: #e3dfdd;
+  flex-shrink: 0;
+}
+
+.waitlist-canvas__rank-divider {
+  margin-top: 34px;
+}
+
+/* ── Section dividers — flanking rules ── */
+.waitlist-confirmed .waitlist-section-divider,
+.waitlist-canvas--confirmed .waitlist-canvas__section-divider {
+  display: flex !important;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0 14px;
+  color: #1a1a1a !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__section-divider {
+  position: absolute;
+  margin: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.waitlist-confirmed .waitlist-section-divider::before,
+.waitlist-confirmed .waitlist-section-divider::after,
+.waitlist-canvas--confirmed .waitlist-canvas__section-divider::before,
+.waitlist-canvas--confirmed .waitlist-canvas__section-divider::after {
+  content: "" !important;
+  display: block !important;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 1px;
+  background: #d7d0cc;
+}
+
+.waitlist-confirmed .waitlist-section-divider span,
+.waitlist-canvas--confirmed .waitlist-canvas__section-divider span {
+  flex-shrink: 0;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  font-style: normal !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__section-divider span {
+  font-size: 15px !important;
+}
+
+/* ── Check badge — artboard PNG (265×138, no title bleed) ── */
+.waitlist-confirmed .waitlist-check-badge-wrap {
+  width: 48.36%;
+  max-width: 265px;
+  min-width: 130px;
+  aspect-ratio: 265 / 138;
+  height: auto;
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+
+.waitlist-canvas__confirmed-badge .waitlist-check-badge-wrap {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.waitlist-confirmed .waitlist-check-badge-img,
+.waitlist-canvas--confirmed .waitlist-check-badge-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+}
+
+/* ── Section labels (legacy) ── */
 .waitlist-confirmed .waitlist-section-label,
 .waitlist-canvas--confirmed .waitlist-canvas__section-label {
   color: #1a1a1a !important;
@@ -233,15 +389,22 @@
 .waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card-footer {
   color: #1a1a1a !important;
   -webkit-text-fill-color: #1a1a1a !important;
-  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-family: var(--wl-confirmed-serif) !important;
   font-style: normal !important;
+  font-weight: 500 !important;
+  font-synthesis: none !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
 }
 
 .waitlist-confirmed .waitlist-perk-card-desc,
 .waitlist-canvas--confirmed .waitlist-perk-card-desc,
 .waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card-desc {
-  color: #8d8c8c !important;
-  -webkit-text-fill-color: #8d8c8c !important;
+  color: #787675 !important;
+  -webkit-text-fill-color: #787675 !important;
+  font-family: var(--wl-confirmed-serif) !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
 }
 
 /* ── Perk cards — equal height ── */
@@ -249,7 +412,8 @@
 .waitlist-page-coded .waitlist-confirmed .waitlist-perk-cards {
   display: flex !important;
   align-items: stretch !important;
-  gap: 8px !important;
+  gap: 12px !important;
+  overflow: visible !important;
 }
 
 .waitlist-confirmed .waitlist-perk-card,
@@ -259,37 +423,66 @@
   flex: 1 1 0 !important;
   height: 100% !important;
   min-height: 0 !important;
+  min-width: 0 !important;
   border-radius: 14px !important;
-  border: 1px solid rgba(0, 0, 0, 0.06) !important;
-  background: #fbf6f4 !important;
+  border: none !important;
+  background: #f5f1ed !important;
+  overflow: visible !important;
+  --wl-perk-notch: 7px;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(50% - var(--wl-perk-notch)),
+    calc(100% - var(--wl-perk-notch)) 50%,
+    100% calc(50% + var(--wl-perk-notch)),
+    100% 100%,
+    0 100%,
+    0 calc(50% + var(--wl-perk-notch)),
+    var(--wl-perk-notch) 50%,
+    0 calc(50% - var(--wl-perk-notch))
+  );
+  filter: drop-shadow(0 0 0 1px rgba(0, 0, 0, 0.06));
 }
 
 .waitlist-confirmed .waitlist-perk-card::before,
 .waitlist-confirmed .waitlist-perk-card::after,
-.waitlist-canvas--confirmed .waitlist-perk-card::before,
-.waitlist-canvas--confirmed .waitlist-perk-card::after {
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card::before,
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card::after {
   display: none !important;
-  content: none !important;
 }
 
 .waitlist-confirmed .waitlist-perk-card--active,
 .waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card--active {
-  background: #ead0c2 !important;
+  background: #f1e0d6 !important;
 }
 
 .waitlist-confirmed .waitlist-perk-card-footer,
 .waitlist-canvas--confirmed .waitlist-perk-card-footer,
 .waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card-footer {
+  display: inline-flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 0.2em !important;
   margin-top: auto !important;
+  width: 100% !important;
 }
 
-/* ── Footer — plain gray, no colored word spans ── */
+.waitlist-confirmed .waitlist-perk-card-footer .waitlist-perk-footer-num,
+.waitlist-canvas--confirmed .waitlist-perk-card-footer .waitlist-perk-footer-num {
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+  vertical-align: baseline !important;
+  line-height: inherit !important;
+}
+
+/* ── Footer — Georgia serif, artboard #787675 ── */
 .waitlist-confirmed .waitlist-confirmed-footer-line,
 .waitlist-confirmed .waitlist-confirmed-footer-muted,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-line,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-muted {
-  color: #8d8c8c !important;
-  -webkit-text-fill-color: #8d8c8c !important;
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  color: #787675 !important;
+  -webkit-text-fill-color: #787675 !important;
   font-style: normal !important;
   text-decoration: none !important;
 }
@@ -298,15 +491,50 @@
 .waitlist-confirmed .waitlist-confirmed-footer-muted *,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-line *,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-muted * {
-  color: #8d8c8c !important;
-  -webkit-text-fill-color: #8d8c8c !important;
+  color: #787675 !important;
+  -webkit-text-fill-color: #787675 !important;
   font-style: normal !important;
   text-decoration: none !important;
 }
 
+.waitlist-confirmed .waitlist-confirmed-footer-line,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-line {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin: 0 !important;
+}
+
 .waitlist-confirmed .waitlist-confirmed-heart,
 .waitlist-canvas--confirmed .waitlist-canvas__confirmed-heart {
-  color: #8d8c8c !important;
+  display: block;
+  width: 16px;
+  height: 15px;
+  margin: 0;
+  flex-shrink: 0;
+  color: #787675 !important;
+}
+
+.waitlist-confirmed .waitlist-copy-link-icon,
+.waitlist-canvas--confirmed .waitlist-canvas__copy-link-icon {
+  display: block;
+  width: 22px;
+  height: 18px;
+  flex-shrink: 0;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.waitlist-confirmed .waitlist-copy-link-btn,
+.waitlist-canvas--confirmed .waitlist-canvas__copy-link {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 400 !important;
+  color: #c6c6c6 !important;
+  -webkit-text-fill-color: #c6c6c6 !important;
+  gap: 10px !important;
+  border-radius: 12px !important;
 }
 
 /* ── Waiting room — transparent pill, ↗ icon, no chevron ── */
@@ -342,6 +570,158 @@
   -webkit-text-fill-color: #1a1a1a !important;
   flex-shrink: 0;
   line-height: 1;
+}
+
+/* Page 8 — single centered column at all viewports (548px artboard content width) */
+.waitlist-page-mobile--confirmed {
+  display: block;
+  background-color: #fbf6f4;
+}
+
+.waitlist-page-mobile--confirmed .waitlist-confirmed {
+  max-width: 548px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px 20px 56px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .waitlist-page-mobile--confirmed .waitlist-confirmed {
+    padding: 32px 24px 64px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-confirmed-title {
+    font-size: 48px !important;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-confirmed-sub {
+    font-size: 21px !important;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-check-badge-wrap {
+    width: 48.36%;
+    max-width: 265px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-rank-number {
+    font-size: 96px !important;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-rank-city {
+    font-size: 21px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-rank-hint {
+    font-size: 18px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-rank-progress-bar {
+    height: 10px !important;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-perk-card h4 {
+    font-size: 20px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-perk-card-desc {
+    font-size: 17px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-perk-card-footer {
+    font-size: 17px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-section-divider span {
+    font-size: 15px !important;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-share-icons {
+    gap: 112px;
+  }
+
+  .waitlist-page-mobile--confirmed .waitlist-copy-link-btn {
+    width: 350px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .waitlist-confirmed .waitlist-check-badge-wrap {
+    width: 48.36%;
+    max-width: 265px;
+    min-width: 130px;
+    margin: 0 auto 16px;
+  }
+
+  .waitlist-confirmed .waitlist-confirmed-top {
+    margin-bottom: 16px;
+  }
+
+  .waitlist-confirmed .waitlist-confirmed-title {
+    margin-top: 0 !important;
+    font-size: 31px !important;
+    line-height: 1.2 !important;
+  }
+
+  .waitlist-confirmed .waitlist-confirmed-sub {
+    margin-top: 10px !important;
+    font-size: 14px !important;
+  }
+
+  .waitlist-confirmed .waitlist-rank-number {
+    font-size: 56px !important;
+    margin-top: 8px !important;
+  }
+
+  .waitlist-confirmed .waitlist-rank-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+  }
+
+  .waitlist-confirmed .waitlist-rank-progress-bar {
+    height: 8px !important;
+  }
+
+  .waitlist-confirmed .waitlist-perk-card {
+    min-height: 168px;
+    padding: 16px 8px 14px;
+  }
+
+  .waitlist-confirmed .waitlist-perk-card h4 {
+    font-size: 11px;
+  }
+
+  .waitlist-confirmed .waitlist-perk-card-desc {
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  .waitlist-confirmed .waitlist-perk-card-footer {
+    font-size: 9px;
+  }
+
+  .waitlist-confirmed .waitlist-share-icons {
+    gap: 40px;
+    margin: 12px 0 16px;
+  }
+
+  .waitlist-confirmed .waitlist-copy-link-btn {
+    width: 100%;
+    max-width: none;
+    height: 45px;
+  }
+
+  .waitlist-confirmed .waitlist-perks-subtitle {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .waitlist-confirmed .waitlist-section-divider {
+    margin: 24px 0 12px;
+  }
 }
 
 @media (max-width: 380px) {

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
 
 import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
 import { WAITLIST_ARTBOARDS } from "@/lib/waitlist";
@@ -8,7 +7,9 @@ import { WAITLIST_CONFIRMED_CONTENT } from "@/lib/waitlist-page-content";
 import { WaitlistCheckBadge } from "./WaitlistCheckBadge";
 import { WaitlistCopyLinkIcon } from "./WaitlistCopyLinkIcon";
 import { WaitlistExternalLinkIcon } from "./WaitlistExternalLinkIcon";
+import { WaitlistFooterHeart } from "./WaitlistFooterHeart";
 import { WaitlistPerkCards } from "./WaitlistPerkCards";
+import { WaitlistSectionDivider } from "./WaitlistSectionDivider";
 import { WaitlistShareIcons } from "./WaitlistShareIcons";
 
 /** Phone-only confirmed screen (artboard 8). */
@@ -48,6 +49,8 @@ export function WaitlistConfirmedMobile() {
           <p className="waitlist-rank-number">{content.rankNumber}</p>
           <p className="waitlist-rank-city">{content.rankCity}</p>
 
+          <div className="waitlist-rank-divider" aria-hidden />
+
           <div className="waitlist-rank-card-progress">
             <div className="waitlist-rank-progress-label">
               <span>{content.progressLabel}</span>
@@ -60,10 +63,10 @@ export function WaitlistConfirmedMobile() {
           </div>
         </div>
 
-        <p className="waitlist-section-label">{content.perksEyebrow}</p>
+        <WaitlistSectionDivider label={content.perksEyebrow} />
         <WaitlistPerkCards />
 
-        <p className="waitlist-section-label">{content.shareEyebrow}</p>
+        <WaitlistSectionDivider label={content.shareEyebrow} />
         <WaitlistShareIcons />
 
         <button type="button" className="waitlist-copy-link-btn">
@@ -73,8 +76,8 @@ export function WaitlistConfirmedMobile() {
 
         <div className="waitlist-confirmed-footer">
           <p className="waitlist-confirmed-footer-line">
-            <Heart className="waitlist-confirmed-heart" size={14} strokeWidth={1.5} aria-hidden />
-            {content.footerThankYou}
+            <WaitlistFooterHeart className="waitlist-confirmed-heart" />
+            <span>{content.footerThankYou}</span>
           </p>
           <p className="waitlist-confirmed-footer-muted">{content.footerClosing}</p>
         </div>

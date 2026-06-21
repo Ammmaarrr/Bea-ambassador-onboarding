@@ -52,7 +52,7 @@ const prizeCards: PrizeCardData[] = [
 export function WelcomeMobile() {
   return (
     <div
-      className="onboarding-welcome-mobile min-h-screen w-full overflow-x-hidden pb-[env(safe-area-inset-bottom)]"
+      className="onboarding-welcome-mobile onboarding-page-mobile min-h-screen w-full overflow-x-hidden pb-[env(safe-area-inset-bottom)]"
       style={{ backgroundColor: ARTBOARD.bg }}
     >
       <MobileNav activeIndex={0} />

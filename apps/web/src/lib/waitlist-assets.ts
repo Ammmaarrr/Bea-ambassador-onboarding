@@ -3,6 +3,8 @@ export const WAITLIST_ASSETS = {
   hero: "/waitlist/hero/couple.png",
   confirmed: {
     checkBadge: "/waitlist/confirmed/check-badge.png",
+    backArrow: "/waitlist/confirmed/back-arrow.png",
+    copyLinkIcon: "/waitlist/confirmed/copy-link-icon.png",
     perkIcons: {
       early: "/waitlist/confirmed/perk-icon-early.png",
       time: "/waitlist/confirmed/perk-icon-time.png",

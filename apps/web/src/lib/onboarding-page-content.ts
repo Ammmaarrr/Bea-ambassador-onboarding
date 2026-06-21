@@ -31,7 +31,7 @@ export const ONBOARDING_PAGE_CONTENT: Record<OnboardingPageKey, OnboardingPageCo
     step: 4,
     eyebrow: "STEP 4 OF 6",
     title: "Create your account",
-    subtitle: "Build your profile, track your impact,\nand climb the leaderboard.",
+    subtitle: "Build your profile, track your Impact, and climb the leaderboard.",
     cta: { href: "/invites", label: "Create account" },
   },
   invites: {

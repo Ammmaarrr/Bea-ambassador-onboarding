@@ -86,7 +86,7 @@ export const WAITLIST_PAGE_CONTENT: Record<WaitlistStepArtboardId, WaitlistStepC
 
 export const WAITLIST_CONFIRMED_CONTENT = {
   title: "You're on the list!",
-  subtitle: "Thanks for being part of bea.",
+  subtitle: "Thanks for being part of bea\u200b.",
   rankEyebrow: "YOUR PLACE IN LINE",
   rankNumber: "#2,487",
   rankCity: "in New York, NY",

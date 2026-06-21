@@ -145,6 +145,66 @@
   margin-bottom: 0;
 }
 
+/* Account creation — mobile layout (16px nav-to-content, design-matched touch targets) */
+.onboarding-page-mobile:has(.onboarding-account-form) .onboarding-compact-stepper {
+  padding-top: 8px;
+  padding-bottom: 12px;
+}
+
+.onboarding-page-mobile:has(.onboarding-account-form) .onboarding-compact-stepper ol {
+  display: none;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .onboarding-inner-panel {
+  padding-top: 16px;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .onboarding-form-title {
+  font-size: clamp(32px, 9vw, 40px);
+  line-height: 1.12;
+  margin: 0 0 10px;
+}
+
+.onboarding-page-mobile .onboarding-account-subtitle {
+  margin-bottom: 24px !important;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #6f6a64;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .onboarding-mobile-body {
+  margin-bottom: 0;
+}
+
+.onboarding-page-mobile .onboarding-account-form .field-group {
+  margin-bottom: 20px;
+}
+
+.onboarding-page-mobile .onboarding-account-form .field-input {
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 13px;
+  font-size: 14px;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .onboarding-btn-link {
+  height: 52px;
+  min-height: 52px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  border-radius: 13px;
+  font-size: 14px;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .or-divider {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .onboarding-legal {
+  margin-top: 16px;
+}
+
 .onboarding-inner-mobile .onboarding-social-row {
   display: flex;
   flex-direction: row;
@@ -195,14 +255,6 @@
 
 .onboarding-account-form .onboarding-legal {
   margin-top: 20px;
-}
-
-.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .form-subtitle {
-  margin-bottom: 28px;
-}
-
-.onboarding-page-mobile .onboarding-inner-mobile:has(.onboarding-account-form) .onboarding-btn-link {
-  margin-top: 24px;
 }
 
 .onboarding-legal {
@@ -877,16 +929,116 @@
 }
 
 .onboarding-canvas__account-eyebrow {
-  position: absolute;
+  position: relative;
   z-index: 11;
   margin: 0;
   color: #c48b58;
 }
 
-.onboarding-canvas__account-title {
+.onboarding-canvas__account-main {
   position: absolute;
+  z-index: 10;
+  top: 125px;
+  left: 80px;
+  margin-top: 100px;
+  padding-left: 0;
+  width: 340px;
+  box-sizing: border-box;
+}
+
+.onboarding-canvas__account-form-container {
+  width: 340px !important;
+  min-width: 340px !important;
+  max-width: 340px !important;
+  box-sizing: border-box;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__field-wrap--stacked,
+.onboarding-canvas__account-main .onboarding-canvas__cta--stacked,
+.onboarding-canvas__account-main .onboarding-canvas__or-divider--stacked,
+.onboarding-canvas__account-main .onboarding-canvas__legal--stacked,
+.onboarding-canvas__account-main .onboarding-canvas__account-social-row {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__account-social-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__social-btn--stacked {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 155px;
+  min-width: 155px;
+  max-width: 155px;
+  flex: 0 0 155px;
+  box-sizing: border-box;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__field-wrap--stacked {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__field-wrap--stacked .onboarding-canvas__field-input {
+  width: 100%;
+  max-width: 100%;
+  height: 46px;
+  box-sizing: border-box;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__field-wrap--stacked .onboarding-canvas__password-wrap {
+  height: auto;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__cta--stacked {
+  position: relative;
+  left: auto;
+  top: auto;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__or-divider--stacked {
+  position: relative;
+  left: auto;
+  top: auto;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__legal--stacked {
+  position: relative;
+  left: auto;
+  top: auto;
+  white-space: nowrap;
+}
+
+.onboarding-canvas__account-main .onboarding-canvas__field-label--stacked,
+.onboarding-canvas__account-main .onboarding-canvas__field-hint--stacked {
+  position: relative;
+  left: auto;
+  top: auto;
+}
+
+.onboarding-canvas__account-title {
+  position: relative;
   z-index: 11;
-  margin: 0;
+  margin: 0 0 8px;
+  left: auto;
+  top: auto;
   font-size: 48px;
   line-height: 1.04;
   letter-spacing: -0.02em;
@@ -894,14 +1046,16 @@
 }
 
 .onboarding-canvas--account .onboarding-canvas__account-subtitle {
-  position: absolute;
+  position: relative;
   z-index: 11;
-  margin: 0;
-  max-width: 520px;
+  margin-bottom: 24px !important;
+  left: auto;
+  top: auto;
+  max-width: none;
   font-size: 14px;
   line-height: 1.4;
   color: #6f6a64;
-  white-space: pre-line;
+  white-space: nowrap;
 }
 
 .onboarding-canvas--account .onboarding-canvas__copy .form-subtitle,
@@ -1504,4 +1658,7 @@
   }
 }
 
-/* Split pages (Your School, Prizes): fix narrow text at 768-1099px */
+/* Account form column — match heading width */
+.onboarding-canvas--account .onboarding-canvas__account-main .onboarding-canvas__account-form-container {
+  width: 340px !important;
+}

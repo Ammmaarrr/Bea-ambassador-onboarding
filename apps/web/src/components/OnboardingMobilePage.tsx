@@ -72,7 +72,17 @@ export function OnboardingMobilePage({ pageKey }: Props) {
             ))}
           </h1>
 
-          <p className="form-subtitle">{content.subtitle}</p>
+          <p
+            className={"form-subtitle" + (isAccount ? " onboarding-account-subtitle mb-6" : "")}
+            style={isAccount ? { marginBottom: 24 } : undefined}
+          >
+            {content.subtitle.split("\n").map((line, i, lines) => (
+              <span key={line}>
+                {line}
+                {i < lines.length - 1 ? <br /> : null}
+              </span>
+            ))}
+          </p>
 
           <div className="onboarding-mobile-body">
             <OnboardingMobileContent pageKey={pageKey} />
@@ -89,13 +99,13 @@ export function OnboardingMobilePage({ pageKey }: Props) {
 
           {isAccount && (
             <>
-              <Link href={content.cta.href} className="btn-login onboarding-btn-link justify-center">
+              <Link href={content.cta.href} className="btn-login onboarding-btn-link create-account-btn justify-center">
                 <span>{content.cta.label}</span>
               </Link>
-              <div className="or-divider">
+              <div className="or-divider divider-container">
                 <span className="or-text">or continue with</span>
               </div>
-              <div className="onboarding-social-row onboarding-social-row--text-only">
+              <div className="onboarding-social-row onboarding-social-row--text-only social-buttons-container">
                 <button type="button" className="btn-social">
                   Google
                 </button>

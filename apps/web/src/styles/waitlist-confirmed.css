@@ -1,0 +1,351 @@
+/**
+ * Artboard 8 — confirmed waitlist. Loaded last; single source of truth for page 8.
+ * Serif = Georgia ONLY (no Canela / Fraunces — avoids slanted fallback glyphs).
+ */
+
+.waitlist-artboard-root:has(.waitlist-confirmed),
+.waitlist-artboard-root:has(.waitlist-canvas--confirmed) {
+  background-color: #fbf6f4 !important;
+}
+
+.waitlist-confirmed,
+.waitlist-canvas--confirmed {
+  --wl-confirmed-serif: Georgia, "Times New Roman", Times, serif;
+  --wl-confirmed-dark: #1a1a1a;
+  --wl-confirmed-body: #333333;
+  --wl-confirmed-muted: #888888;
+  --wl-confirmed-footer: #8d8c8c;
+  --wl-serif: Georgia, "Times New Roman", Times, serif;
+  font-style: normal !important;
+}
+
+/* Block synthetic italic / oblique everywhere on this page */
+.waitlist-confirmed,
+.waitlist-confirmed *,
+.waitlist-canvas--confirmed,
+.waitlist-canvas--confirmed * {
+  font-style: normal !important;
+  font-synthesis: none !important;
+  font-variation-settings: normal !important;
+}
+
+/* iOS / Safari data-detector autolink colors */
+.waitlist-confirmed a[x-apple-data-detectors],
+.waitlist-canvas--confirmed a[x-apple-data-detectors],
+.waitlist-confirmed a[href^="tel:"],
+.waitlist-canvas--confirmed a[href^="tel:"],
+.waitlist-confirmed a[href^="mailto:"],
+.waitlist-canvas--confirmed a[href^="mailto:"] {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* ── Heading + rank number — upright Georgia ── */
+.waitlist-confirmed .waitlist-confirmed-title,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-title,
+.waitlist-confirmed .waitlist-rank-number,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-number {
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-synthesis: none !important;
+  font-variation-settings: normal !important;
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+}
+
+.waitlist-confirmed .waitlist-confirmed-title,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-title {
+  font-size: 34px !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-title {
+  font-size: 56px !important;
+}
+
+.waitlist-confirmed .waitlist-rank-number {
+  font-size: 60px !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__rank-number {
+  font-size: 140px !important;
+}
+
+/* ── Subtext — plain gray, no multicolor spans ── */
+.waitlist-confirmed .waitlist-confirmed-sub,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-sub {
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1.45 !important;
+  color: #888888 !important;
+  -webkit-text-fill-color: #888888 !important;
+  text-decoration: none !important;
+  margin-top: 14px !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-sub {
+  font-size: 21px !important;
+  margin-top: 0 !important;
+}
+
+.waitlist-confirmed .waitlist-confirmed-sub *,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-sub * {
+  color: #888888 !important;
+  -webkit-text-fill-color: #888888 !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+}
+
+/* ── Rank card — progress INSIDE border ── */
+.waitlist-confirmed .waitlist-rank-card,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  margin-top: 24px !important;
+  padding: 28px 20px 24px !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  border-radius: 16px !important;
+  background: #fbf6f4 !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__rank-card {
+  padding: 58px 32px 66px !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-canvas__rank-card > * {
+  position: static !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.waitlist-confirmed .waitlist-rank-card-progress,
+.waitlist-canvas--confirmed .waitlist-rank-card-progress {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  position: relative !important;
+  width: 100% !important;
+  margin-top: 20px !important;
+  padding: 0 !important;
+  border: none !important;
+  flex-shrink: 0 !important;
+}
+
+.waitlist-canvas--confirmed .waitlist-rank-card-progress {
+  margin-top: 40px !important;
+}
+
+.waitlist-confirmed .waitlist-rank-eyebrow,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-eyebrow {
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-style: normal !important;
+}
+
+.waitlist-confirmed .waitlist-rank-progress-label,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-progress-head {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  font-style: normal !important;
+  position: relative !important;
+}
+
+.waitlist-confirmed .waitlist-rank-progress-label span,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-progress-head span {
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  font-style: normal !important;
+}
+
+.waitlist-confirmed .waitlist-rank-progress-bar,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-progress-bar {
+  width: 100% !important;
+  margin-top: 8px !important;
+  position: relative !important;
+}
+
+.waitlist-confirmed .waitlist-rank-progress-fill,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-progress-fill {
+  background: #4d3730 !important;
+}
+
+.waitlist-confirmed .waitlist-rank-city,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-city,
+.waitlist-confirmed .waitlist-rank-hint,
+.waitlist-canvas--confirmed .waitlist-canvas__rank-hint {
+  color: #8d8c8c !important;
+  -webkit-text-fill-color: #8d8c8c !important;
+}
+
+/* ── Section labels ── */
+.waitlist-confirmed .waitlist-section-label,
+.waitlist-canvas--confirmed .waitlist-canvas__section-label {
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  font-style: normal !important;
+}
+
+/* ── Perks subtitle ── */
+.waitlist-confirmed .waitlist-perks-subtitle,
+.waitlist-canvas--confirmed .waitlist-canvas__perks-sub {
+  color: #333333 !important;
+  -webkit-text-fill-color: #333333 !important;
+  font-style: normal !important;
+}
+
+.waitlist-confirmed .waitlist-perks-subtitle *,
+.waitlist-canvas--confirmed .waitlist-canvas__perks-sub * {
+  color: #333333 !important;
+  -webkit-text-fill-color: #333333 !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+}
+
+/* ── Perk card titles + invite lines ── */
+.waitlist-confirmed .waitlist-perk-card h4,
+.waitlist-canvas--confirmed .waitlist-perk-card h4,
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card h4,
+.waitlist-confirmed .waitlist-perk-card-footer,
+.waitlist-canvas--confirmed .waitlist-perk-card-footer,
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card-footer {
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  font-style: normal !important;
+}
+
+.waitlist-confirmed .waitlist-perk-card-desc,
+.waitlist-canvas--confirmed .waitlist-perk-card-desc,
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card-desc {
+  color: #8d8c8c !important;
+  -webkit-text-fill-color: #8d8c8c !important;
+}
+
+/* ── Perk cards — equal height ── */
+.waitlist-confirmed .waitlist-perk-cards,
+.waitlist-page-coded .waitlist-confirmed .waitlist-perk-cards {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 8px !important;
+}
+
+.waitlist-confirmed .waitlist-perk-card,
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0 !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  background: #fbf6f4 !important;
+}
+
+.waitlist-confirmed .waitlist-perk-card::before,
+.waitlist-confirmed .waitlist-perk-card::after,
+.waitlist-canvas--confirmed .waitlist-perk-card::before,
+.waitlist-canvas--confirmed .waitlist-perk-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+.waitlist-confirmed .waitlist-perk-card--active,
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card--active {
+  background: #ead0c2 !important;
+}
+
+.waitlist-confirmed .waitlist-perk-card-footer,
+.waitlist-canvas--confirmed .waitlist-perk-card-footer,
+.waitlist-canvas--confirmed .waitlist-canvas__perk-slot .waitlist-perk-card-footer {
+  margin-top: auto !important;
+}
+
+/* ── Footer — plain gray, no colored word spans ── */
+.waitlist-confirmed .waitlist-confirmed-footer-line,
+.waitlist-confirmed .waitlist-confirmed-footer-muted,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-line,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-muted {
+  color: #8d8c8c !important;
+  -webkit-text-fill-color: #8d8c8c !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+}
+
+.waitlist-confirmed .waitlist-confirmed-footer-line *,
+.waitlist-confirmed .waitlist-confirmed-footer-muted *,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-line *,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-footer-muted * {
+  color: #8d8c8c !important;
+  -webkit-text-fill-color: #8d8c8c !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+}
+
+.waitlist-confirmed .waitlist-confirmed-heart,
+.waitlist-canvas--confirmed .waitlist-canvas__confirmed-heart {
+  color: #8d8c8c !important;
+}
+
+/* ── Waiting room — transparent pill, ↗ icon, no chevron ── */
+.waitlist-confirmed .waitlist-waiting-room,
+.waitlist-canvas--confirmed .waitlist-canvas__waiting-room {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 999px !important;
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+.waitlist-confirmed .waitlist-waiting-room::before,
+.waitlist-confirmed .waitlist-waiting-room::after,
+.waitlist-canvas--confirmed .waitlist-canvas__waiting-room::before,
+.waitlist-canvas--confirmed .waitlist-canvas__waiting-room::after {
+  display: none !important;
+  content: none !important;
+}
+
+.waitlist-confirmed .waitlist-waiting-room-icon,
+.waitlist-canvas--confirmed .waitlist-canvas__waiting-room-icon {
+  display: inline-block !important;
+  color: #1a1a1a !important;
+  -webkit-text-fill-color: #1a1a1a !important;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+@media (max-width: 380px) {
+  .waitlist-confirmed .waitlist-confirmed-title {
+    font-size: 28px !important;
+  }
+}

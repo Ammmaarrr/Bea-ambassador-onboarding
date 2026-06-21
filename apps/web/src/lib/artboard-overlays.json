@@ -62,9 +62,9 @@
       "cta": {
         "href": "/invites",
         "label": "Create account",
-        "left": 106,
-        "top": 895,
-        "width": 544,
+        "left": 80,
+        "top": 840,
+        "width": 340,
         "height": 46
       },
       "inputs": [
@@ -72,43 +72,43 @@
           "id": "name",
           "type": "text",
           "placeholder": "Enter your full name",
-          "left": 106,
-          "top": 465,
-          "width": 544,
+          "left": 80,
+          "top": 410,
+          "width": 340,
           "height": 72
         },
         {
           "id": "email",
           "type": "email",
           "placeholder": "Enter your email",
-          "left": 106,
-          "top": 608,
-          "width": 544,
+          "left": 80,
+          "top": 553,
+          "width": 340,
           "height": 71
         },
         {
           "id": "password",
           "type": "password",
           "placeholder": "Create your password",
-          "left": 106,
-          "top": 754,
-          "width": 544,
+          "left": 80,
+          "top": 699,
+          "width": 340,
           "height": 71
         }
       ],
       "social": [
         {
           "label": "Google",
-          "left": 106,
-          "top": 1031,
-          "width": 228,
+          "left": 80,
+          "top": 976,
+          "width": 155,
           "height": 48
         },
         {
           "label": "Apple",
-          "left": 354,
-          "top": 1031,
-          "width": 228,
+          "left": 265,
+          "top": 976,
+          "width": 155,
           "height": 48
         }
       ]

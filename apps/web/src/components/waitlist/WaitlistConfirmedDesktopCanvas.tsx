@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronLeft, Heart, Link2 } from "lucide-react";
+import { Heart } from "lucide-react";
 
+import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
 import { WAITLIST_CONFIRMED_LAYOUT } from "@/lib/waitlist-layout";
 import { WAITLIST_CONFIRMED_CONTENT } from "@/lib/waitlist-page-content";
 
 import { WaitlistCheckBadge } from "./WaitlistCheckBadge";
+import { WaitlistCopyLinkIcon } from "./WaitlistCopyLinkIcon";
+import { WaitlistExternalLinkIcon } from "./WaitlistExternalLinkIcon";
 import { WaitlistPerkCards } from "./WaitlistPerkCards";
 import { WaitlistShareIcons } from "./WaitlistShareIcons";
 
@@ -27,7 +30,16 @@ export function WaitlistConfirmedDesktopCanvas() {
           style={{ left: L.back.left, top: L.back.top, width: L.back.width, height: L.back.height }}
           aria-label="Go back"
         >
-          <ChevronLeft size={22} strokeWidth={1.75} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={WAITLIST_ASSETS.confirmed.backArrow}
+            alt=""
+            className="waitlist-canvas__back-icon"
+            width={40}
+            height={28}
+            draggable={false}
+            aria-hidden
+          />
         </Link>
 
         <Link
@@ -41,7 +53,7 @@ export function WaitlistConfirmedDesktopCanvas() {
           }}
         >
           {L.waitingRoom.label}
-          <span aria-hidden> ↗</span>
+          <WaitlistExternalLinkIcon className="waitlist-canvas__waiting-room-icon" />
         </Link>
 
         <div
@@ -71,25 +83,25 @@ export function WaitlistConfirmedDesktopCanvas() {
             left: L.rankCard.left,
             top: L.rankCard.top,
             width: L.rankCard.width,
-            height: L.rankCard.height,
           }}
         >
           <p className="waitlist-canvas__rank-eyebrow">{c.rankEyebrow}</p>
           <p className="waitlist-canvas__rank-number">{c.rankNumber}</p>
           <p className="waitlist-canvas__rank-city">{c.rankCity}</p>
-          <div className="waitlist-canvas__rank-divider" />
-          <div className="waitlist-canvas__rank-progress-head">
-            <span>{c.progressLabel}</span>
-            <span>{c.progressPercent}</span>
+          <div className="waitlist-rank-card-progress">
+            <div className="waitlist-canvas__rank-progress-head">
+              <span>{c.progressLabel}</span>
+              <span>{c.progressPercent}</span>
+            </div>
+            <div className="waitlist-canvas__rank-progress-bar">
+              <div className="waitlist-canvas__rank-progress-fill" />
+            </div>
+            <p className="waitlist-canvas__rank-hint">{c.progressHint}</p>
           </div>
-          <div className="waitlist-canvas__rank-progress-bar">
-            <div className="waitlist-canvas__rank-progress-fill" />
-          </div>
-          <p className="waitlist-canvas__rank-hint">{c.progressHint}</p>
         </div>
 
-        <div
-          className="waitlist-canvas__section-divider"
+        <p
+          className="waitlist-canvas__section-label"
           style={{
             left: L.perksDivider.left,
             top: L.perksDivider.top,
@@ -97,7 +109,7 @@ export function WaitlistConfirmedDesktopCanvas() {
           }}
         >
           {c.perksEyebrow}
-        </div>
+        </p>
 
         <p
           className="waitlist-canvas__perks-sub"
@@ -121,12 +133,12 @@ export function WaitlistConfirmedDesktopCanvas() {
           </div>
         ))}
 
-        <div
-          className="waitlist-canvas__section-divider"
+        <p
+          className="waitlist-canvas__section-label"
           style={{ left: L.shareDivider.left, top: L.shareDivider.top, width: L.shareDivider.width }}
         >
           {c.shareEyebrow}
-        </div>
+        </p>
 
         <div
           className="waitlist-canvas__share-block"
@@ -145,7 +157,7 @@ export function WaitlistConfirmedDesktopCanvas() {
             height: L.copyLink.height,
           }}
         >
-          <Link2 size={20} strokeWidth={1.75} aria-hidden />
+          <WaitlistCopyLinkIcon className="waitlist-canvas__copy-link-icon" />
           <span>{c.copyLabel}</span>
         </button>
 
@@ -153,8 +165,15 @@ export function WaitlistConfirmedDesktopCanvas() {
           className="waitlist-canvas__confirmed-footer"
           style={{ left: L.footer.left, top: L.footer.top, width: L.footer.width }}
         >
-          <Heart size={14} strokeWidth={1.5} aria-hidden className="waitlist-canvas__confirmed-heart" />
-          <p>{c.footerThankYou}</p>
+          <p className="waitlist-canvas__confirmed-footer-line">
+            <Heart
+              className="waitlist-canvas__confirmed-heart"
+              size={14}
+              strokeWidth={1.5}
+              aria-hidden
+            />
+            {c.footerThankYou}
+          </p>
           <p className="waitlist-canvas__confirmed-footer-muted">{c.footerClosing}</p>
         </div>
       </div>

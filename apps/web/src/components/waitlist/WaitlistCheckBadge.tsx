@@ -1,31 +1,43 @@
-import { WAITLIST_ASSETS } from "@/lib/waitlist-assets";
+/** Positions around 70px blush disc centered in the 216×174 badge wrap. */
+const SPARKLE_MARKS: Array<{ cx: number; cy: number; size: number }> = [
+  { cx: 72, cy: 42, size: 4.5 },
+  { cx: 144, cy: 42, size: 4.5 },
+  { cx: 72, cy: 132, size: 4.5 },
+  { cx: 162, cy: 87, size: 4.5 },
+];
 
-/** Check badge from artboard 8 — PNG disc with sparkle decorations. */
+function SparkleCross({ cx, cy, size }: { cx: number; cy: number; size: number }) {
+  return (
+    <path
+      d={`M${cx} ${cy - size}V${cy + size}M${cx - size} ${cy}H${cx + size}`}
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+    />
+  );
+}
+
+/** Hero check — blush halo, bold check, four cross sparkles (artboard 8). */
 export function WaitlistCheckBadge() {
   return (
-    <div className="waitlist-check-badge-wrap">
-      {/* Sparkle decorations */}
-      <svg className="waitlist-badge-sparkle waitlist-badge-sparkle--tl" viewBox="0 0 20 20" fill="none" aria-hidden>
-        <path d="M10 0L11.5 8.5L20 10L11.5 11.5L10 20L8.5 11.5L0 10L8.5 8.5L10 0Z" fill="currentColor" />
+    <div className="waitlist-check-badge-wrap" aria-hidden>
+      <svg className="waitlist-badge-sparkle-dots" viewBox="0 0 216 174" fill="none">
+        {SPARKLE_MARKS.map((mark, i) => (
+          <SparkleCross key={i} cx={mark.cx} cy={mark.cy} size={mark.size} />
+        ))}
       </svg>
-      <svg className="waitlist-badge-sparkle waitlist-badge-sparkle--tr" viewBox="0 0 14 14" fill="none" aria-hidden>
-        <path d="M7 0L8 5.5L13 7L8 8.5L7 14L6 8.5L1 7L6 5.5L7 0Z" fill="currentColor" />
-      </svg>
-      <svg className="waitlist-badge-sparkle waitlist-badge-sparkle--bl" viewBox="0 0 10 10" fill="none" aria-hidden>
-        <path d="M5 0L5.8 4L10 5L5.8 6L5 10L4.2 6L0 5L4.2 4L5 0Z" fill="currentColor" />
-      </svg>
-      <svg className="waitlist-badge-sparkle waitlist-badge-sparkle--br" viewBox="0 0 14 14" fill="none" aria-hidden>
-        <path d="M7 0L8 5.5L13 7L8 8.5L7 14L6 8.5L1 7L6 5.5L7 0Z" fill="currentColor" />
-      </svg>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={WAITLIST_ASSETS.confirmed.checkBadge}
-        alt="Confirmed"
-        className="waitlist-check-badge-img"
-        width={96}
-        height={96}
-        draggable={false}
-      />
+      <div className="waitlist-check-badge-halo">
+        <svg viewBox="0 0 80 80" fill="none" className="waitlist-check-badge-disc">
+          <circle cx="40" cy="40" r="40" fill="#EDD5C5" />
+          <path
+            d="M24 40.5L35.5 52L56 29.5"
+            stroke="#1A1A1A"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </div>
   );
 }

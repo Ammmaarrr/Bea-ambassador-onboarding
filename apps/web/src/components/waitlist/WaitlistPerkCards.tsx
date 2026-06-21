@@ -34,8 +34,8 @@ export function WaitlistPerkCards({
               src={PERK_ICONS[perk.id]}
               alt=""
               className="waitlist-perk-card-icon"
-              width={36}
-              height={36}
+              width={44}
+              height={44}
               draggable={false}
               aria-hidden
             />

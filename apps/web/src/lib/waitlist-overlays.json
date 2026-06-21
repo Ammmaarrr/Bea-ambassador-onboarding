@@ -1,6 +1,6 @@
 {
   "width": 1367,
-  "bg": "#fbf5ef",
+  "bg": "#fbf6f4",
   "pages": {
     "1": {
       "width": 1367,
@@ -131,7 +131,7 @@
       "src": "/waitlist/artboards/8.png",
       "back": { "left": 64, "top": 58, "width": 56, "height": 48, "href": "/waitlist/7" },
       "waitingRoom": { "left": 1090, "top": 28, "width": 188, "height": 48, "href": "/waitlist/9", "label": "Waiting room" },
-      "badge": { "left": 635, "top": 196, "width": 96, "height": 96 },
+      "badge": { "left": 567, "top": 194, "width": 216, "height": 174 },
       "title": { "left": 409, "top": 316, "width": 548 },
       "subtitle": { "left": 409, "top": 438, "width": 548 },
       "rankCard": { "left": 409, "top": 560, "width": 548, "height": 665 },
@@ -144,7 +144,7 @@
       ],
       "shareDivider": { "left": 409, "top": 1968, "width": 548 },
       "share": { "left": 409, "top": 2030, "width": 548, "height": 130 },
-      "copyLink": { "left": 507, "top": 2254, "width": 352, "height": 95, "label": "Copy Invite Link" },
+      "copyLink": { "left": 444, "top": 2255, "width": 480, "height": 92, "label": "Copy Invite Link" },
       "footer": { "left": 409, "top": 2390, "width": 548 }
     },
     "9": {

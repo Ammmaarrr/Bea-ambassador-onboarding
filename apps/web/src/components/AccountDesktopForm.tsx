@@ -3,7 +3,11 @@
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
-import { ACCOUNT_DESKTOP, ACCOUNT_FIELDS, type AccountFieldId } from "@/lib/onboarding-layout";
+import {
+  ACCOUNT_BLOCK_GAP,
+  ACCOUNT_FIELDS,
+  type AccountFieldId,
+} from "@/lib/onboarding-layout";
 
 const FIELD_LABELS: Record<AccountFieldId, string> = {
   name: "Full Name",
@@ -11,7 +15,16 @@ const FIELD_LABELS: Record<AccountFieldId, string> = {
   password: "Password",
 };
 
-/** Pixel-perfect account form — absolute positions from Artboard 4. */
+const FIELD_GAPS: Record<AccountFieldId, { label: number; input: number }> = {
+  name: { label: 0, input: ACCOUNT_BLOCK_GAP.afterNameLabel },
+  email: { label: ACCOUNT_BLOCK_GAP.afterNameInput, input: ACCOUNT_BLOCK_GAP.afterEmailLabel },
+  password: {
+    label: ACCOUNT_BLOCK_GAP.afterEmailInput,
+    input: ACCOUNT_BLOCK_GAP.afterPasswordLabel,
+  },
+};
+
+/** Pixel-perfect account form — stacked inside padded desktop column. */
 export function AccountDesktopForm() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -20,20 +33,20 @@ export function AccountDesktopForm() {
       {ACCOUNT_FIELDS.map((field) => (
         <div key={field.id}>
           <label
-            className="onboarding-canvas__field-label"
+            className="onboarding-canvas__field-label onboarding-canvas__field-label--stacked"
             htmlFor={`account-${field.id}`}
-            style={{ left: ACCOUNT_DESKTOP.labelLeft, top: ACCOUNT_DESKTOP.labelTops[field.id] }}
+            style={{ marginTop: FIELD_GAPS[field.id].label }}
           >
             {FIELD_LABELS[field.id]}
           </label>
 
           <div
-            className="onboarding-canvas__field-wrap"
+            className={
+              "onboarding-canvas__field-wrap onboarding-canvas__field-wrap--stacked" +
+              (field.id === "password" ? " onboarding-canvas__field-wrap--password" : "")
+            }
             style={{
-              left: field.left,
-              top: field.top,
-              width: field.width,
-              height: field.height,
+              marginTop: FIELD_GAPS[field.id].input,
             }}
           >
             {field.id === "password" ? (
@@ -73,8 +86,8 @@ export function AccountDesktopForm() {
 
           {field.id === "password" ? (
             <p
-              className="onboarding-canvas__field-hint"
-              style={{ left: ACCOUNT_DESKTOP.hint.left, top: ACCOUNT_DESKTOP.hint.top }}
+              className="onboarding-canvas__field-hint onboarding-canvas__field-hint--stacked"
+              style={{ marginTop: ACCOUNT_BLOCK_GAP.afterPasswordInput }}
             >
               Must be at least 8 characters
             </p>

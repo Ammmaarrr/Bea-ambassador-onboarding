@@ -13,7 +13,7 @@
  */
 
 export const WAITLIST = {
-  bg: "#fbf5ef",
+  bg: "#fbf6f4",
   text: "#1a1a1a",
   muted: "#9a9490",
   border: "#d8d5cf",

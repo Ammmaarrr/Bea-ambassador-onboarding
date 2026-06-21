@@ -687,6 +687,7 @@
   background-color: #fbf5ef;
   user-select: text;
   -webkit-user-select: text;
+  container-type: inline-size;
 }
 
 .waitlist-canvas {
@@ -701,11 +702,11 @@
 
 @media (max-width: 1366px) {
   .waitlist-canvas-viewport {
-    height: calc(var(--wl-canvas-h) * (100vw / 1367px));
+    height: calc(var(--wl-canvas-h) * (100cqw / 1367px));
   }
 
   .waitlist-canvas {
-    transform: scale(calc(100vw / 1367px));
+    transform: scale(calc(100cqw / 1367px));
   }
 }
 
@@ -1190,6 +1191,10 @@
 
 .waitlist-canvas__confirmed-badge {
   z-index: 10;
+}
+
+.waitlist-canvas__confirmed-badge .waitlist-check-badge-wrap {
+  margin: 0;
 }
 
 .waitlist-canvas__confirmed-badge .waitlist-check-badge-img {
@@ -1847,7 +1852,8 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 240px;
+  height: 100%;
+  min-height: 240px;
   padding: 24px;
   border: none;
   border-radius: 16px;

@@ -14,7 +14,7 @@ export function WaitlistShareIcons() {
         <button key={label} type="button" className="waitlist-share-icon">
           <span className="waitlist-share-icon-circle">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" width={22} height={22} draggable={false} aria-hidden />
+            <img src={src} alt="" width={52} height={52} draggable={false} aria-hidden />
           </span>
           <span>{label}</span>
         </button>

@@ -145,7 +145,7 @@ export function WaitlistConfirmedDesktopCanvas() {
             height: L.copyLink.height,
           }}
         >
-          <Link2 size={16} strokeWidth={1.75} aria-hidden />
+          <Link2 size={20} strokeWidth={1.75} aria-hidden />
           <span>{c.copyLabel}</span>
         </button>
 

@@ -98,22 +98,22 @@ export const WAITLIST_CONFIRMED_CONTENT = {
   perks: [
     {
       id: "early",
-      title: "Early Access",
-      description: "Be in the first cohort of users when we launch",
+      title: "Early\nAccess",
+      description: "Be in the first cohort of\nusers when we launch",
       footer: "Invite 1 friend",
       active: true,
     },
     {
       id: "time",
-      title: "Time Pack",
-      description: "Extend conversations for 24 hours",
+      title: "Time\nPack",
+      description: "Extend conversations for\n24 hours",
       footer: "Invite 2 friends",
       active: false,
     },
     {
       id: "premium",
-      title: "Premium Membership",
-      description: "Free month of premium membership on us",
+      title: "Premium\nMembership",
+      description: "Free month of premium\nmembership on us",
       footer: "Invite 3 friends",
       active: false,
     },
